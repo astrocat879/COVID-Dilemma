@@ -12,27 +12,64 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
+import javafx.scene.image.Image;  
+import javafx.scene.image.ImageView; 
+import javafx.scene.layout.Pane;
 /**
  *
  * @author astro
  */
 public class ISP extends Application {
-    Button btn;
+    Button start,tut,quit;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        btn = new Button("BOOMERS UNITE");
-        btn.setOnAction(e -> System.out.println("ok"));
+        final String IDLE_BUTTON_STYLE = "-fx-font-size:40 ;  -fx-background-color: #8e7cc3; -fx-background-radius: 15px; -fx-text-fill: #ffffff";
+        final String HOVERED_BUTTON_STYLE = "-fx-font-size:40; -fx-background-color: #674ea7; -fx-background-radius: 15px; -fx-text-fill: #ffffff;";
+        final String CLICKED_BUTTON_STYLE = "-fx-font-size:40; -fx-background-color: #674ea7; -fx-background-radius: 15px; ";
         
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
+       
+
+        Pane root = new Pane();
+        Image img  = new Image("Main Menu.jpg");
+        root.getChildren().add(new ImageView(img));
         
+        start = new Button("Start");
+        start.relocate(413,295);
+        start.setPrefSize(375, 91);
+        start.setStyle(IDLE_BUTTON_STYLE);
+        start.setOnMouseEntered(e -> start.setStyle(HOVERED_BUTTON_STYLE));
+        start.setOnMouseExited(e -> start.setStyle(IDLE_BUTTON_STYLE));
+        start.setOnAction(e -> start.setStyle(CLICKED_BUTTON_STYLE));
+        
+        tut = new Button("Tutorial");
+        tut.relocate(413,447);
+        tut.setPrefSize(375, 91);
+        tut.setStyle(IDLE_BUTTON_STYLE);
+        tut.setOnMouseEntered(e -> tut.setStyle(HOVERED_BUTTON_STYLE));
+        tut.setOnMouseExited(e -> tut.setStyle(IDLE_BUTTON_STYLE));
+        tut.setPrefSize(375, 91);
+        tut.setOnAction(e -> tut.setStyle(CLICKED_BUTTON_STYLE));
+        
+        quit = new Button("Quit");
+        quit.relocate(413,599);
+        quit.setPrefSize(375, 91);
+        quit.setStyle(IDLE_BUTTON_STYLE);
+        quit.setOnMouseEntered(e -> quit.setStyle(HOVERED_BUTTON_STYLE));
+        quit.setOnMouseExited(e -> quit.setStyle(IDLE_BUTTON_STYLE));
+        quit.setPrefSize(375, 91);
+        quit.setOnAction(e -> quit.setStyle(CLICKED_BUTTON_STYLE));
+        
+        root.getChildren().add(start);
+        root.getChildren().add(tut);
+        root.getChildren().add(quit);
         Scene scene = new Scene(root, 1200, 750);
         
         primaryStage.setTitle("Covid Dilemma");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+    
+    
 
     
 
