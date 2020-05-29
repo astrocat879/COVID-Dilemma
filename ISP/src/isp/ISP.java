@@ -25,7 +25,6 @@ import javafx.scene.layout.Pane;
  */
 public class ISP extends Application {
     Button start,tut,quit;
-    static boolean quitCheck = false;
     @Override
     public void start(Stage primaryStage) throws Exception{
         final String IDLE_BUTTON_STYLE = "-fx-font-size:40 ;  -fx-background-color: #8e7cc3; -fx-background-radius: 15px; -fx-text-fill: #ffffff";
@@ -48,7 +47,6 @@ public class ISP extends Application {
         start.setOnAction(e -> {
             try{Thread.sleep(100);}
             catch(Exception f){}
-            start.setStyle(HOVERED_BUTTON_STYLE);
         });
         
         tut = new Button("Tutorial");
@@ -62,7 +60,6 @@ public class ISP extends Application {
         tut.setOnAction(e -> {
             try{Thread.sleep(100);}
             catch(Exception f){}
-            tut.setStyle(HOVERED_BUTTON_STYLE);
         });
         
         quit = new Button("Quit");
@@ -76,7 +73,6 @@ public class ISP extends Application {
         quit.setOnAction(e -> {
             try{Thread.sleep(100);}
             catch(Exception f){}
-            quit.setStyle(HOVERED_BUTTON_STYLE);
             System.exit(0);
         });
         
