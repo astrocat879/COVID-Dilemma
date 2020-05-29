@@ -5,6 +5,9 @@
  */
 package isp;
 
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,6 +17,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;  
 import javafx.scene.image.ImageView; 
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 /**
  *
@@ -21,6 +25,7 @@ import javafx.scene.layout.Pane;
  */
 public class ISP extends Application {
     Button start,tut,quit;
+    static boolean quitCheck = false;
     @Override
     public void start(Stage primaryStage) throws Exception{
         final String IDLE_BUTTON_STYLE = "-fx-font-size:40 ;  -fx-background-color: #8e7cc3; -fx-background-radius: 15px; -fx-text-fill: #ffffff";
@@ -39,7 +44,12 @@ public class ISP extends Application {
         start.setStyle(IDLE_BUTTON_STYLE);
         start.setOnMouseEntered(e -> start.setStyle(HOVERED_BUTTON_STYLE));
         start.setOnMouseExited(e -> start.setStyle(IDLE_BUTTON_STYLE));
-        start.setOnAction(e -> start.setStyle(CLICKED_BUTTON_STYLE));
+        start.setOnMousePressed(e -> start.setStyle(CLICKED_BUTTON_STYLE));
+        start.setOnAction(e -> {
+            try{Thread.sleep(100);}
+            catch(Exception f){}
+            start.setStyle(HOVERED_BUTTON_STYLE);
+        });
         
         tut = new Button("Tutorial");
         tut.relocate(413,447);
@@ -48,7 +58,12 @@ public class ISP extends Application {
         tut.setOnMouseEntered(e -> tut.setStyle(HOVERED_BUTTON_STYLE));
         tut.setOnMouseExited(e -> tut.setStyle(IDLE_BUTTON_STYLE));
         tut.setPrefSize(375, 91);
-        tut.setOnAction(e -> tut.setStyle(CLICKED_BUTTON_STYLE));
+        tut.setOnMousePressed(e -> tut.setStyle(CLICKED_BUTTON_STYLE));
+        tut.setOnAction(e -> {
+            try{Thread.sleep(100);}
+            catch(Exception f){}
+            tut.setStyle(HOVERED_BUTTON_STYLE);
+        });
         
         quit = new Button("Quit");
         quit.relocate(413,599);
@@ -57,11 +72,21 @@ public class ISP extends Application {
         quit.setOnMouseEntered(e -> quit.setStyle(HOVERED_BUTTON_STYLE));
         quit.setOnMouseExited(e -> quit.setStyle(IDLE_BUTTON_STYLE));
         quit.setPrefSize(375, 91);
-        quit.setOnAction(e -> quit.setStyle(CLICKED_BUTTON_STYLE));
+        quit.setOnMousePressed(e -> quit.setStyle(CLICKED_BUTTON_STYLE));
+        quit.setOnAction(e -> {
+            try{Thread.sleep(100);}
+            catch(Exception f){}
+            quit.setStyle(HOVERED_BUTTON_STYLE);
+            System.exit(0);
+        });
+        
+        
+      
         
         root.getChildren().add(start);
         root.getChildren().add(tut);
         root.getChildren().add(quit);
+        
         Scene scene = new Scene(root, 1200, 750);
         
         primaryStage.setTitle("Covid Dilemma");
