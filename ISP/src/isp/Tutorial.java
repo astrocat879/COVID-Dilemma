@@ -19,32 +19,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView; 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+
 /**
  *
  * @author astro
  */
-public class ISP extends Application {
-    
-    static Scene s0, s1, s2;
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        MainMenu.run(primaryStage);
-        // tutorial scene
-        Pane root2 = new Pane();
-        Image bg  = new Image("Tutorial.jpg");
-        root2.getChildren().add(new ImageView(bg));
-        ISP.s2 = new Scene(root2, 1200, 750);
-    }
-    
-    
+public class Tutorial {
+    public static void begin(Stage window){
 
-    
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
     }
-    
 }
