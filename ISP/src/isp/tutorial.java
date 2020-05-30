@@ -22,10 +22,18 @@ import javafx.scene.layout.Pane;
 
 /**
  *
- * @author astro
+ * @author astro 
  */
-public class Tutorial {
-    public static void begin(Stage window){
-
+public class tutorial {
+    public static void run(Stage window){
+        // tutorial scene
+        Pane root2 = new Pane();
+        Image bg  = new Image("Tutorial.jpg");
+        root2.getChildren().add(new ImageView(bg));
+        ISP.s2 = new Scene(root2, 1200, 750);
+        
+//        window.setTitle("Covid Dilemma");
+//        window.setScene(ISP.s2);
+//        window.show();
     }
 }

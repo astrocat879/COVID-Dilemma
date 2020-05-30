@@ -2,7 +2,7 @@ package isp;
 
 /**
  *
- * @author hewmatt
+ * @author astro
  */
 import java.util.*;
 public class Event {
