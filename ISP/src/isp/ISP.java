@@ -28,7 +28,7 @@ public class ISP extends Application {
     static Scene s0, s1, s2;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        tutorial.run(primaryStage);
+        Tutorial.run(primaryStage);
         MainMenu.run(primaryStage);
         
     }

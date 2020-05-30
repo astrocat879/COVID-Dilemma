@@ -5,9 +5,6 @@
  */
 package isp;
 
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -34,7 +31,7 @@ public class MainMenu {
         Pane root = new Pane();
         Image img  = new Image("Main Menu.jpg");
         root.getChildren().add(new ImageView(img));
-
+        //start button for levels
         start = new Button("Start");
         start.relocate(413,295);
         start.setPrefSize(375, 91);
@@ -46,7 +43,7 @@ public class MainMenu {
             try{Thread.sleep(100);}
             catch(Exception f){}
         });
-
+        //tutorial button
         tut = new Button("Tutorial");
         tut.relocate(413,447);
         tut.setPrefSize(375, 91);
@@ -61,7 +58,7 @@ public class MainMenu {
             System.out.println("Tutorial");
             window.setScene(ISP.s2);
         });
-
+        //quit button
         quit = new Button("Quit");
         quit.relocate(413,599);
         quit.setPrefSize(375, 91);

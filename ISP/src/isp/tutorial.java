@@ -24,11 +24,11 @@ import javafx.scene.layout.Pane;
  *
  * @author astro 
  */
-public class tutorial {
+public class Tutorial {
     public static void run(Stage window){
         // tutorial scene
         Pane root2 = new Pane();
-        Image bg  = new Image("Tutorial.jpg");
+        Image bg  = new Image("TutorialScreen.jpg");
         root2.getChildren().add(new ImageView(bg));
         ISP.s2 = new Scene(root2, 1200, 750);
         
