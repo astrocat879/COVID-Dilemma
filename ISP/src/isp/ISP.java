@@ -5,7 +5,7 @@
  */
 package isp;
 
-import java.util.Timer;
+import java.util.*;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 import javafx.application.Application;
@@ -26,8 +26,10 @@ import javafx.scene.layout.Pane;
 public class ISP extends Application {
     
     static Scene s0, s1, s2;
+    public static ArrayList<Event> TutEvents = new ArrayList<Event>();
     @Override
     public void start(Stage primaryStage) throws Exception{
+        TutorialEvents.generateEvents();
         Tutorial.run(primaryStage);
         MainMenu.run(primaryStage);
         
