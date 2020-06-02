@@ -27,7 +27,7 @@ import javafx.scene.text.Font;
  *
  * @author astro 
  */
-public class tutorial {
+public class Tutorial {
     public static int idx = 0;
     public static int [] factors = new int [2];
     public static void run(Stage window){

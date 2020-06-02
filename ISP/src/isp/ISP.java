@@ -30,7 +30,7 @@ public class ISP extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         TutorialEvents.generateEvents();
-        tutorial.run(primaryStage);
+        Tutorial.run(primaryStage);
         MainMenu.run(primaryStage);
         
     }
