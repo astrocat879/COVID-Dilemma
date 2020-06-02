@@ -29,6 +29,7 @@ public class Tutorial {
     public static int idx = 0;
     public static void run(Stage window){
         // tutorial scene
+        idx = 0;
         Pane root2 = new Pane();
         Image bg  = new Image("TutorialScreen.jpg");
         root2.getChildren().add(new ImageView(bg));
@@ -38,9 +39,9 @@ public class Tutorial {
         Label quest = new Label(ISP.TutEvents.get(idx).question);
         Button option1 = new Button(ISP.TutEvents.get(idx).answer1);
         Button option2 = new Button(ISP.TutEvents.get(idx).answer2);
-        quest.relocate(200, 100);
-        option1.relocate(400, 200);
-        option2.relocate(600, 500);
+        quest.relocate(500, 200);
+        option1.relocate(400, 400);
+        option2.relocate(650, 400);
         root2.getChildren().add(quest);
         root2.getChildren().add(option1);
         root2.getChildren().add(option2);
@@ -50,16 +51,21 @@ public class Tutorial {
         b.setOnAction(actionEvent -> window.setScene(ISP.s0));
         option1.setOnAction(actionEvent -> {
             idx++;
-            Label questtmp = new Label(ISP.TutEvents.get(idx).question);
-            Button option1tmp = new Button(ISP.TutEvents.get(idx).answer1);
-            Button option2tmp = new Button(ISP.TutEvents.get(idx).answer2);
-            questtmp.relocate(200, 100);
-            option1tmp.relocate(400, 200);
-            option2tmp.relocate(600, 500);
-            root2.getChildren().add(questtmp);
-            root2.getChildren().add(option1tmp);
-            root2.getChildren().add(option2tmp);
+            if (idx >= ISP.TutEvents.size()){
+                window.setScene(ISP.s0);
+            }
+            quest.setText(ISP.TutEvents.get(idx).question);
+            option1.setText(ISP.TutEvents.get(idx).answer1);
+            option2.setText(ISP.TutEvents.get(idx).answer2);
         });
-        option2.setOnAction(actionEvent -> idx++);
+        option2.setOnAction(actionEvent -> {
+            idx++;
+            if (idx >= ISP.TutEvents.size()){
+                window.setScene(ISP.s0);
+            }
+            quest.setText(ISP.TutEvents.get(idx).question);
+            option1.setText(ISP.TutEvents.get(idx).answer1);
+            option2.setText(ISP.TutEvents.get(idx).answer2);
+        });
     }
 }
