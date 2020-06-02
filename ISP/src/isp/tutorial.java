@@ -42,16 +42,17 @@ public class Tutorial {
         Label quest = new Label(ISP.TutEvents.get(idx).question);
         Button option1 = new Button(ISP.TutEvents.get(idx).answer1);
         Button option2 = new Button(ISP.TutEvents.get(idx).answer2);
-        quest.relocate(500, 200);
+        quest.relocate(400, 200);
         option1.relocate(400, 400);
         option2.relocate(650, 400);
         root2.getChildren().add(quest);
         root2.getChildren().add(option1);
         root2.getChildren().add(option2);
         
-        Button b = new Button("Button");
+        Button b = new Button("Back");
         root2.getChildren().add(b);
         b.setOnAction(actionEvent -> window.setScene(ISP.s0));
+        
         option1.setOnAction(actionEvent -> {
             for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
                 factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
