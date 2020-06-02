@@ -43,6 +43,8 @@ public class Tutorial {
         Button option1 = new Button(ISP.TutEvents.get(idx).answer1);
         Button option2 = new Button(ISP.TutEvents.get(idx).answer2);
         quest.relocate(400, 200);
+        quest.setWrapText(true);
+        quest.setMaxWidth(400);
         option1.relocate(400, 400);
         option2.relocate(650, 400);
         root2.getChildren().add(quest);
