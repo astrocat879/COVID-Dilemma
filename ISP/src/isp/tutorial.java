@@ -27,9 +27,12 @@ import javafx.scene.layout.Pane;
  */
 public class Tutorial {
     public static int idx = 0;
+    public static int [] factors = new int [2];
     public static void run(Stage window){
         // tutorial scene
         idx = 0;
+        factors[0] = 50;
+        factors[1] = 50;
         Pane root2 = new Pane();
         Image bg  = new Image("TutorialScreen.jpg");
         root2.getChildren().add(new ImageView(bg));
@@ -50,22 +53,34 @@ public class Tutorial {
         root2.getChildren().add(b);
         b.setOnAction(actionEvent -> window.setScene(ISP.s0));
         option1.setOnAction(actionEvent -> {
+            for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
+                factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
+            }
+            System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
             idx++;
             if (idx >= ISP.TutEvents.size()){
                 window.setScene(ISP.s0);
             }
-            quest.setText(ISP.TutEvents.get(idx).question);
-            option1.setText(ISP.TutEvents.get(idx).answer1);
-            option2.setText(ISP.TutEvents.get(idx).answer2);
+            else{
+                quest.setText(ISP.TutEvents.get(idx).question);
+                option1.setText(ISP.TutEvents.get(idx).answer1);
+                option2.setText(ISP.TutEvents.get(idx).answer2);
+            }
         });
         option2.setOnAction(actionEvent -> {
+            for (int i=0;i<ISP.TutEvents.get(idx).factor2.length;i++){
+                factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
+            }
+            System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
             idx++;
             if (idx >= ISP.TutEvents.size()){
                 window.setScene(ISP.s0);
             }
-            quest.setText(ISP.TutEvents.get(idx).question);
-            option1.setText(ISP.TutEvents.get(idx).answer1);
-            option2.setText(ISP.TutEvents.get(idx).answer2);
+            else{
+                quest.setText(ISP.TutEvents.get(idx).question);
+                option1.setText(ISP.TutEvents.get(idx).answer1);
+                option2.setText(ISP.TutEvents.get(idx).answer2);
+            }
         });
     }
 }
