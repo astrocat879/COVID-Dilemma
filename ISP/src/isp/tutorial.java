@@ -20,6 +20,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView; 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 /**
  *
@@ -29,6 +31,13 @@ public class tutorial {
     public static int idx = 0;
     public static int [] factors = new int [2];
     public static void run(Stage window){
+        final String b_IDLE_BUTTON_STYLE = " -fx-background-color: #8e7cc3; ; -fx-text-fill: #ffffff";
+        final String b_HOVERED_BUTTON_STYLE = "-fx-background-color: #674ea7;  -fx-text-fill: #ffffff;";
+        final String b_CLICKED_BUTTON_STYLE = "-fx-background-color: #674ea7; ";
+        
+        final String IDLE_BUTTON_STYLE = "-fx-font-size:20 ;  -fx-background-color: #cfe2f3;  ";
+        final String HOVERED_BUTTON_STYLE = "-fx-font-size:20; -fx-background-color: #674ea7;  ";
+        final String CLICKED_BUTTON_STYLE = "-fx-font-size:20; -fx-background-color: #674ea7;  -fx-text-fill: #ffffff;";
         // tutorial scene
         idx = 0;
         factors[0] = 50;
@@ -40,22 +49,39 @@ public class tutorial {
         
         
         Label quest = new Label(ISP.TutEvents.get(idx).question);
+        quest.setFont(new Font("Monospaced",24));
+        quest.setTextFill(Color.web("#ffffff"));
         Button option1 = new Button(ISP.TutEvents.get(idx).answer1);
         Button option2 = new Button(ISP.TutEvents.get(idx).answer2);
-        quest.relocate(400, 200);
+        quest.relocate(397, ISP.TutEvents.get(idx).y);
+        //System.out.println(ISP.TutEvents.get(idx).y);
         quest.setWrapText(true);
         quest.setMaxWidth(400);
-        option1.relocate(400, 400);
-        option2.relocate(650, 400);
+        option1.relocate(358, 291);
+        option2.relocate(611, 291);
+        option1.setPrefSize(232, 311);
+        option2.setPrefSize(232, 311);
         root2.getChildren().add(quest);
         root2.getChildren().add(option1);
         root2.getChildren().add(option2);
         
         Button b = new Button("Back");
-        b.relocate(0,720);
+        b.relocate(3,715);
+        b.setStyle(b_IDLE_BUTTON_STYLE);
+        b.setOnMouseEntered(e -> b.setStyle(b_HOVERED_BUTTON_STYLE));
+        b.setOnMouseExited(e -> b.setStyle(b_IDLE_BUTTON_STYLE));
+        b.setOnMousePressed(e -> b.setStyle(b_CLICKED_BUTTON_STYLE));
+        b.setOnAction(e -> {
+            try{Thread.sleep(100);}
+            catch(Exception f){}
+            window.setScene(ISP.s0);
+        });
         root2.getChildren().add(b);
-        b.setOnAction(actionEvent -> window.setScene(ISP.s0));
         
+        option1.setStyle(IDLE_BUTTON_STYLE);
+        option1.setOnMouseEntered(e -> option1.setStyle(HOVERED_BUTTON_STYLE));
+        option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
+        option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
             for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
                 factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
@@ -67,10 +93,18 @@ public class tutorial {
             }
             else{
                 quest.setText(ISP.TutEvents.get(idx).question);
+                quest.relocate(397, ISP.TutEvents.get(idx).y);
                 option1.setText(ISP.TutEvents.get(idx).answer1);
                 option2.setText(ISP.TutEvents.get(idx).answer2);
             }
+            option1.setStyle(IDLE_BUTTON_STYLE);
         });
+        
+        
+        option2.setStyle(IDLE_BUTTON_STYLE);
+        option2.setOnMouseEntered(e -> option2.setStyle(HOVERED_BUTTON_STYLE));
+        option2.setOnMouseExited(e -> option2.setStyle(IDLE_BUTTON_STYLE));
+        option2.setOnMousePressed(e -> option2.setStyle(CLICKED_BUTTON_STYLE));
         option2.setOnAction(actionEvent -> {
             for (int i=0;i<ISP.TutEvents.get(idx).factor2.length;i++){
                 factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
@@ -82,9 +116,11 @@ public class tutorial {
             }
             else{
                 quest.setText(ISP.TutEvents.get(idx).question);
+                quest.relocate(397, ISP.TutEvents.get(idx).y);
                 option1.setText(ISP.TutEvents.get(idx).answer1);
                 option2.setText(ISP.TutEvents.get(idx).answer2);
             }
+            option2.setStyle(IDLE_BUTTON_STYLE);
         });
     }
 }
