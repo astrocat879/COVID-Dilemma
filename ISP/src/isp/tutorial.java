@@ -25,7 +25,7 @@ import javafx.scene.layout.Pane;
  *
  * @author astro 
  */
-public class Tutorial {
+public class tutorial {
     public static int idx = 0;
     public static int [] factors = new int [2];
     public static void run(Stage window){
@@ -52,6 +52,7 @@ public class Tutorial {
         root2.getChildren().add(option2);
         
         Button b = new Button("Back");
+        b.relocate(0,720);
         root2.getChildren().add(b);
         b.setOnAction(actionEvent -> window.setScene(ISP.s0));
         
