@@ -105,7 +105,6 @@ public class Tutorial {
             for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
                 factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
             }
-            updateMeters();
             System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
             idx++;
             if (idx >= ISP.TutEvents.size()){
@@ -114,12 +113,11 @@ public class Tutorial {
                 factors[0] = 60;
                 factors[1] = 60;
             }
-            else{
-                quest.setText(ISP.TutEvents.get(idx).question);
-                quest.relocate(397, ISP.TutEvents.get(idx).y);
-                option1.setText(ISP.TutEvents.get(idx).answer1);
-                option2.setText(ISP.TutEvents.get(idx).answer2);
-            }
+            quest.setText(ISP.TutEvents.get(idx).question);
+            quest.relocate(397, ISP.TutEvents.get(idx).y);
+            option1.setText(ISP.TutEvents.get(idx).answer1);
+            option2.setText(ISP.TutEvents.get(idx).answer2);
+            updateMeters();
             option1.setStyle(IDLE_BUTTON_STYLE);
         });
         
@@ -132,7 +130,6 @@ public class Tutorial {
             for (int i=0;i<ISP.TutEvents.get(idx).factor2.length;i++){
                 factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
             }
-            updateMeters();
             System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
             idx++;
             if (idx >= ISP.TutEvents.size()){
@@ -141,12 +138,11 @@ public class Tutorial {
                 factors[0] = 60;
                 factors[1] = 60;
             }
-            else{
-                quest.setText(ISP.TutEvents.get(idx).question);
-                quest.relocate(397, ISP.TutEvents.get(idx).y);
-                option1.setText(ISP.TutEvents.get(idx).answer1);
-                option2.setText(ISP.TutEvents.get(idx).answer2);
-            }
+            quest.setText(ISP.TutEvents.get(idx).question);
+            quest.relocate(397, ISP.TutEvents.get(idx).y);
+            option1.setText(ISP.TutEvents.get(idx).answer1);
+            option2.setText(ISP.TutEvents.get(idx).answer2);
+            updateMeters();
             option2.setStyle(IDLE_BUTTON_STYLE);
         });
     }
