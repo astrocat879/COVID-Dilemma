@@ -5,6 +5,7 @@
  */
 package isp;
 
+import javafx.scene.shape.Rectangle;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
@@ -21,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 
 /**
@@ -30,6 +32,12 @@ import javafx.scene.text.Font;
 public class Tutorial {
     public static int idx = 0;
     public static int [] factors = new int [2];
+    public static Rectangle hr, mr;
+    public static Pane root2;
+    public static void updateMeters(){
+        hr.setHeight(10+100-factors[0]);
+        mr.setHeight(10+100-factors[1]);
+    }
     public static void run(Stage window){
         final String b_IDLE_BUTTON_STYLE = " -fx-background-color: #8e7cc3; ; -fx-text-fill: #ffffff";
         final String b_HOVERED_BUTTON_STYLE = "-fx-background-color: #674ea7;  -fx-text-fill: #ffffff;";
@@ -42,7 +50,7 @@ public class Tutorial {
         idx = 0;
         factors[0] = 50;
         factors[1] = 50;
-        Pane root2 = new Pane();
+        root2 = new Pane();
         Image bg  = new Image("TutorialScreen.jpg");
         root2.getChildren().add(new ImageView(bg));
         ISP.s2 = new Scene(root2, 1200, 750);
@@ -65,6 +73,15 @@ public class Tutorial {
         root2.getChildren().add(option1);
         root2.getChildren().add(option2);
         
+        hr = new Rectangle(400, 0, 150, 10+100-factors[0]);
+        mr = new Rectangle(600, 0, 150, 10+100-factors[1]);
+        hr.setFill(Color.valueOf("#9c9c9c"));
+        mr.setFill(Color.valueOf("#9c9c9c"));
+        root2.getChildren().addAll(hr, mr);
+        
+        Image topbar  = new Image("TutorialTopBar.png");
+        root2.getChildren().add(new ImageView(topbar));
+        
         Button b = new Button("Back");
         b.relocate(3,715);
         b.setStyle(b_IDLE_BUTTON_STYLE);
@@ -86,10 +103,14 @@ public class Tutorial {
             for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
                 factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
             }
+            updateMeters();
             System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
             idx++;
             if (idx >= ISP.TutEvents.size()){
                 window.setScene(ISP.s0);
+                idx = 0;
+                factors[0] = 60;
+                factors[1] = 60;
             }
             else{
                 quest.setText(ISP.TutEvents.get(idx).question);
@@ -109,10 +130,14 @@ public class Tutorial {
             for (int i=0;i<ISP.TutEvents.get(idx).factor2.length;i++){
                 factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
             }
+            updateMeters();
             System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
             idx++;
             if (idx >= ISP.TutEvents.size()){
                 window.setScene(ISP.s0);
+                idx = 0;
+                factors[0] = 60;
+                factors[1] = 60;
             }
             else{
                 quest.setText(ISP.TutEvents.get(idx).question);
