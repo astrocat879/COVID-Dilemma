@@ -14,8 +14,8 @@ import java.util.Arrays;
  */
 public class TutorialEvents {
     public static void generateEvents(){
-        ISP.TutEvents.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "You find yourself in the middle of a pandemic: COVID19.", "Uh oh...", "So what?",155));
-        ISP.TutEvents.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Fortunately, you are well off currently, so you aren't in a bind.", "Good to hear!", "So what?",155));
+        ISP.TutEvents.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "You find yourself in the middle of a pandemic: COVID19.", "Uh oh...", "So what?",0));
+        ISP.TutEvents.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Fortunately, you are well off currently, so you aren't in a bind.", "Good to hear!", "So what?",0));
         ISP.TutEvents.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Above, you can see your money and health meters, which dictate whether you survive or not.", "Okay.", "So what?",100));
         ISP.TutEvents.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "You will have to make a series of decisions, which will impact your meters.", "Okay.", "So what?",155));
         ISP.TutEvents.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Make sure neither of the meters are empty or else you won't survive!", "Okay.", "Sure.",155));

@@ -61,8 +61,8 @@ public class Tutorial {
         quest.setTextFill(Color.web("#ffffff"));
         Button option1 = new Button(ISP.TutEvents.get(idx).answer1);
         Button option2 = new Button(ISP.TutEvents.get(idx).answer2);
-        quest.relocate(397, ISP.TutEvents.get(idx).y);
-        //System.out.println(ISP.TutEvents.get(idx).y);
+        quest.relocate(397, ISP.TutEvents.get(idx).getY());
+        System.out.println(ISP.TutEvents.get(idx).getY());
         quest.setWrapText(true);
         quest.setMaxWidth(400);
         option1.wrapTextProperty().setValue(true);
@@ -114,7 +114,7 @@ public class Tutorial {
                 factors[1] = 60;
             }
             quest.setText(ISP.TutEvents.get(idx).question);
-            quest.relocate(397, ISP.TutEvents.get(idx).y);
+            quest.relocate(397, ISP.TutEvents.get(idx).getY());
             option1.setText(ISP.TutEvents.get(idx).answer1);
             option2.setText(ISP.TutEvents.get(idx).answer2);
             updateMeters();
@@ -139,7 +139,7 @@ public class Tutorial {
                 factors[1] = 60;
             }
             quest.setText(ISP.TutEvents.get(idx).question);
-            quest.relocate(397, ISP.TutEvents.get(idx).y);
+            quest.relocate(397, ISP.TutEvents.get(idx).getY());
             option1.setText(ISP.TutEvents.get(idx).answer1);
             option2.setText(ISP.TutEvents.get(idx).answer2);
             updateMeters();
