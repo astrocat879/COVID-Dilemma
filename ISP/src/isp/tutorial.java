@@ -48,8 +48,8 @@ public class Tutorial {
         final String CLICKED_BUTTON_STYLE = "-fx-font-size:20; -fx-background-color: #674ea7;  -fx-text-fill: #ffffff;";
         // tutorial scene
         idx = 0;
-        factors[0] = 50;
-        factors[1] = 50;
+        factors[0] = 60;
+        factors[1] = 60;
         root2 = new Pane();
         Image bg  = new Image("TutorialScreen.jpg");
         root2.getChildren().add(new ImageView(bg));
@@ -65,6 +65,8 @@ public class Tutorial {
         //System.out.println(ISP.TutEvents.get(idx).y);
         quest.setWrapText(true);
         quest.setMaxWidth(400);
+        option1.wrapTextProperty().setValue(true);
+        option2.wrapTextProperty().setValue(true);
         option1.relocate(358, 291);
         option2.relocate(611, 291);
         option1.setPrefSize(232, 311);
