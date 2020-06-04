@@ -30,7 +30,7 @@ import javafx.scene.text.Font;
  * @author astro 
  */
 public class tutorial {
-    public static int idx = 0;
+    public static int idx = 0, day=0;
     public static int [] factors = new int [2];
     public static Rectangle hr, mr;
     public static Pane root2;
@@ -84,6 +84,13 @@ public class tutorial {
         Image topbar  = new Image("TutorialTopBar.png");
         root2.getChildren().add(new ImageView(topbar));
         
+                
+        Label daystatus = new Label("Day "+day);
+        daystatus.setFont(new Font("Monospaced",40));
+        daystatus.setTextFill(Color.web("#ffffff"));
+        daystatus.relocate(550, 670);
+        root2.getChildren().add(daystatus);
+        
         Button b = new Button("Back");
         b.relocate(3,715);
         b.setStyle(b_IDLE_BUTTON_STYLE);
@@ -105,14 +112,17 @@ public class tutorial {
             for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
                 factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
             }
+            day+=ISP.TutEvents.get(idx).getDays();
             System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
             idx++;
             if (idx >= ISP.TutEvents.size()){
                 window.setScene(ISP.s0);
                 idx = 0;
+                day=0;
                 factors[0] = 60;
                 factors[1] = 60;
             }
+            daystatus.setText("Day "+day);
             quest.setText(ISP.TutEvents.get(idx).question);
             quest.relocate(397, ISP.TutEvents.get(idx).getY());
             option1.setText(ISP.TutEvents.get(idx).answer1);
@@ -130,14 +140,17 @@ public class tutorial {
             for (int i=0;i<ISP.TutEvents.get(idx).factor2.length;i++){
                 factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
             }
+            day+=ISP.TutEvents.get(idx).getDays();
             System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
             idx++;
             if (idx >= ISP.TutEvents.size()){
                 window.setScene(ISP.s0);
                 idx = 0;
+                day=0;
                 factors[0] = 60;
                 factors[1] = 60;
             }
+            daystatus.setText("Day "+day);
             quest.setText(ISP.TutEvents.get(idx).question);
             quest.relocate(397, ISP.TutEvents.get(idx).getY());
             option1.setText(ISP.TutEvents.get(idx).answer1);
