@@ -43,10 +43,11 @@ public class tutorial {
         final String b_HOVERED_BUTTON_STYLE = "-fx-background-color: #674ea7;  -fx-text-fill: #ffffff;";
         final String b_CLICKED_BUTTON_STYLE = "-fx-background-color: #674ea7; ";
         
-        final String IDLE_BUTTON_STYLE = "-fx-font-size:20 ;  -fx-background-color: #cfe2f3;  ";
-        final String HOVERED_BUTTON_STYLE = "-fx-font-size:20; -fx-background-color: #674ea7;  ";
-        final String CLICKED_BUTTON_STYLE = "-fx-font-size:20; -fx-background-color: #674ea7;  -fx-text-fill: #ffffff;";
+        final String IDLE_BUTTON_STYLE = "-fx-font-size:20 ; -fx-background-color: #54a0de;  -fx-text-fill: #ffffff";
+        final String HOVERED_BUTTON_STYLE = "-fx-font-size:20;  -fx-background-color: #0198E1; -fx-text-fill: #ffffff ";
+        final String CLICKED_BUTTON_STYLE = "-fx-font-size:20;  -fx-background-color: #0198E1;  ";
         // tutorial scene
+        //-fx-background-color: #cfe2f3
         idx = 0;
         factors[0] = 60;
         factors[1] = 60;
