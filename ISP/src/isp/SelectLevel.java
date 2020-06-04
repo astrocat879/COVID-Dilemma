@@ -23,28 +23,12 @@ import javafx.scene.layout.Pane;
  *
  * @author astro
  */
-public class ISP extends Application {
-    
-    static Scene s0, s1, s2;
-    public static ArrayList<Event> TutEvents = new ArrayList<Event>();
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        TutorialEvents.generateEvents();
-        SelectLevel.run(primaryStage);
-        tutorial.run(primaryStage);
-        MainMenu.run(primaryStage);
+public class SelectLevel {
+    public static void run(Stage s){
+        Pane root3 = new Pane();
+        ISP.s1 = new Scene(root3, 1200, 750);
+        Image img  = new Image("LevelSelect.jpg");
+        root3.getChildren().add(new ImageView(img));
         
     }
-    
-    
-
-    
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-    
 }

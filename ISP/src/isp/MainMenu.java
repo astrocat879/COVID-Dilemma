@@ -42,6 +42,8 @@ public class MainMenu {
         start.setOnAction(e -> {
             try{Thread.sleep(100);}
             catch(Exception f){}
+            System.out.println("Start");
+            window.setScene(ISP.s1);
         });
         //tutorial button
         tut = new Button("Tutorial");
