@@ -35,8 +35,8 @@ public class SelectLevel {
         
         Button primeMinister, civilian;
         primeMinister = new Button("Prime Minister");
-        primeMinister.relocate(413,295);
-        primeMinister.setPrefSize(375, 91);
+        primeMinister.relocate(412,292);
+        primeMinister.setPrefSize(375, 92);
         primeMinister.setStyle(IDLE_BUTTON_STYLE);
         primeMinister.setOnMouseEntered(e -> primeMinister.setStyle(HOVERED_BUTTON_STYLE));
         primeMinister.setOnMouseExited(e -> primeMinister.setStyle(IDLE_BUTTON_STYLE));
