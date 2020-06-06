@@ -30,8 +30,9 @@ public class SelectLevel {
         final String CLICKED_BUTTON_STYLE = "-fx-font-size:40; -fx-background-color: #674ea7; -fx-background-radius: 15px; ";
         Pane root3 = new Pane();
         ISP.s1 = new Scene(root3, 1200, 750);
-        Image img  = new Image("LevelSelect.jpg");
+        Image img  = new Image("Level Select.jpg");
         root3.getChildren().add(new ImageView(img));
+        
         Button primeMinister, civilian;
         primeMinister = new Button("Prime Minister");
         primeMinister.relocate(413,295);
