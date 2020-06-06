@@ -44,6 +44,8 @@ public class tutorial {
     public static int [] factors = new int [2];
     public static Rectangle hr, mr;
     public static Pane root2;
+    public static Color qBlue = Color.rgb(62, 135, 203);
+    public static Color purp = Color.rgb(142, 124, 195);
     public static void buttonFlip(Button front, Button back){
         ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), front);
         stHideFront.setFromX(1);
@@ -68,6 +70,7 @@ public class tutorial {
         mr.setHeight(10+100-factors[1]);
     }
     public static void run(Stage window){
+        //styles of the buttons
         final String b_IDLE_BUTTON_STYLE = " -fx-background-color: #8e7cc3; ; -fx-text-fill: #ffffff";
         final String b_HOVERED_BUTTON_STYLE = "-fx-background-color: #674ea7;  -fx-text-fill: #ffffff;";
         final String b_CLICKED_BUTTON_STYLE = "-fx-background-color: #674ea7; ";
@@ -82,11 +85,38 @@ public class tutorial {
         factors[1] = 60;
         root2 = new Pane();
         
-        
+        //top left game mode
         Label gameID = new Label ("Tutorial");
         gameID.setFont(new Font("Arial",18));
         gameID.setTextFill(Color.web("#ffffff"));
         gameID.relocate(22,18);
+        
+        Rectangle qRect = new Rectangle();  
+        qRect.setX(352.0f); 
+        qRect.setY(118.0f); 
+        qRect.setWidth(496.0f); 
+        qRect.setHeight(149.0f); 
+       
+        //Setting the height and width of the arc 
+        qRect.setArcWidth(50.0); 
+        qRect.setArcHeight(50.0);  
+        qRect.setFill(qBlue);
+        
+        Rectangle cardRect = new Rectangle();  
+        cardRect.setX(346.0f); 
+        cardRect.setY(107.0f); 
+        cardRect.setWidth(508.0f); 
+        cardRect.setHeight(527.0f); 
+        
+        cardRect.setFill(purp);
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         Image bg  = new Image("TutorialScreen.jpg");
@@ -135,6 +165,8 @@ public class tutorial {
         bob3.setPreserveRatio(true);
         bob3.setSmooth(true);
         bob3.relocate(883,138);
+        root2.getChildren().add(cardRect);
+        root2.getChildren().add(qRect);
         root2.getChildren().add(ch);
         root2.getChildren().add(ch2);
         root2.getChildren().add(ch3);
