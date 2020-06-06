@@ -1,9 +1,14 @@
+/*
+ * Ronald You and Justin Zhu and Matthew Li
+ * Mrs Krasteva
+ * Due: June 15, 2020
+ * Achievement class to hold list of Achievements
+ */
+
+
 package isp;
 
-/**
- *
- * @author astro
- */
+
 import java.util.*;
 public class Event {
     int [] factor1, amount1, factor2, amount2;

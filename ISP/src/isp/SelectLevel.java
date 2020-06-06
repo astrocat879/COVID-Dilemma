@@ -47,5 +47,6 @@ public class SelectLevel {
             System.out.println("Prime Minister Mode Selected");
             //window.setScene(/**/);
         });
+        root3.getChildren().add(primeMinister);
     }
 }
