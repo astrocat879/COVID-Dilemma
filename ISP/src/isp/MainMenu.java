@@ -23,6 +23,7 @@ import javafx.scene.layout.Pane;
  *  - May 25th, 2020: Created by Ronald You
  *  - May 26th, 2020: Updated by Ronald You
  *  - May 27th, 2020: Updated by Justin Zhu
+ *  - June 6th, 2020: Updated by Ronald You
  * 
  */
 public class MainMenu {
@@ -31,12 +32,12 @@ public class MainMenu {
         final String HOVERED_BUTTON_STYLE = "-fx-font-size:40; -fx-background-color: #674ea7; -fx-background-radius: 15px; -fx-text-fill: #ffffff;";
         final String CLICKED_BUTTON_STYLE = "-fx-font-size:40; -fx-background-color: #674ea7; -fx-background-radius: 15px; ";
 
-        Button start,tut,quit;
+        Button start,at,quit;
         Pane root = new Pane();
         Image img  = new Image("Main Menu.jpg");
         root.getChildren().add(new ImageView(img));
         //start button for levels
-        start = new Button("Start");
+        start = new Button("Play");
         start.relocate(413,295);
         start.setPrefSize(375, 91);
         start.setStyle(IDLE_BUTTON_STYLE);
@@ -50,18 +51,18 @@ public class MainMenu {
             window.setScene(ISP.s1);
         });
         //tutorial button
-        tut = new Button("Tutorial");
-        tut.relocate(413,447);
-        tut.setPrefSize(375, 91);
-        tut.setStyle(IDLE_BUTTON_STYLE);
-        tut.setOnMouseEntered(e -> tut.setStyle(HOVERED_BUTTON_STYLE));
-        tut.setOnMouseExited(e -> tut.setStyle(IDLE_BUTTON_STYLE));
-        tut.setPrefSize(375, 91);
-        tut.setOnMousePressed(e -> tut.setStyle(CLICKED_BUTTON_STYLE));
-        tut.setOnAction(e -> {
+        at = new Button("Achievements");
+        at.relocate(413,447);
+        at.setPrefSize(375, 91);
+        at.setStyle(IDLE_BUTTON_STYLE);
+        at.setOnMouseEntered(e -> at.setStyle(HOVERED_BUTTON_STYLE));
+        at.setOnMouseExited(e -> at.setStyle(IDLE_BUTTON_STYLE));
+        at.setPrefSize(375, 91);
+        at.setOnMousePressed(e -> at.setStyle(CLICKED_BUTTON_STYLE));
+        at.setOnAction(e -> {
             try{Thread.sleep(100);}
             catch(Exception f){}
-            System.out.println("Tutorial");
+            System.out.println("Achievements");
             window.setScene(ISP.s2);
         });
         //quit button
@@ -79,7 +80,7 @@ public class MainMenu {
             System.exit(0);
         });
 
-        root.getChildren().add(tut);
+        root.getChildren().add(at);
         root.getChildren().add(quit);
 
         root.getChildren().add(start);

@@ -191,7 +191,7 @@ public class tutorial {
         b.setOnAction(e -> {
             try{Thread.sleep(100);}
             catch(Exception f){}
-            window.setScene(ISP.s0);
+            window.setScene(ISP.s1);
         });
         root2.getChildren().add(b);
 

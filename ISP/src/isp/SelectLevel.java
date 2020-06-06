@@ -29,7 +29,11 @@ import javafx.scene.layout.Pane;
  * 
  */
 public class SelectLevel {
-    public static void run(Stage s){
+    public static void run(Stage window){
+        final String b_IDLE_BUTTON_STYLE = " -fx-background-color: #8e7cc3; ; -fx-text-fill: #ffffff";
+        final String b_HOVERED_BUTTON_STYLE = "-fx-background-color: #674ea7;  -fx-text-fill: #ffffff;";
+        final String b_CLICKED_BUTTON_STYLE = "-fx-background-color: #674ea7; ";
+        
         final String IDLE_BUTTON_STYLE = "-fx-font-size:40 ;  -fx-background-color: #8e7cc3; -fx-background-radius: 15px; -fx-text-fill: #ffffff";
         final String HOVERED_BUTTON_STYLE = "-fx-font-size:40; -fx-background-color: #674ea7; -fx-background-radius: 15px; -fx-text-fill: #ffffff;";
         final String CLICKED_BUTTON_STYLE = "-fx-font-size:40; -fx-background-color: #674ea7; -fx-background-radius: 15px; ";
@@ -38,9 +42,24 @@ public class SelectLevel {
         Image img  = new Image("Level Select.jpg");
         root3.getChildren().add(new ImageView(img));
         
-        Button primeMinister, civilian;
+        Button primeMinister, civilian,tut;
+        tut = new Button("Tutorial");
+        tut.relocate(413,295);
+        tut.setPrefSize(375, 91);
+        tut.setStyle(IDLE_BUTTON_STYLE);
+        tut.setOnMouseEntered(e -> tut.setStyle(HOVERED_BUTTON_STYLE));
+        tut.setOnMouseExited(e -> tut.setStyle(IDLE_BUTTON_STYLE));
+        tut.setPrefSize(375, 91);
+        tut.setOnMousePressed(e -> tut.setStyle(CLICKED_BUTTON_STYLE));
+        tut.setOnAction(e -> {
+            try{Thread.sleep(100);}
+            catch(Exception f){}
+            System.out.println("Achievements");
+            window.setScene(ISP.s2);
+        });
+        
         primeMinister = new Button("Prime Minister");
-        primeMinister.relocate(412,292);
+        primeMinister.relocate(413,447);
         primeMinister.setPrefSize(375, 92);
         primeMinister.setStyle(IDLE_BUTTON_STYLE);
         primeMinister.setOnMouseEntered(e -> primeMinister.setStyle(HOVERED_BUTTON_STYLE));
@@ -53,7 +72,7 @@ public class SelectLevel {
             //window.setScene(/**/);
         });
         civilian = new Button("Civilian");
-        civilian.relocate(412,446);
+        civilian.relocate(413,599);
         civilian.setPrefSize(375, 92);
         civilian.setStyle(IDLE_BUTTON_STYLE);
         civilian.setOnMouseEntered(e -> civilian.setStyle(HOVERED_BUTTON_STYLE));
@@ -65,7 +84,21 @@ public class SelectLevel {
             System.out.println("Civilian Mode Selected");
             //window.setScene(/**/);
         });
+        root3.getChildren().add(tut);
         root3.getChildren().add(primeMinister);
         root3.getChildren().add(civilian);
+        
+        Button b = new Button("Back");
+        b.relocate(3,715);
+        b.setStyle(b_IDLE_BUTTON_STYLE);
+        b.setOnMouseEntered(e -> b.setStyle(b_HOVERED_BUTTON_STYLE));
+        b.setOnMouseExited(e -> b.setStyle(b_IDLE_BUTTON_STYLE));
+        b.setOnMousePressed(e -> b.setStyle(b_CLICKED_BUTTON_STYLE));
+        b.setOnAction(e -> {
+            try{Thread.sleep(100);}
+            catch(Exception f){}
+            window.setScene(ISP.s0);
+        });
+        root3.getChildren().add(b);
     }
 }
