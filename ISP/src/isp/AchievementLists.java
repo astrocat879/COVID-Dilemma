@@ -22,8 +22,9 @@ import javafx.stage.Stage;
 import java.awt.*;
 
 /**
- *
- * @author ronal
+ *Revision History:
+ *  - June 6th, 2020: Created by Ronald You
+ * 
  */
 public class AchievementLists {
     boolean ach [] = new boolean [5];

@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Ronald You and Justin Zhu and Matthew Li
+ * Mrs Krasteva
+ * Due: June 15, 2020
+ * Achievement class to hold list of Achievements
  */
 package isp;
 
@@ -19,9 +20,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView; 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+
 /**
- *
- * @author astro
+ *Revision History:
+ *  - June 5th, 2020: Created by Justin Zhu
+ *  - June 6th, 2020: Updated by Matthew Li
+ *  - June 6th, 2020: Updated by Ronald You
+ * 
  */
 public class SelectLevel {
     public static void run(Stage s){

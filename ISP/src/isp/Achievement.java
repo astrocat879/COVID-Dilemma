@@ -20,10 +20,13 @@ import javafx.stage.Stage;
  * 
  */
 public class Achievement {
-    String question, level;
+    String question, level,flag;
     boolean status;
-    public Achievement(String q, String l, boolean stat){
-        
+    public Achievement(String q, String l, String f,boolean stat){
+        question = q;
+        level = l;
+        status = stat;
+        flag = f;
     }
     
     

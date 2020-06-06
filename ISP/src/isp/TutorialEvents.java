@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Ronald You and Justin Zhu and Matthew Li
+ * Mrs Krasteva
+ * Due: June 15, 2020
+ * Achievement class to hold list of Achievements
  */
 package isp;
 
@@ -9,8 +10,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- *
- * @author astro
+ *Revision History:
+ *  - May 30th, 2020: Created by Justin Zhu
+ *  - May 30th, 2020: Updated by Matthew Li
+ *  - June 2st, 2020: Updated by Ronald You
+ * 
  */
 public class TutorialEvents {
     public static void generateEvents(){
