@@ -34,7 +34,9 @@ import javafx.util.Duration;
  *  - May 30th, 2020: Updated by Justin Zhu
  *  - June 2nd, 2020: Updated by Ronald You
  *  - June 2nd, 2020: Updated by Justin Zhu
+ *  - June 4th, 2020: Updated by Ronald You
  *  - June 6th, 2020: Updated by Ronald You
+ *  - June 6th, 2020; Commented by Ronald You
  * 
  */
 public class tutorial {
@@ -59,6 +61,8 @@ public class tutorial {
         });
         stHideFront.play();
     }
+    
+    //Updates the factors sliding a rectangle up and down to simulate filling and emptying
     public static void updateMeters(){
         hr.setHeight(10+100-factors[0]);
         mr.setHeight(10+100-factors[1]);
@@ -78,6 +82,13 @@ public class tutorial {
         factors[1] = 60;
         root2 = new Pane();
         
+        
+        Label gameID = new Label ("Tutorial");
+        gameID.setFont(new Font("Arial",18));
+        gameID.setTextFill(Color.web("#ffffff"));
+        gameID.relocate(22,18);
+        
+        
         Image bg  = new Image("TutorialScreen.jpg");
         root2.getChildren().add(new ImageView(bg));
         Image cb = new Image("checkBox.png");
@@ -87,21 +98,21 @@ public class tutorial {
         ch.setFitHeight(37);
         ch.setPreserveRatio(true);
         ch.setSmooth(true);
-        ch.relocate(890,530);
+        ch.relocate(890,28);
         ImageView ch2 = new ImageView();
         ch2.setImage(cb);
         ch2.setFitWidth(37);
         ch2.setFitHeight(37);
         ch2.setPreserveRatio(true);
         ch2.setSmooth(true);
-        ch2.relocate(890,590);
+        ch2.relocate(890,88);
         ImageView ch3 = new ImageView();
         ch3.setImage(cb);
         ch3.setFitWidth(37);
         ch3.setFitHeight(37);
         ch3.setPreserveRatio(true);
         ch3.setSmooth(true);
-        ch3.relocate(890,650);
+        ch3.relocate(890,148);
         Image ac = new Image("achBox.png");
         ImageView bob = new ImageView();
         bob.setImage(ac);
@@ -109,21 +120,21 @@ public class tutorial {
         bob.setFitHeight(50);
         bob.setPreserveRatio(true);
         bob.setSmooth(true);
-        bob.relocate(883,520);
+        bob.relocate(883,18);
         ImageView bob2 = new ImageView();
         bob2.setImage(ac);
         bob2.setFitWidth(50);
         bob2.setFitHeight(50);
         bob2.setPreserveRatio(true);
         bob2.setSmooth(true);
-        bob2.relocate(883,580);
+        bob2.relocate(883,78);
         ImageView bob3 = new ImageView();
         bob3.setImage(ac);
         bob3.setFitWidth(50);
         bob3.setFitHeight(50);
         bob3.setPreserveRatio(true);
         bob3.setSmooth(true);
-        bob3.relocate(883,640);
+        bob3.relocate(883,138);
         root2.getChildren().add(ch);
         root2.getChildren().add(ch2);
         root2.getChildren().add(ch3);
@@ -165,6 +176,7 @@ public class tutorial {
         root2.getChildren().add(quest);
         root2.getChildren().add(option1);
         root2.getChildren().add(option2);
+        root2.getChildren().add(gameID);
         
         hr = new Rectangle(400, 0, 150, 10+100-factors[0]);
         mr = new Rectangle(600, 0, 150, 10+100-factors[1]);
