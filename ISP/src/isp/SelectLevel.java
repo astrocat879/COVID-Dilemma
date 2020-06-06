@@ -47,6 +47,20 @@ public class SelectLevel {
             System.out.println("Prime Minister Mode Selected");
             //window.setScene(/**/);
         });
+        civilian = new Button("Civilian");
+        civilian.relocate(412,446);
+        civilian.setPrefSize(375, 92);
+        civilian.setStyle(IDLE_BUTTON_STYLE);
+        civilian.setOnMouseEntered(e -> civilian.setStyle(HOVERED_BUTTON_STYLE));
+        civilian.setOnMouseExited(e -> civilian.setStyle(IDLE_BUTTON_STYLE));
+        civilian.setOnMousePressed(e -> civilian.setStyle(CLICKED_BUTTON_STYLE));
+        civilian.setOnAction(e -> {
+            try{Thread.sleep(100);}
+            catch(Exception f){}
+            System.out.println("Civilian Mode Selected");
+            //window.setScene(/**/);
+        });
         root3.getChildren().add(primeMinister);
+        root3.getChildren().add(civilian);
     }
 }
