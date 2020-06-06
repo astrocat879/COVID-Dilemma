@@ -24,10 +24,10 @@ import java.awt.*;
  *
  * @author ronal
  */
-public class Achievements {
+public class AchievementLists {
     boolean ach [] = new boolean [5];
     File fileName;
-    public Achievements(String f) throws FileNotFoundException{
+    public AchievementLists(String f) throws FileNotFoundException{
         fileName = new File(f + ".txt");
         if(!fileName.exists()){
             PrintWriter writer = new PrintWriter(fileName);
