@@ -35,10 +35,6 @@ public class ISP extends Application {
         MainMenu.run(primaryStage);
         
     }
-    
-    
-
-    
 
     /**
      * @param args the command line arguments
