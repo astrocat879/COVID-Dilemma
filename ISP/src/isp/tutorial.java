@@ -14,6 +14,7 @@ import javafx.animation.ScaleTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -46,12 +47,14 @@ public class tutorial {
     public static Pane root2;
     public static Color qBlue = Color.rgb(62, 135, 203);
     public static Color purp = Color.rgb(142, 124, 195);
-    public static void buttonFlip(Button front, Button back){
-        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), front);
+    
+    // plays out animation of card flipping
+    public static void flip(Group front, Group back){
+        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(1500), front);
         stHideFront.setFromX(1);
         stHideFront.setToX(0);
 
-        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), back);
+        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(1500), back);
         stShowBack.setFromX(0);
         stShowBack.setToX(1);
         
@@ -85,37 +88,44 @@ public class tutorial {
         factors[1] = 60;
         root2 = new Pane();
         
+        
+        // groups for large rotation
+        
+        Group front = new Group();
+        Group back = new Group();
+        
+        
         //top left game mode
         Label gameID = new Label ("Tutorial");
         gameID.setFont(new Font("Arial",18));
         gameID.setTextFill(Color.web("#ffffff"));
         gameID.relocate(22,18);
         
+        // creating question rectangle
         Rectangle qRect = new Rectangle();  
         qRect.setX(352.0f); 
         qRect.setY(118.0f); 
         qRect.setWidth(496.0f); 
         qRect.setHeight(149.0f); 
+        
        
         //Setting the height and width of the arc 
         qRect.setArcWidth(50.0); 
         qRect.setArcHeight(50.0);  
         qRect.setFill(qBlue);
         
+        
+        // creating card rectangle
         Rectangle cardRect = new Rectangle();  
         cardRect.setX(346.0f); 
         cardRect.setY(107.0f); 
         cardRect.setWidth(508.0f); 
         cardRect.setHeight(527.0f); 
-        
         cardRect.setFill(purp);
-        
-        
-        
-        
-        
-        
-        
+        back.getChildren().add(cardRect);
+        back.getChildren().add(qRect);
+        front.getChildren().add(cardRect);
+        front.getChildren().add(qRect);
         
         
         
@@ -165,8 +175,8 @@ public class tutorial {
         bob3.setPreserveRatio(true);
         bob3.setSmooth(true);
         bob3.relocate(883,138);
-        root2.getChildren().add(cardRect);
-        root2.getChildren().add(qRect);
+//        root2.getChildren().add(cardRect);
+//        root2.getChildren().add(qRect);
         root2.getChildren().add(ch);
         root2.getChildren().add(ch2);
         root2.getChildren().add(ch3);
@@ -189,6 +199,8 @@ public class tutorial {
         root2.getChildren().add(option2back);
         option1back.setScaleX(0);
         option2back.setScaleX(0);
+        back.getChildren().add(option1back);
+        back.getChildren().add(option2back);
         
         Label quest = new Label(ISP.TutEvents.get(idx).question);
         quest.setFont(new Font("Monospaced",24));
@@ -196,7 +208,6 @@ public class tutorial {
         Button option1 = new Button(ISP.TutEvents.get(idx).answer1);
         Button option2 = new Button(ISP.TutEvents.get(idx).answer2);
         quest.relocate(397, ISP.TutEvents.get(idx).getY());
-        System.out.println(ISP.TutEvents.get(idx).getY());
         quest.setWrapText(true);
         quest.setMaxWidth(400);
         option1.wrapTextProperty().setValue(true);
@@ -209,6 +220,11 @@ public class tutorial {
         root2.getChildren().add(option1);
         root2.getChildren().add(option2);
         root2.getChildren().add(gameID);
+        back.getChildren().add(quest);
+        front.getChildren().add(quest);
+        
+        front.getChildren().add(option1);
+        front.getChildren().add(option2);
         
         hr = new Rectangle(400, 0, 150, 10+100-factors[0]);
         mr = new Rectangle(600, 0, 150, 10+100-factors[1]);
@@ -238,6 +254,9 @@ public class tutorial {
             window.setScene(ISP.s1);
         });
         root2.getChildren().add(b);
+        
+        root2.getChildren().add(back);
+        root2.getChildren().add(front);
 
         
         option1.setStyle(IDLE_BUTTON_STYLE);
@@ -262,7 +281,8 @@ public class tutorial {
             quest.setText(ISP.TutEvents.get(idx).question);
             quest.relocate(397, ISP.TutEvents.get(idx).getY());
             option1back.setText(ISP.TutEvents.get(idx).answer1);
-            buttonFlip(option1, option1back);
+//            buttonFlip(option1, option1back);
+            flip(front, back);
             option2.setText(ISP.TutEvents.get(idx).answer2);
             updateMeters();
             option1.setStyle(IDLE_BUTTON_STYLE);
