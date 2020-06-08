@@ -14,24 +14,38 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Testing extends Application {
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Button front1 = new Button("asdf");
-        Rectangle front2 = new Rectangle(20, 20, 20, 20);
-        
-        Group front = new Group();
-        front.getChildren().addAll(front1, front2);
-
+    public static void flip(Group front, Group back){
         ScaleTransition stHideFront = new ScaleTransition(Duration.millis(1500), front);
         stHideFront.setFromX(1);
         stHideFront.setToX(0);
 
-        Button back1 = new Button("asdf");
-        Label back2 = new Label("asdfasdfasdf");
+        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(1500), back);
+        stShowBack.setFromX(0);
+        stShowBack.setToX(1);
+        
+        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                stShowBack.play();
+            }
+        });
+        stHideFront.play();
+    }
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Button but1 = new Button("asdf");
+        Rectangle but2 = new Rectangle(20, 20, 20, 20);
+        
+        Group front = new Group();
+        front.getChildren().addAll(but1, but2);
+
+        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(1500), front);
+        stHideFront.setFromX(1);
+        stHideFront.setToX(0);
         
         Group back = new Group();
         
-        back.getChildren().addAll(back1, back2);
+        back.getChildren().addAll(but1, but2);
         back.setScaleX(0);
 
         ScaleTransition stShowBack = new ScaleTransition(Duration.millis(1500), back);
@@ -52,7 +66,6 @@ public class Testing extends Application {
 
         primaryStage.show();
         stHideFront.play();
-        front1.setText("YESYESYESYESYESY");
     }
 
     public static void main(String[] args) {

@@ -47,6 +47,7 @@ public class tutorial {
     public static Pane root2;
     public static Color qBlue = Color.rgb(62, 135, 203);
     public static Color purp = Color.rgb(142, 124, 195);
+    public static Label quest;
     
     // plays out animation of card flipping
     public static void flip(Group front, Group back){
@@ -61,6 +62,8 @@ public class tutorial {
         stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
+                quest.setText(ISP.TutEvents.get(idx).question);
+                quest.setText(ISP.TutEvents.get(idx).question);
                 stShowBack.play();
             }
         });
@@ -187,22 +190,22 @@ public class tutorial {
         ISP.s2 = new Scene(root2, 1200, 750);
         
                 
-        Button option1back = new Button("");
-        Button option2back = new Button("");
-        option1back.wrapTextProperty().setValue(true);
-        option2back.wrapTextProperty().setValue(true);
-        option1back.relocate(358, 291);
-        option2back.relocate(611, 291);
-        option1back.setPrefSize(232, 311);
-        option2back.setPrefSize(232, 311);
-        root2.getChildren().add(option1back);
-        root2.getChildren().add(option2back);
-        option1back.setScaleX(0);
-        option2back.setScaleX(0);
-        back.getChildren().add(option1back);
-        back.getChildren().add(option2back);
+//        Button option1back = new Button("");
+//        Button option2back = new Button("");
+//        option1back.wrapTextProperty().setValue(true);
+//        option2back.wrapTextProperty().setValue(true);
+//        option1back.relocate(358, 291);
+//        option2back.relocate(611, 291);
+//        option1back.setPrefSize(232, 311);
+//        option2back.setPrefSize(232, 311);
+//        root2.getChildren().add(option1back);
+//        root2.getChildren().add(option2back);
+//        option1back.setScaleX(0);
+//        option2back.setScaleX(0);
+//        back.getChildren().add(option1back);
+//        back.getChildren().add(option2back);
         
-        Label quest = new Label(ISP.TutEvents.get(idx).question);
+        quest = new Label(ISP.TutEvents.get(idx).question);
         quest.setFont(new Font("Monospaced",24));
         quest.setTextFill(Color.web("#ffffff"));
         Button option1 = new Button(ISP.TutEvents.get(idx).answer1);
@@ -222,7 +225,8 @@ public class tutorial {
         root2.getChildren().add(gameID);
         back.getChildren().add(quest);
         front.getChildren().add(quest);
-        
+        back.getChildren().add(option1);
+        back.getChildren().add(option2);
         front.getChildren().add(option1);
         front.getChildren().add(option2);
         
@@ -269,7 +273,7 @@ public class tutorial {
             }
             day+=ISP.TutEvents.get(idx).getDays();
             System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-            idx++;
+
             if (idx >= ISP.TutEvents.size()){
                 window.setScene(ISP.s0);
                 idx = 0;
@@ -278,11 +282,14 @@ public class tutorial {
                 factors[1] = 60;
             }
             daystatus.setText("Day "+day);
-            quest.setText(ISP.TutEvents.get(idx).question);
-            quest.relocate(397, ISP.TutEvents.get(idx).getY());
-            option1back.setText(ISP.TutEvents.get(idx).answer1);
+            
+            
 //            buttonFlip(option1, option1back);
             flip(front, back);
+            flip(back, front);
+            idx++;
+
+            option1.setText(ISP.TutEvents.get(idx).answer1);
             option2.setText(ISP.TutEvents.get(idx).answer2);
             updateMeters();
             option1.setStyle(IDLE_BUTTON_STYLE);
@@ -315,6 +322,8 @@ public class tutorial {
             updateMeters();
             
             option2.setStyle(IDLE_BUTTON_STYLE);
+            flip(front, back);
+            flip(back, front);
         });
     }
 }
