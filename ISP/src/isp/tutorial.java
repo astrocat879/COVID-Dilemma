@@ -10,7 +10,9 @@ import javafx.scene.shape.Rectangle;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
+import javafx.animation.PauseTransition;
 import javafx.animation.ScaleTransition;
+import javafx.animation.SequentialTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -83,12 +85,45 @@ public class tutorial {
                 option1.setText(ISP.TutEvents.get(idx).answer1);
                 option2.setText(ISP.TutEvents.get(idx).answer2);
                 quest.setText(ISP.TutEvents.get(idx).question);
-                stShowBack.play();
+                SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack);
+                seq.play();
+                //stShowBack.play();
                 updateMeters();
                 
             }
         });
-        stHideFront.play();
+        SequentialTransition  seq2 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stHideFront);
+        seq2.play();
+        //stHideFront.play();
+        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), back);
+        stHideFront2.setFromX(1);
+        stHideFront2.setToX(0);
+
+        ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), front);
+        stShowBack2.setFromX(0);
+        stShowBack2.setToX(1);
+        
+        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
+                    factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
+                }
+                //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
+                quest.relocate(397, ISP.TutEvents.get(idx).getY());
+                option1.setText(ISP.TutEvents.get(idx).answer1);
+                option2.setText(ISP.TutEvents.get(idx).answer2);
+                quest.setText(ISP.TutEvents.get(idx).question);
+                //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
+                //seq3.play();
+                stShowBack2.play();
+                updateMeters();
+                
+            }
+        });
+        //SequentialTransition  seq4 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stHideFront2);
+        //seq4.play();
+        stHideFront2.play();
     }
     public static void flipCard2(Group front, Group back){
         //flipButton(option2, option2back);
@@ -113,7 +148,9 @@ public class tutorial {
                 option1.setText(ISP.TutEvents.get(idx).answer1);
                 option2.setText(ISP.TutEvents.get(idx).answer2);
                 quest.setText(ISP.TutEvents.get(idx).question);
-                stShowBack.play();
+                
+                //new PauseTransition(Duration.millis(20000),stShowBack);
+                //stShowBack.play();
                 updateMeters();
                 
             }
@@ -156,9 +193,9 @@ public class tutorial {
             }
         });
         stHideFront2.play();
-        
-        try{Thread.sleep(500);}
-        catch(Exception f){}
+          
+        //try{Thread.sleep(500);}
+        //catch(Exception f){}
         return 1;
     }
     
@@ -358,9 +395,9 @@ public class tutorial {
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
             flipButton();
+            
             if(flipButton() == 1){
                 flipCard1(front, back);
-                flipCard1(back, front);
             }
             day+=ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day "+day);
