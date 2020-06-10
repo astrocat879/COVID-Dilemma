@@ -57,10 +57,12 @@ public class tutorial {
     public static Label daystatus = new Label("Day "+day);
     public static Button option1back = new Button("");
     public static Button option2back = new Button("");
+    public static Group front = new Group();
+    public static Group back = new Group();
     // plays out animation of card flipping
     public static void flipCard1(Group front, Group back){
-        flipButton(option1, option1back);
-        flipButton(option1back, option1);
+        //flipButton(option1, option1back);
+        //flipButton(option1back, option1);
         
         ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), front);
         stHideFront.setFromX(1);
@@ -89,8 +91,8 @@ public class tutorial {
         stHideFront.play();
     }
     public static void flipCard2(Group front, Group back){
-        flipButton(option2, option2back);
-        flipButton(option2back, option2);
+        //flipButton(option2, option2back);
+        //flipButton(option2back, option2);
         
         ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), front);
         stHideFront.setFromX(1);
@@ -118,12 +120,12 @@ public class tutorial {
         });
         stHideFront.play();
     }
-    public static void flipButton(Button frontB, Button backB){
-        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), frontB);
+    public static int flipButton(){
+        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), option1);
         stHideFront.setFromX(1);
         stHideFront.setToX(0);
 
-        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), backB);
+        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), option1back);
         stShowBack.setFromX(0);
         stShowBack.setToX(1);
         
@@ -137,6 +139,27 @@ public class tutorial {
         });
         stHideFront.play();
         
+        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), option1back);
+        stHideFront2.setFromX(1);
+        stHideFront2.setToX(0);
+
+        ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), option1);
+        stShowBack2.setFromX(0);
+        stShowBack2.setToX(1);
+        
+        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                stShowBack2.play();
+                
+                
+            }
+        });
+        stHideFront2.play();
+        
+        try{Thread.sleep(500);}
+        catch(Exception f){}
+        return 1;
     }
     
     //Updates the factors sliding a rectangle up and down to simulate filling and emptying
@@ -163,8 +186,7 @@ public class tutorial {
         
         // groups for large rotation
         
-        Group front = new Group();
-        Group back = new Group();
+        
         
         
         //top left game mode
@@ -335,8 +357,11 @@ public class tutorial {
         option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
-            flipCard1(front, back);
-            flipCard1(back, front);
+            flipButton();
+            if(flipButton() == 1){
+                flipCard1(front, back);
+                flipCard1(back, front);
+            }
             day+=ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day "+day);
             idx++;
