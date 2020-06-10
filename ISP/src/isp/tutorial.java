@@ -44,6 +44,7 @@ import javafx.util.Duration;
  *  - June 7th, 2020; Updated by Ronald You
  *  - June 8th, 2020; Updated by Ronald You
  *  - June 9th, 2020; Updated by Ronald You
+ *  - June 10th, 2020; Updated by Ronald You
  */
 public class tutorial {
     public static int idx = 0, day=0;
@@ -62,7 +63,7 @@ public class tutorial {
     public static Group front = new Group();
     public static Group back = new Group();
     // plays out animation of card flipping
-    public static void flipCard1(Group front, Group back){
+    public static void flipCard(Group front, Group back){
         //flipButton(option1, option1back);
         //flipButton(option1back, option1);
         
@@ -125,44 +126,13 @@ public class tutorial {
         //seq4.play();
         stHideFront2.play();
     }
-    public static void flipCard2(Group front, Group back){
-        //flipButton(option2, option2back);
-        //flipButton(option2back, option2);
-        
-        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), front);
+    
+    public static int flipButton(Button frontb, Button backb){
+        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), frontb);
         stHideFront.setFromX(1);
         stHideFront.setToX(0);
 
-        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), back);
-        stShowBack.setFromX(0);
-        stShowBack.setToX(1);
-        
-        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
-                    factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
-                }
-                //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-                quest.relocate(397, ISP.TutEvents.get(idx).getY());
-                option1.setText(ISP.TutEvents.get(idx).answer1);
-                option2.setText(ISP.TutEvents.get(idx).answer2);
-                quest.setText(ISP.TutEvents.get(idx).question);
-                
-                //new PauseTransition(Duration.millis(20000),stShowBack);
-                //stShowBack.play();
-                updateMeters();
-                
-            }
-        });
-        stHideFront.play();
-    }
-    public static int flipButton(){
-        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), option1);
-        stHideFront.setFromX(1);
-        stHideFront.setToX(0);
-
-        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), option1back);
+        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), backb);
         stShowBack.setFromX(0);
         stShowBack.setToX(1);
         
@@ -176,11 +146,11 @@ public class tutorial {
         });
         stHideFront.play();
         
-        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), option1back);
+        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), backb);
         stHideFront2.setFromX(1);
         stHideFront2.setToX(0);
 
-        ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), option1);
+        ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), frontb);
         stShowBack2.setFromX(0);
         stShowBack2.setToX(1);
         
@@ -394,11 +364,10 @@ public class tutorial {
         option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
-            flipButton();
+            flipButton(option1,option1back);
+       
+            flipCard(front, back);
             
-            if(flipButton() == 1){
-                flipCard1(front, back);
-            }
             day+=ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day "+day);
             idx++;
@@ -419,8 +388,8 @@ public class tutorial {
         option2.setOnMouseExited(e -> option2.setStyle(IDLE_BUTTON_STYLE));
         option2.setOnMousePressed(e -> option2.setStyle(CLICKED_BUTTON_STYLE));
         option2.setOnAction(actionEvent -> {
-            flipCard2(front, back);
-            flipCard2(back, front);
+            flipButton(option2,option2back);
+            flipCard(front, back);
             day+=ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day "+day);
             idx++;
