@@ -62,7 +62,8 @@ public class tutorial {
     public static Button option2back = new Button("");
     public static Group front = new Group();
     public static Group back = new Group();
-    public static Group optionResults = new Group();
+    public static Group optionResults1 = new Group();
+    public static Group optionResults2 = new Group();
     // plays out animation of card flipping
     public static void flipCard(Group front, Group back){
         //flipButton(option1, option1back);
@@ -126,6 +127,7 @@ public class tutorial {
         //SequentialTransition  seq4 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stHideFront2);
         //seq4.play();
         stHideFront2.play();
+        
     }
     
     public static int flipButton(Button frontb, Button backb, Group optBack){
@@ -206,7 +208,9 @@ public class tutorial {
             }
         });
         stHideFront2.play();
-          
+        //try{Thread.sleep(500);}
+        //catch(Exception f){}
+        
         return 1;
     }
     
@@ -276,17 +280,17 @@ public class tutorial {
         Label ach2 = new Label (ISP.TutAch.get(1).question);
         Label ach3 = new Label (ISP.TutAch.get(2).question);
         
-        ach1.relocate(950,28);
+        ach1.relocate(948,32);
         ach1.setFont(new Font("Arial",18));
-        ach1.setTextFill(Color.web("#ffffff"));
+        ach1.setTextFill(Color.web("#ff9900"));
         
-        ach2.relocate(950,88);
+        ach2.relocate(948,92);
         ach2.setFont(new Font("Arial",18));
-        ach2.setTextFill(Color.web("#ffffff"));
+        ach2.setTextFill(Color.web("#ff9900"));
 
-        ach3.relocate(950,148);
+        ach3.relocate(948,152);
         ach3.setFont(new Font("Arial",18));
-        ach3.setTextFill(Color.web("#ffffff"));
+        ach3.setTextFill(Color.web("#ff9900"));
         
         ch.setImage(cb);
         ch.setFitWidth(37);
@@ -333,8 +337,8 @@ public class tutorial {
         bob3.relocate(883,138);
 
         root2.getChildren().add(ch);
-        root2.getChildren().add(ch2);
-        root2.getChildren().add(ch3);
+        //root2.getChildren().add(ch2);
+        //root2.getChildren().add(ch3);
         root2.getChildren().add(bob);
         root2.getChildren().add(bob2);
         root2.getChildren().add(bob3);
@@ -351,7 +355,15 @@ public class tutorial {
         optRect.setWidth(232); 
         optRect.setHeight(311); 
         optRect.setFill(qBlue);
-        root2.getChildren().add(optionResults);
+        root2.getChildren().add(optionResults1);
+        
+        Rectangle optRect2 = new Rectangle();  
+        optRect2.setX(611); 
+        optRect2.setY(291); 
+        optRect2.setWidth(232); 
+        optRect2.setHeight(311); 
+        optRect2.setFill(qBlue);
+        root2.getChildren().add(optionResults2);
         
         
                 
@@ -369,7 +381,8 @@ public class tutorial {
         back.getChildren().add(option1back);
         back.getChildren().add(option2back);
         //back.getChildren().add(optionResults);
-        front.getChildren().add(optionResults);
+        front.getChildren().add(optionResults1);
+        front.getChildren().add(optionResults2);
         
         quest = new Label(ISP.TutEvents.get(idx).question);
         quest.setFont(new Font("Monospaced",24));
@@ -395,7 +408,8 @@ public class tutorial {
         front.getChildren().add(option1);
         front.getChildren().add(option2);
         
-        optionResults.getChildren().add(optRect);
+        optionResults1.getChildren().add(optRect);
+        optionResults2.getChildren().add(optRect2);
         
         hr = new Rectangle(400, 0, 150, 10+100-factors[0]);
         mr = new Rectangle(600, 0, 150, 10+100-factors[1]);
@@ -437,15 +451,17 @@ public class tutorial {
         option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
-            flipButton(option1,option1back,optionResults);
+            option2.setDisable(true);
+            //option2.setDisable(false);
+            flipButton(option1,option1back,optionResults1);
        
             flipCard(front, back);
             
-            flipButtonBack(option1,option1back,optionResults);
-            
+            flipButtonBack(option1,option1back,optionResults1);
+            idx++;
             day+=ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day "+day);
-            idx++;
+            
             if (idx >= ISP.TutEvents.size()){
                     window.setScene(ISP.s0);
                     idx = 0;
@@ -453,7 +469,16 @@ public class tutorial {
                     factors[0] = 60;
                     factors[1] = 60;
             }
+           
             option1.setStyle(IDLE_BUTTON_STYLE);
+            
+            if(day == 1){
+                root2.getChildren().add(ch2);
+            }
+            if(idx == ISP.TutEvents.size()-1){
+                root2.getChildren().add(ch3);
+            }
+            
             
         });
         
@@ -463,8 +488,10 @@ public class tutorial {
         option2.setOnMouseExited(e -> option2.setStyle(IDLE_BUTTON_STYLE));
         option2.setOnMousePressed(e -> option2.setStyle(CLICKED_BUTTON_STYLE));
         option2.setOnAction(actionEvent -> {
-            flipButton(option2,option2back,optionResults);
+            flipButton(option2,option2back,optionResults2);
             flipCard(front, back);
+            
+            flipButtonBack(option2,option2back,optionResults2);
             day+=ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day "+day);
             idx++;
@@ -476,7 +503,12 @@ public class tutorial {
                 factors[1] = 60;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
-            
+            if(day == 1){
+                root2.getChildren().add(ch2);
+            }
+            if(day == 1){
+                root2.getChildren().add(ch2);
+            }
         });
     }
 }
