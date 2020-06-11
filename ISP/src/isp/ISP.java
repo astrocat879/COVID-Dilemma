@@ -24,14 +24,17 @@ import javafx.scene.layout.Pane;
  *Revision History:
  *  - May 25th, 2020: Created by Justin Zhu
  *  - May 27th, 2020: Updated by Justin Zhu
+ *  - June 10th, 2020: Updated by Ronald You
  * 
  */
 public class ISP extends Application {
     
     static Scene s0, s1, s2;
     public static ArrayList<Event> TutEvents = new ArrayList<Event>();
+    public static ArrayList<Achievement> TutAch = new ArrayList<Achievement>();
     @Override
     public void start(Stage primaryStage) throws Exception{
+        TutorialAchievements.generateAchievements();
         TutorialEvents.generateEvents();
         SelectLevel.run(primaryStage);
         tutorial.run(primaryStage);

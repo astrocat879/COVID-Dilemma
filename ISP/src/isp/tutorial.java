@@ -272,12 +272,29 @@ public class tutorial {
         ImageView ch = new ImageView();
         
         //achievement checkboxes
+        Label ach1 = new Label (ISP.TutAch.get(0).question);
+        Label ach2 = new Label (ISP.TutAch.get(1).question);
+        Label ach3 = new Label (ISP.TutAch.get(2).question);
+        
+        ach1.relocate(950,28);
+        ach1.setFont(new Font("Arial",18));
+        ach1.setTextFill(Color.web("#ffffff"));
+        
+        ach2.relocate(950,88);
+        ach2.setFont(new Font("Arial",18));
+        ach2.setTextFill(Color.web("#ffffff"));
+
+        ach3.relocate(950,148);
+        ach3.setFont(new Font("Arial",18));
+        ach3.setTextFill(Color.web("#ffffff"));
+        
         ch.setImage(cb);
         ch.setFitWidth(37);
         ch.setFitHeight(37);
         ch.setPreserveRatio(true);
         ch.setSmooth(true);
         ch.relocate(890,28);
+        
         ImageView ch2 = new ImageView();
         ch2.setImage(cb);
         ch2.setFitWidth(37);
@@ -321,6 +338,9 @@ public class tutorial {
         root2.getChildren().add(bob);
         root2.getChildren().add(bob2);
         root2.getChildren().add(bob3);
+        root2.getChildren().add(ach1);
+        root2.getChildren().add(ach2);
+        root2.getChildren().add(ach3);
         
         ISP.s2 = new Scene(root2, 1200, 750);
         

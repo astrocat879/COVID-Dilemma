@@ -13,7 +13,7 @@ import java.util.Arrays;
  *Revision History:
  *  - May 30th, 2020: Created by Justin Zhu
  *  - May 30th, 2020: Updated by Matthew Li
- *  - June 2st, 2020: Updated by Ronald You
+ *  - June 2nd, 2020: Updated by Ronald You
  * 
  */
 public class TutorialEvents {
