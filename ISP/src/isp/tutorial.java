@@ -458,12 +458,12 @@ public class tutorial {
             flipCard(front, back);
             
             flipButtonBack(option1,option1back,optionResults1);
-            idx++;
+            
             day+=ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day "+day);
-            
+            idx++;
             if (idx >= ISP.TutEvents.size()){
-                    window.setScene(ISP.s0);
+                    window.setScene(ISP.s3);
                     idx = 0;
                     day=0;
                     factors[0] = 60;
@@ -475,7 +475,7 @@ public class tutorial {
             if(day == 1){
                 root2.getChildren().add(ch2);
             }
-            if(idx == ISP.TutEvents.size()-1){
+            if(idx + 1== ISP.TutEvents.size()-1){
                 root2.getChildren().add(ch3);
             }
             
@@ -496,15 +496,15 @@ public class tutorial {
             daystatus.setText("Day "+day);
             idx++;
             if (idx >= ISP.TutEvents.size()){
-                window.setScene(ISP.s0);
+                window.setScene(ISP.s3);
                 idx = 0;
                 day=0;
                 factors[0] = 60;
                 factors[1] = 60;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
-            if(day == 1){
-                root2.getChildren().add(ch2);
+            if(idx +1 == ISP.TutEvents.size()-1){
+                root2.getChildren().add(ch3);
             }
             if(day == 1){
                 root2.getChildren().add(ch2);

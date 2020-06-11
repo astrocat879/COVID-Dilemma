@@ -29,7 +29,7 @@ import javafx.scene.layout.Pane;
  */
 public class ISP extends Application {
     
-    static Scene s0, s1, s2;
+    static Scene s0, s1, s2,s3;
     public static ArrayList<Event> TutEvents = new ArrayList<Event>();
     public static ArrayList<Achievement> TutAch = new ArrayList<Achievement>();
     @Override
@@ -39,6 +39,7 @@ public class ISP extends Application {
         SelectLevel.run(primaryStage);
         tutorial.run(primaryStage);
         MainMenu.run(primaryStage);
+        TutorialEnd.run(primaryStage);
         
     }
 
