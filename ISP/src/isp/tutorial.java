@@ -62,6 +62,7 @@ public class tutorial {
     public static Button option2back = new Button("");
     public static Group front = new Group();
     public static Group back = new Group();
+    public static Group optionResults = new Group();
     // plays out animation of card flipping
     public static void flipCard(Group front, Group back){
         //flipButton(option1, option1back);
@@ -86,14 +87,14 @@ public class tutorial {
                 option1.setText(ISP.TutEvents.get(idx).answer1);
                 option2.setText(ISP.TutEvents.get(idx).answer2);
                 quest.setText(ISP.TutEvents.get(idx).question);
-                SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack);
+                SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(3050)),stShowBack);
                 seq.play();
                 //stShowBack.play();
                 updateMeters();
                 
             }
         });
-        SequentialTransition  seq2 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stHideFront);
+        SequentialTransition  seq2 = new SequentialTransition(new PauseTransition(Duration.millis(3050)),stHideFront);
         seq2.play();
         //stHideFront.play();
         ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), back);
@@ -127,11 +128,12 @@ public class tutorial {
         stHideFront2.play();
     }
     
-    public static int flipButton(Button frontb, Button backb){
+    public static int flipButton(Button frontb, Button backb, Group optBack){
+       
         ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), frontb);
         stHideFront.setFromX(1);
         stHideFront.setToX(0);
-
+        
         ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), backb);
         stShowBack.setFromX(0);
         stShowBack.setToX(1);
@@ -146,7 +148,50 @@ public class tutorial {
         });
         stHideFront.play();
         
-        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), backb);
+        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), optBack);
+        stHideFront2.setFromX(1);
+        stHideFront2.setToX(0);
+
+        ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), optBack);
+        stShowBack2.setFromX(0);
+        stShowBack2.setToX(1);
+        
+        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                stShowBack2.play();
+            }
+        });
+        stHideFront2.play();
+          
+        return 1;
+    }
+    
+    public static int flipButtonBack(Button frontb, Button backb, Group optBack){
+        System.out.println("FRICK");
+        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), optBack);
+        stHideFront.setFromX(1);
+        stHideFront.setToX(0);
+        
+        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), backb);
+        stShowBack.setFromX(0);
+        stShowBack.setToX(1);
+        
+        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack);
+                seq.play();
+                //stShowBack.play();
+                
+                
+            }
+        });
+        SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stHideFront);
+        seq.play();
+        //stHideFront.play();
+        
+        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), frontb);
         stHideFront2.setFromX(1);
         stHideFront2.setToX(0);
 
@@ -158,14 +203,10 @@ public class tutorial {
             @Override
             public void handle(ActionEvent t) {
                 stShowBack2.play();
-                
-                
             }
         });
         stHideFront2.play();
           
-        //try{Thread.sleep(500);}
-        //catch(Exception f){}
         return 1;
     }
     
@@ -190,12 +231,7 @@ public class tutorial {
         factors[1] = 60;
         root2 = new Pane();
         
-        
-        // groups for large rotation
-        
-        
-        
-        
+       
         //top left game mode
         Label gameID = new Label ("Tutorial");
         gameID.setFont(new Font("Arial",18));
@@ -229,11 +265,13 @@ public class tutorial {
         front.getChildren().add(qRect);
         
         
-        
+        // importing images
         Image bg  = new Image("TutorialScreen.jpg");
         root2.getChildren().add(new ImageView(bg));
         Image cb = new Image("checkBox.png");
         ImageView ch = new ImageView();
+        
+        //achievement checkboxes
         ch.setImage(cb);
         ch.setFitWidth(37);
         ch.setFitHeight(37);
@@ -276,8 +314,7 @@ public class tutorial {
         bob3.setPreserveRatio(true);
         bob3.setSmooth(true);
         bob3.relocate(883,138);
-//        root2.getChildren().add(cardRect);
-//        root2.getChildren().add(qRect);
+
         root2.getChildren().add(ch);
         root2.getChildren().add(ch2);
         root2.getChildren().add(ch3);
@@ -287,20 +324,32 @@ public class tutorial {
         
         ISP.s2 = new Scene(root2, 1200, 750);
         
-                
         
+        Rectangle optRect = new Rectangle();  
+        optRect.setX(358); 
+        optRect.setY(291); 
+        optRect.setWidth(232); 
+        optRect.setHeight(311); 
+        optRect.setFill(qBlue);
+        root2.getChildren().add(optionResults);
+        
+        
+                
         option1back.wrapTextProperty().setValue(true);
         option2back.wrapTextProperty().setValue(true);
         option1back.relocate(358, 291);
         option2back.relocate(611, 291);
         option1back.setPrefSize(232, 311);
         option2back.setPrefSize(232, 311);
+        
         root2.getChildren().add(option1back);
         root2.getChildren().add(option2back);
         option1back.setScaleX(0);
         option2back.setScaleX(0);
         back.getChildren().add(option1back);
         back.getChildren().add(option2back);
+        //back.getChildren().add(optionResults);
+        front.getChildren().add(optionResults);
         
         quest = new Label(ISP.TutEvents.get(idx).question);
         quest.setFont(new Font("Monospaced",24));
@@ -325,6 +374,8 @@ public class tutorial {
         back.getChildren().add(option2);
         front.getChildren().add(option1);
         front.getChildren().add(option2);
+        
+        optionResults.getChildren().add(optRect);
         
         hr = new Rectangle(400, 0, 150, 10+100-factors[0]);
         mr = new Rectangle(600, 0, 150, 10+100-factors[1]);
@@ -355,18 +406,22 @@ public class tutorial {
         });
         root2.getChildren().add(b);
         
+        
         root2.getChildren().add(back);
+        
         root2.getChildren().add(front);
-
+        
         
         option1.setStyle(IDLE_BUTTON_STYLE);
         option1.setOnMouseEntered(e -> option1.setStyle(HOVERED_BUTTON_STYLE));
         option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
-            flipButton(option1,option1back);
+            flipButton(option1,option1back,optionResults);
        
             flipCard(front, back);
+            
+            flipButtonBack(option1,option1back,optionResults);
             
             day+=ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day "+day);
@@ -388,7 +443,7 @@ public class tutorial {
         option2.setOnMouseExited(e -> option2.setStyle(IDLE_BUTTON_STYLE));
         option2.setOnMousePressed(e -> option2.setStyle(CLICKED_BUTTON_STYLE));
         option2.setOnAction(actionEvent -> {
-            flipButton(option2,option2back);
+            flipButton(option2,option2back,optionResults);
             flipCard(front, back);
             day+=ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day "+day);
