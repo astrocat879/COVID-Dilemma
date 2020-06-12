@@ -45,6 +45,7 @@ import javafx.util.Duration;
  *  - June 8th, 2020; Updated by Ronald You
  *  - June 9th, 2020; Updated by Ronald You
  *  - June 10th, 2020; Updated by Ronald You
+ *  - June 11th, 2020; Updated by Ronald You
  */
 public class tutorial {
     public static int idx = 0, day=0;
@@ -64,8 +65,10 @@ public class tutorial {
     public static Group back = new Group();
     public static Group optionResults1 = new Group();
     public static Group optionResults2 = new Group();
+    public static ImageView ch3 = new ImageView();
     // plays out animation of card flipping
     public static void flipCard(Group front, Group back){
+        
         //flipButton(option1, option1back);
         //flipButton(option1back, option1);
         
@@ -88,6 +91,9 @@ public class tutorial {
                 option1.setText(ISP.TutEvents.get(idx).answer1);
                 option2.setText(ISP.TutEvents.get(idx).answer2);
                 quest.setText(ISP.TutEvents.get(idx).question);
+                if(idx + 1== ISP.TutEvents.size()){
+                    root2.getChildren().add(ch3);
+                }
                 SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(3050)),stShowBack);
                 seq.play();
                 //stShowBack.play();
@@ -119,8 +125,13 @@ public class tutorial {
                 quest.setText(ISP.TutEvents.get(idx).question);
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
                 //seq3.play();
+                //if(idx + 1== ISP.TutEvents.size()){
+                    //root2.getChildren().add(ch3);
+                //}
                 stShowBack2.play();
                 updateMeters();
+                option2.setDisable(false);
+                option1.setDisable(false);
                 
             }
         });
@@ -130,8 +141,9 @@ public class tutorial {
         
     }
     
-    public static int flipButton(Button frontb, Button backb, Group optBack){
-       
+    public static void flipButton(Button frontb, Button backb, Group optBack){
+        option1.setDisable(true);
+        option2.setDisable(true);
         ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), frontb);
         stHideFront.setFromX(1);
         stHideFront.setToX(0);
@@ -166,7 +178,7 @@ public class tutorial {
         });
         stHideFront2.play();
           
-        return 1;
+        //return 1;
     }
     
     public static int flipButtonBack(Button frontb, Button backb, Group optBack){
@@ -205,6 +217,7 @@ public class tutorial {
             @Override
             public void handle(ActionEvent t) {
                 stShowBack2.play();
+                
             }
         });
         stHideFront2.play();
@@ -451,8 +464,6 @@ public class tutorial {
         option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
-            option2.setDisable(true);
-            //option2.setDisable(false);
             flipButton(option1,option1back,optionResults1);
        
             flipCard(front, back);
@@ -471,13 +482,13 @@ public class tutorial {
             }
            
             option1.setStyle(IDLE_BUTTON_STYLE);
-            
+            //if(idx > 1){
+                 //option2.setDisable(false);
+            //}
             if(day == 1){
                 root2.getChildren().add(ch2);
             }
-            if(idx + 1== ISP.TutEvents.size()-1){
-                root2.getChildren().add(ch3);
-            }
+            
             
             
         });
