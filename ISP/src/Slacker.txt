@@ -1,5 +1,0 @@
-DoTutorial true
-GetGood false
-BeGay true
-BeLoved false
-NightcoreForLife true
