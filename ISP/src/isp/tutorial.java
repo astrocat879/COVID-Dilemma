@@ -46,6 +46,7 @@ import javafx.util.Duration;
  *  - June 9th, 2020; Updated by Ronald You
  *  - June 10th, 2020; Updated by Ronald You
  *  - June 11th, 2020; Updated by Ronald You
+ *  - June 12th, 2020; Updated by Justin Zhu
  */
 public class tutorial {
     public static int idx = 0, day=0;
@@ -163,12 +164,24 @@ public class tutorial {
                 SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(3050)),stShowBack);
                 seq.play();
                 //stShowBack.play();
+                
                 updateMeters();
                 
             }
         });
         SequentialTransition  seq2 = new SequentialTransition(new PauseTransition(Duration.millis(3050)),stHideFront);
         seq2.play();
+        
+        for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
+                    Label text = new Label("");
+                    if (ISP.TutEvents.get(idx).amount1[i] > 0)
+                        text.setText("+"+ISP.TutEvents.get(idx).amount1[i]);
+                    else
+                        text.setText("-"+(-ISP.TutEvents.get(idx).amount1[i]));
+                    text.relocate(380, 300);
+                    optionResults1.getChildren().add(text);
+                }
+        
         //stHideFront.play();
         ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), back);
         stHideFront2.setFromX(1);
@@ -248,7 +261,6 @@ public class tutorial {
     }
     
     public static int flipButtonBack(Button frontb, Button backb, Group optBack){
-        System.out.println("FRICK");
         ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), optBack);
         stHideFront.setFromX(1);
         stHideFront.setToX(0);
@@ -434,7 +446,7 @@ public class tutorial {
         optRect.setWidth(232); 
         optRect.setHeight(311); 
         optRect.setFill(qBlue);
-        root2.getChildren().add(optionResults1);
+//        root2.getChildren().add(optionResults1);
         
         Rectangle optRect2 = new Rectangle();  
         optRect2.setX(611); 
@@ -442,7 +454,7 @@ public class tutorial {
         optRect2.setWidth(232); 
         optRect2.setHeight(311); 
         optRect2.setFill(qBlue);
-        root2.getChildren().add(optionResults2);
+//        root2.getChildren().add(optionResults2);
         
         
                 
@@ -460,8 +472,8 @@ public class tutorial {
         back.getChildren().add(option1back);
         back.getChildren().add(option2back);
         //back.getChildren().add(optionResults);
-        front.getChildren().add(optionResults1);
-        front.getChildren().add(optionResults2);
+//        front.getChildren().add(optionResults1);
+//        front.getChildren().add(optionResults2);
         
         quest = new Label(ISP.TutEvents.get(idx).question);
         quest.setFont(new Font("Monospaced",24));
@@ -524,6 +536,9 @@ public class tutorial {
         
         root2.getChildren().add(front);
         
+//        Label z = new Label("hEllo");
+//        z.relocate(370, 300);
+//        optionResults1.getChildren().add(z);
         
         option1.setStyle(IDLE_BUTTON_STYLE);
         option1.setOnMouseEntered(e -> option1.setStyle(HOVERED_BUTTON_STYLE));
@@ -536,6 +551,7 @@ public class tutorial {
                 flipCard(front, back);
 
                 flipButtonBack(option1,option1back,optionResults1);
+
             }
             else{
                 flipCard2(front, back);
@@ -575,6 +591,7 @@ public class tutorial {
                 flipCard(front, back);
 
                 flipButtonBack(option2,option2back,optionResults2);
+                
             }
             else{
                 flipCard2(front, back);
