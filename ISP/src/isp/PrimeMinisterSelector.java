@@ -11,13 +11,13 @@ package isp;
  */
 import java.util.*;
 public class PrimeMinisterSelector {
-    ArrayList<Event> events;
-    ArrayList<Boolean> use;
+    public static ArrayList<Event> events;
+    public static ArrayList<Boolean> use;
     public PrimeMinisterSelector(){
         events = new ArrayList<>();
         use = new ArrayList<>();
     }
-    public void add(Event ee){
+    public static void add(Event ee){
         events.add(ee);
         use.add(false);
     }

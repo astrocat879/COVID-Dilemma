@@ -10,14 +10,14 @@ package isp;
  * @author hewmatt
  */
 import java.util.*;
-public class CivilianSelector {
-    ArrayList<Event> events;
-    ArrayList<Boolean> use;
-    public CivilianSelector(){
+public class FamilySelector {
+    public static ArrayList<Event> events;
+    public static ArrayList<Boolean> use;
+    public FamilySelector(){
         events = new ArrayList<>();
         use = new ArrayList<>();
     }
-    public void add(Event ee){
+    public static void add(Event ee){
         events.add(ee);
         use.add(false);
     }

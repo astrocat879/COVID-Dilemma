@@ -32,6 +32,7 @@ public class ISP extends Application {
     
     static Scene s0, s1, s2,s3,s4,s5, end;
     public static ArrayList<Event> TutEvents = new ArrayList<Event>();
+    public static ArrayList<Event> PMEvents = new ArrayList<Event>();
     public static ArrayList<Achievement> TutAch = new ArrayList<Achievement>();
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -44,6 +45,8 @@ public class ISP extends Application {
         TutorialEnd.run(primaryStage);
         PrimeMinister.run(primaryStage);
         Family.run(primaryStage);
+        PrimeMinisterEvents.generateEvents();
+        FamilyEvents.generateEvents();
         
     }
 
