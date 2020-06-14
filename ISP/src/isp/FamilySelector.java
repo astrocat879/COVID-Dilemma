@@ -11,36 +11,30 @@ package isp;
  */
 import java.util.*;
 public class FamilySelector {
-    public static ArrayList<Event> events;
-    public static ArrayList<Boolean> use;
-    public FamilySelector(){
-        events = new ArrayList<>();
-        use = new ArrayList<>();
-    }
     public static void add(Event ee){
-        events.add(ee);
-        use.add(false);
+        ISP.FEvents.add(ee);
+        ISP.FUsed.add(false);
     }
     public int select(){
         boolean has = false;
-        for(int i = 0;i<use.size();i++){
-            if(use.get(i) == true){
+        for(int i = 0;i<ISP.FUsed.size();i++){
+            if(ISP.FUsed.get(i) == true){
                 has = true;
                 break;
             }
         }
         if(!has)return -1;
         while(true){
-            int id = (int)(Math.random()*(events.size()));
-            if(use.get(id) == false){
+            int id = (int)(Math.random()*(ISP.FEvents.size()));
+            if(ISP.FUsed.get(id) == false){
                 return id;
             }
         }
     }
     public Event getEvent(int id){
-        return events.get(id);
+        return ISP.FEvents.get(id);
     }
     public void complete(int id){
-        use.set(id,true);
+        ISP.FUsed.set(id,true);
     }
 }

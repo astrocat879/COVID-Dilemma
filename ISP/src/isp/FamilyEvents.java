@@ -25,13 +25,7 @@ public class FamilyEvents{
         FamilySelector.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Your daughter wants to go hang out with friends","Don’t let her","Let her",155, 0));
         FamilySelector.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Your children aren’t doing homework","Let them chill","Force them by taking away their video games",155, 0));
         FamilySelector.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Gyms have closed down","Buy expensive equipment ","Force them by taking away their video games",155, 0));
-        
-        
-        
-        
-        
-        
-        
+       
     }
     
     
