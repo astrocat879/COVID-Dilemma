@@ -37,7 +37,7 @@ public class TutorialEnd {
         
         
         Button b = new Button("Continue");
-        b.relocate(1075,715);
+        b.relocate(1100,715);
         b.setStyle(b_IDLE_BUTTON_STYLE);
         b.setOnMouseEntered(e -> b.setStyle(b_HOVERED_BUTTON_STYLE));
         b.setOnMouseExited(e -> b.setStyle(b_IDLE_BUTTON_STYLE));

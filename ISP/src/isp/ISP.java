@@ -25,11 +25,12 @@ import javafx.scene.layout.Pane;
  *  - May 25th, 2020: Created by Justin Zhu
  *  - May 27th, 2020: Updated by Justin Zhu
  *  - June 10th, 2020: Updated by Ronald You
+ *  - June 14th, 2020; Updated by Ronald You
  * 
  */
 public class ISP extends Application {
     
-    static Scene s0, s1, s2,s3;
+    static Scene s0, s1, s2,s3,s4,s5;
     public static ArrayList<Event> TutEvents = new ArrayList<Event>();
     public static ArrayList<Achievement> TutAch = new ArrayList<Achievement>();
     @Override
@@ -40,6 +41,8 @@ public class ISP extends Application {
         tutorial.run(primaryStage);
         MainMenu.run(primaryStage);
         TutorialEnd.run(primaryStage);
+        PrimeMinister.run(primaryStage);
+        Family.run(primaryStage);
         
     }
 

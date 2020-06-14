@@ -69,7 +69,7 @@ public class SelectLevel {
             try{Thread.sleep(100);}
             catch(Exception f){}
             System.out.println("Prime Minister Mode Selected");
-            //window.setScene(/**/);
+            window.setScene(ISP.s4);
         });
         civilian = new Button("Civilian");
         civilian.relocate(413,599);
@@ -82,7 +82,7 @@ public class SelectLevel {
             try{Thread.sleep(100);}
             catch(Exception f){}
             System.out.println("Civilian Mode Selected");
-            //window.setScene(/**/);
+            window.setScene(ISP.s5);
         });
         root3.getChildren().add(tut);
         root3.getChildren().add(primeMinister);
