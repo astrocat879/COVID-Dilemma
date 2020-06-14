@@ -22,6 +22,14 @@ public class CivilianSelector {
         use.add(false);
     }
     public int select(){
+        boolean has = false;
+        for(int i = 0;i<use.size();i++){
+            if(use.get(i) == true){
+                has = true;
+                break;
+            }
+        }
+        if(!has)return -1;
         while(true){
             int id = (int)(Math.random()*(events.size()));
             if(use.get(id) == false){
