@@ -99,7 +99,7 @@ public class tutorial {
                     factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
                 }
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
-                idx++;
+                //idx++;
                 if (idx >= ISP.TutEvents.size()) {
                     root2.getChildren().add(ch3);
                 }
@@ -176,7 +176,7 @@ public class tutorial {
                     factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
                 }
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
-                idx++;
+                //idx++;
                 if (idx >= ISP.TutEvents.size()) {
                     root2.getChildren().add(ch3);
                 }
@@ -551,7 +551,7 @@ public class tutorial {
             flipCard(front, back);
             day += ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day " + day);
-            
+            idx++;
             if (idx >= ISP.TutEvents.size()) {
                 window.setScene(ISP.s3);
                 idx = 0;
