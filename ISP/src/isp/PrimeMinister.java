@@ -32,8 +32,8 @@ import javafx.util.Duration;
  */
 public class PrimeMinister{
     public static int idx = 0, day=0;
-    public static int [] factors = new int [2];
-    public static Rectangle hr, mr;
+    public static int [] factors = new int [3];
+    public static Rectangle hr, mr, ar;
     public static Pane root2;
     public static Color qOrg = Color.rgb(230, 145, 56);
     public static Color red = Color.rgb(204, 65, 37);
@@ -291,6 +291,7 @@ public class PrimeMinister{
     public static void updateMeters(){
         hr.setHeight(10+100-factors[0]);
         mr.setHeight(10+100-factors[1]);
+        ar.setHeight(10+100-factors[2]);
     }
     public static void run(Stage window){
         //styles of the buttons
@@ -306,6 +307,7 @@ public class PrimeMinister{
         idx = 0;
         factors[0] = 60;
         factors[1] = 60;
+        factors[2] = 60;
         root2 = new Pane();
         
        
@@ -483,13 +485,15 @@ public class PrimeMinister{
         optionResults1.getChildren().add(optRect);
         optionResults2.getChildren().add(optRect2);
         
-        hr = new Rectangle(400, 0, 150, 10+100-factors[0]);
-        mr = new Rectangle(600, 0, 150, 10+100-factors[1]);
+        hr = new Rectangle(500, 0, 150, 10+100-factors[1]);
+        mr = new Rectangle(700, 0, 150, 10+100-factors[2]);
+        ar = new Rectangle(350, 0, 150, 10+100-factors[0]);
         hr.setFill(Color.valueOf("#9c9c9c"));
         mr.setFill(Color.valueOf("#9c9c9c"));
-        root2.getChildren().addAll(hr, mr);
+        ar.setFill(Color.valueOf("#9c9c9c"));
+        root2.getChildren().addAll(hr, mr, ar);
         
-        Image topbar  = new Image("TutorialTopBar.png");
+        Image topbar  = new Image("PMTopBar.png");
         root2.getChildren().add(new ImageView(topbar));
         
                 
