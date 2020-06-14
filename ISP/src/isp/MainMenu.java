@@ -50,7 +50,7 @@ public class MainMenu {
             System.out.println("Start");
             window.setScene(ISP.s1);
         });
-        //tutorial button
+        //achievements button
         at = new Button("Achievements");
         at.relocate(413,447);
         at.setPrefSize(375, 91);
@@ -63,7 +63,7 @@ public class MainMenu {
             try{Thread.sleep(100);}
             catch(Exception f){}
             System.out.println("Achievements");
-            window.setScene(ISP.s2);
+            window.setScene(ISP.end);
         });
         //quit button
         quit = new Button("Quit");

@@ -30,11 +30,12 @@ import javafx.scene.layout.Pane;
  */
 public class ISP extends Application {
     
-    static Scene s0, s1, s2,s3,s4,s5;
+    static Scene s0, s1, s2,s3,s4,s5, end;
     public static ArrayList<Event> TutEvents = new ArrayList<Event>();
     public static ArrayList<Achievement> TutAch = new ArrayList<Achievement>();
     @Override
     public void start(Stage primaryStage) throws Exception{
+        End.run(primaryStage);
         TutorialAchievements.generateAchievements();
         TutorialEvents.generateEvents();
         SelectLevel.run(primaryStage);
