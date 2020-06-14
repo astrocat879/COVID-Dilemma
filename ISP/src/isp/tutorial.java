@@ -95,11 +95,12 @@ public class tutorial {
         stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                for (int i = 0; i < ISP.TutEvents.get(idx).factor2.length; i++) {
-                    factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
-                }
+                if (idx < ISP.TutEvents.size())
+                    for (int i = 0; i < ISP.TutEvents.get(idx).factor2.length; i++) {
+                        factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
+                    }
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
-                //idx++;
+                idx++;
                 if (idx >= ISP.TutEvents.size()) {
                     root2.getChildren().add(ch3);
                 }
@@ -172,11 +173,12 @@ public class tutorial {
                 //if(idx + 1== ISP.TutEvents.size()){
                 //root2.getChildren().add(ch3);
                 //}
-                for (int i = 0; i < ISP.TutEvents.get(idx).factor1.length; i++) {
-                    factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
-                }
+                if (idx < ISP.TutEvents.size())
+                    for (int i = 0; i < ISP.TutEvents.get(idx).factor1.length; i++) {
+                        factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
+                    }
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
-                //idx++;
+                idx++;
                 if (idx >= ISP.TutEvents.size()) {
                     root2.getChildren().add(ch3);
                 }
@@ -549,10 +551,10 @@ public class tutorial {
 //            quest.setText(ISP.TutEvents.get(idx).question);
 //            updateMeters();
             flipCard(front, back);
-            day += ISP.TutEvents.get(idx).getDays();
+            if (idx < ISP.TutEvents.size())day += ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day " + day);
-            idx++;
-            if (idx >= ISP.TutEvents.size()) {
+//            idx++;
+            if (idx+1 >= ISP.TutEvents.size()) {
                 window.setScene(ISP.s3);
                 idx = 0;
                 day = 0;
@@ -603,10 +605,11 @@ public class tutorial {
 
 //            }
             flipCard2(front, back);
-            day += ISP.TutEvents.get(idx).getDays();
+            if (idx < ISP.TutEvents.size())
+                day += ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day " + day);
             
-            if (idx >= ISP.TutEvents.size()) {
+            if (idx+1 >= ISP.TutEvents.size()) {
                 window.setScene(ISP.s3);
                 idx = 0;
                 day = 0;
