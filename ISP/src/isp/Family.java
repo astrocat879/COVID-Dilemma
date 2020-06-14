@@ -49,8 +49,8 @@ public class Family{
     public static Group optionResults1 = new Group();
     public static Group optionResults2 = new Group();
     public static ImageView ch3 = new ImageView();
-    public static void flipCard2(Group front, Group back){
-    
+    public static void flipCard2(Group front, Group back) {
+
         ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), front);
         stHideFront.setFromX(1);
         stHideFront.setToX(0);
@@ -58,24 +58,15 @@ public class Family{
         ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), back);
         stShowBack.setFromX(0);
         stShowBack.setToX(1);
-        
+
         stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
-                    factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
-                }
-                //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-                quest.relocate(397, ISP.TutEvents.get(idx).getY());
-                option1.setText(ISP.TutEvents.get(idx).answer1);
-                option2.setText(ISP.TutEvents.get(idx).answer2);
-                quest.setText(ISP.TutEvents.get(idx).question);
-                if(idx + 1== ISP.TutEvents.size()){
-                    root2.getChildren().add(ch3);
-                }
+
+//                SequentialTransition seq = new SequentialTransition(new PauseTransition(Duration.millis(3050)), stShowBack);
+//                seq.play();
                 stShowBack.play();
-                updateMeters();
-                
+
             }
         });
         stHideFront.play();
@@ -86,41 +77,50 @@ public class Family{
         ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), front);
         stShowBack2.setFromX(0);
         stShowBack2.setToX(1);
-        
+
         stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
-                    factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
+                if (idx < ISP.TutEvents.size())
+                    for (int i = 0; i < ISP.TutEvents.get(idx).factor2.length; i++) {
+                        factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
+                    }
+                System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
+                updateMeters();
+                idx++;
+                if (idx >= ISP.TutEvents.size()) {
+                    root2.getChildren().add(ch3);
                 }
-                //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-                quest.relocate(397, ISP.TutEvents.get(idx).getY());
-                option1.setText(ISP.TutEvents.get(idx).answer1);
-                option2.setText(ISP.TutEvents.get(idx).answer2);
-                quest.setText(ISP.TutEvents.get(idx).question);
+                else{
+                    quest.relocate(397, ISP.TutEvents.get(idx).getY());
+                    option1.setText(ISP.TutEvents.get(idx).answer1);
+                    option2.setText(ISP.TutEvents.get(idx).answer2);
+                    quest.setText(ISP.TutEvents.get(idx).question);
+                }
+                
+                //updateMeters();
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
                 //seq3.play();
                 //if(idx + 1== ISP.TutEvents.size()){
-                    //root2.getChildren().add(ch3);
+                //root2.getChildren().add(ch3);
                 //}
                 stShowBack2.play();
-                updateMeters();
-                option2.setDisable(false);
-                option1.setDisable(false);
-                
+//                option2.setDisable(false);
+//                option1.setDisable(false);
+
             }
         });
         //SequentialTransition  seq4 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stHideFront2);
         //seq4.play();
         stHideFront2.play();
-        
+
     }
+
     // plays out animation of card flipping
-    public static void flipCard(Group front, Group back){
-        
+    public static void flipCard(Group front, Group back) {
+
         //flipButton(option1, option1back);
         //flipButton(option1back, option1);
-        
         ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), front);
         stHideFront.setFromX(1);
         stHideFront.setToX(0);
@@ -128,43 +128,22 @@ public class Family{
         ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), back);
         stShowBack.setFromX(0);
         stShowBack.setToX(1);
-        
+
         stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
-                    factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
-                }
-                //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-                quest.relocate(397, ISP.TutEvents.get(idx).getY());
-                option1.setText(ISP.TutEvents.get(idx).answer1);
-                option2.setText(ISP.TutEvents.get(idx).answer2);
-                quest.setText(ISP.TutEvents.get(idx).question);
-                if(idx + 1== ISP.TutEvents.size()){
-                    root2.getChildren().add(ch3);
-                }
-                SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(3050)),stShowBack);
-                seq.play();
-                //stShowBack.play();
-                
-                updateMeters();
-                
+
+//                SequentialTransition seq = new SequentialTransition(new PauseTransition(Duration.millis(3050)), stShowBack);
+//                seq.play();
+                stShowBack.play();
+
+
             }
         });
-        SequentialTransition  seq2 = new SequentialTransition(new PauseTransition(Duration.millis(3050)),stHideFront);
-        seq2.play();
-        
-        for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
-                    Label text = new Label("");
-                    if (ISP.TutEvents.get(idx).amount1[i] > 0)
-                        text.setText("+"+ISP.TutEvents.get(idx).amount1[i]);
-                    else
-                        text.setText("-"+(-ISP.TutEvents.get(idx).amount1[i]));
-                    text.relocate(380, 300);
-                    optionResults1.getChildren().add(text);
-                }
-        
-        //stHideFront.play();
+//        SequentialTransition seq2 = new SequentialTransition(new PauseTransition(Duration.millis(3050)), stHideFront);
+//        seq2.play();
+
+        stHideFront.play();
         ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), back);
         stHideFront2.setFromX(1);
         stHideFront2.setToX(0);
@@ -172,120 +151,129 @@ public class Family{
         ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), front);
         stShowBack2.setFromX(0);
         stShowBack2.setToX(1);
-        
+
         stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
-                    factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
-                }
-                //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-                quest.relocate(397, ISP.TutEvents.get(idx).getY());
-                option1.setText(ISP.TutEvents.get(idx).answer1);
-                option2.setText(ISP.TutEvents.get(idx).answer2);
-                quest.setText(ISP.TutEvents.get(idx).question);
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
                 //seq3.play();
                 //if(idx + 1== ISP.TutEvents.size()){
-                    //root2.getChildren().add(ch3);
+                //root2.getChildren().add(ch3);
                 //}
-                stShowBack2.play();
+                if (idx < ISP.TutEvents.size())
+                    for (int i = 0; i < ISP.TutEvents.get(idx).factor1.length; i++) {
+                        factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
+                    }
                 updateMeters();
-                option2.setDisable(false);
-                option1.setDisable(false);
+                System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
+                idx++;
+                if (idx >= ISP.TutEvents.size()) {
+                    root2.getChildren().add(ch3);
+                }
+                else{
+                    quest.relocate(397, ISP.TutEvents.get(idx).getY());
+                    option1.setText(ISP.TutEvents.get(idx).answer1);
+                    option2.setText(ISP.TutEvents.get(idx).answer2);
+                    quest.setText(ISP.TutEvents.get(idx).question);
+                }
                 
+                //updateMeters();
+                stShowBack2.play();
+//                option2.setDisable(false);
+//                option1.setDisable(false);
+
             }
         });
         //SequentialTransition  seq4 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stHideFront2);
         //seq4.play();
         stHideFront2.play();
-        
+
     }
     
-    public static void flipButton(Button frontb, Button backb, Group optBack){
-        option1.setDisable(true);
-        option2.setDisable(true);
-        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), frontb);
-        stHideFront.setFromX(1);
-        stHideFront.setToX(0);
-        
-        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), backb);
-        stShowBack.setFromX(0);
-        stShowBack.setToX(1);
-        
-        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                stShowBack.play();
-                
-                
-            }
-        });
-        stHideFront.play();
-        
-        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), optBack);
-        stHideFront2.setFromX(1);
-        stHideFront2.setToX(0);
-
-        ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), optBack);
-        stShowBack2.setFromX(0);
-        stShowBack2.setToX(1);
-        
-        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                stShowBack2.play();
-            }
-        });
-        stHideFront2.play();
-          
-        //return 1;
-    }
-    
-    public static int flipButtonBack(Button frontb, Button backb, Group optBack){
-        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), optBack);
-        stHideFront.setFromX(1);
-        stHideFront.setToX(0);
-        
-        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), backb);
-        stShowBack.setFromX(0);
-        stShowBack.setToX(1);
-        
-        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack);
-                seq.play();
-                //stShowBack.play();
-                
-                
-            }
-        });
-        SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stHideFront);
-        seq.play();
-        //stHideFront.play();
-        
-        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), frontb);
-        stHideFront2.setFromX(1);
-        stHideFront2.setToX(0);
-
-        ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), frontb);
-        stShowBack2.setFromX(0);
-        stShowBack2.setToX(1);
-        
-        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                stShowBack2.play();
-                
-            }
-        });
-        stHideFront2.play();
-        //try{Thread.sleep(500);}
-        //catch(Exception f){}
-        
-        return 1;
-    }
+//    public static void flipButton(Button frontb, Button backb, Group optBack){
+//        option1.setDisable(true);
+//        option2.setDisable(true);
+//        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), frontb);
+//        stHideFront.setFromX(1);
+//        stHideFront.setToX(0);
+//        
+//        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), backb);
+//        stShowBack.setFromX(0);
+//        stShowBack.setToX(1);
+//        
+//        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent t) {
+//                stShowBack.play();
+//                
+//                
+//            }
+//        });
+//        stHideFront.play();
+//        
+//        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), optBack);
+//        stHideFront2.setFromX(1);
+//        stHideFront2.setToX(0);
+//
+//        ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), optBack);
+//        stShowBack2.setFromX(0);
+//        stShowBack2.setToX(1);
+//        
+//        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent t) {
+//                stShowBack2.play();
+//            }
+//        });
+//        stHideFront2.play();
+//          
+//        //return 1;
+//    }
+//    
+//    public static int flipButtonBack(Button frontb, Button backb, Group optBack){
+//        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), optBack);
+//        stHideFront.setFromX(1);
+//        stHideFront.setToX(0);
+//        
+//        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), backb);
+//        stShowBack.setFromX(0);
+//        stShowBack.setToX(1);
+//        
+//        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent t) {
+//                SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack);
+//                seq.play();
+//                //stShowBack.play();
+//                
+//                
+//            }
+//        });
+//        SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stHideFront);
+//        seq.play();
+//        //stHideFront.play();
+//        
+//        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), frontb);
+//        stHideFront2.setFromX(1);
+//        stHideFront2.setToX(0);
+//
+//        ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), frontb);
+//        stShowBack2.setFromX(0);
+//        stShowBack2.setToX(1);
+//        
+//        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent t) {
+//                stShowBack2.play();
+//                
+//            }
+//        });
+//        stHideFront2.play();
+//        //try{Thread.sleep(500);}
+//        //catch(Exception f){}
+//        
+//        return 1;
+//    }
     
     //Updates the factors sliding a rectangle up and down to simulate filling and emptying
     public static void updateMeters(){
@@ -533,77 +521,88 @@ public class Family{
         option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
-            if (ISP.TutEvents.get(idx).factor1.length > 0){
-                flipButton(option1,option1back,optionResults1);
-
-                flipCard(front, back);
-
-                flipButtonBack(option1,option1back,optionResults1);
-
+//            for (int i = 0; i < ISP.TutEvents.get(idx).factor1.length; i++) {
+//                factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
+//            }
+//            //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
+//            quest.relocate(397, ISP.TutEvents.get(idx).getY());
+//            option1.setText(ISP.TutEvents.get(idx).answer1);
+//            option2.setText(ISP.TutEvents.get(idx).answer2);
+//            quest.setText(ISP.TutEvents.get(idx).question);
+//            updateMeters();
+            flipCard(front, back);
+            if (idx < ISP.TutEvents.size())day += ISP.TutEvents.get(idx).getDays();
+            daystatus.setText("Day " + day);
+//            idx++;
+            if (idx+1 >= ISP.TutEvents.size()) {
+                window.setScene(ISP.s3);
+                idx = 0;
+                day = 0;
+                factors[0] = 60;
+                factors[1] = 60;
             }
-            else{
-                flipCard2(front, back);
-            }
+//            if (ISP.TutEvents.get(idx).factor1.length > 0) {
+////                flipButton(option1,option1back,optionResults1);
+//
+////                flipCard(front, back);
+//                flipCard(front, back);
+//
+////                flipButtonBack(option1,option1back,optionResults1);
+//            } else {
             
-            day+=ISP.TutEvents.get(idx).getDays();
-            daystatus.setText("Day "+day);
-            idx++;
-            if (idx >= ISP.TutEvents.size()){
-                    window.setScene(ISP.s3);
-                    idx = 0;
-                    day=0;
-                    factors[0] = 60;
-                    factors[1] = 60;
-            }
-           
+//            }
             option1.setStyle(IDLE_BUTTON_STYLE);
             //if(idx > 1){
-                 //option2.setDisable(false);
+            //option2.setDisable(false);
             //}
-            if(day == 1){
+            if (day == 1) {
                 root2.getChildren().add(ch2);
             }
-            
-            
-            
+            updateMeters();
+
         });
-        
-        
+
         option2.setStyle(IDLE_BUTTON_STYLE);
         option2.setOnMouseEntered(e -> option2.setStyle(HOVERED_BUTTON_STYLE));
         option2.setOnMouseExited(e -> option2.setStyle(IDLE_BUTTON_STYLE));
         option2.setOnMousePressed(e -> option2.setStyle(CLICKED_BUTTON_STYLE));
         option2.setOnAction(actionEvent -> {
-            if (ISP.TutEvents.get(idx).factor2.length > 0){
-                flipButton(option2,option2back,optionResults2);
-                flipCard(front, back);
+//            for (int i = 0; i < ISP.TutEvents.get(idx).factor2.length; i++) {
+//                factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
+//            }
+//            //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
+//            quest.relocate(397, ISP.TutEvents.get(idx).getY());
+//            option1.setText(ISP.TutEvents.get(idx).answer1);
+//            option2.setText(ISP.TutEvents.get(idx).answer2);
+//            quest.setText(ISP.TutEvents.get(idx).question);
+//            updateMeters();
+//            if (ISP.TutEvents.get(idx).factor2.length > 0) {
+////                flipButton(option2,option2back,optionResults2);
+//                flipCard2(front, back);
+//
+////                flipButtonBack(option2,option2back,optionResults2);
+//            } else {
 
-                flipButtonBack(option2,option2back,optionResults2);
-                
-            }
-            else{
-                flipCard2(front, back);
-            }
-            day+=ISP.TutEvents.get(idx).getDays();
-            daystatus.setText("Day "+day);
-            idx++;
-            if (idx >= ISP.TutEvents.size()){
+//            }
+            flipCard2(front, back);
+            if (idx < ISP.TutEvents.size())
+                day += ISP.TutEvents.get(idx).getDays();
+            daystatus.setText("Day " + day);
+            
+            if (idx+1 >= ISP.TutEvents.size()) {
                 window.setScene(ISP.s3);
                 idx = 0;
-                day=0;
+                day = 0;
                 factors[0] = 60;
                 factors[1] = 60;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
-            if(idx +1 == ISP.TutEvents.size()-1){
+            if (idx + 1 == ISP.TutEvents.size() - 1) {
                 root2.getChildren().add(ch3);
             }
-            if(day == 1){
+            if (day == 1) {
                 root2.getChildren().add(ch2);
             }
         });
     }
-   
-    
 }
-

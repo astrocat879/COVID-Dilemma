@@ -100,6 +100,7 @@ public class tutorial {
                         factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
                     }
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
+                updateMeters();
                 idx++;
                 if (idx >= ISP.TutEvents.size()) {
                     root2.getChildren().add(ch3);
@@ -177,6 +178,7 @@ public class tutorial {
                     for (int i = 0; i < ISP.TutEvents.get(idx).factor1.length; i++) {
                         factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
                     }
+                updateMeters();
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
                 idx++;
                 if (idx >= ISP.TutEvents.size()) {
