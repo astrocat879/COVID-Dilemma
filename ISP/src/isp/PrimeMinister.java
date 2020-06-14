@@ -600,6 +600,4 @@ public class PrimeMinister{
             }
         });
     }
-   
-    
 }
