@@ -110,7 +110,7 @@ public class tutorial {
                     quest.setText(ISP.TutEvents.get(idx).question);
                 }
                 
-                updateMeters();
+                //updateMeters();
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
                 //seq3.play();
                 //if(idx + 1== ISP.TutEvents.size()){
@@ -187,7 +187,7 @@ public class tutorial {
                     quest.setText(ISP.TutEvents.get(idx).question);
                 }
                 
-                updateMeters();
+                //updateMeters();
                 stShowBack2.play();
 //                option2.setDisable(false);
 //                option1.setDisable(false);
@@ -576,6 +576,7 @@ public class tutorial {
             if (day == 1) {
                 root2.getChildren().add(ch2);
             }
+            updateMeters();
 
         });
 
