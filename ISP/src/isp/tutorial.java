@@ -6,6 +6,7 @@
  */
 package isp;
 
+import java.util.ArrayList;
 import javafx.scene.shape.Rectangle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -55,7 +56,7 @@ public class tutorial {
     public static Pane root2;
     public static Color qBlue = Color.rgb(62, 135, 203);
     public static Color purp = Color.rgb(142, 124, 195);
-    public static Label quest;
+    public static Label quest, l, l2, l3, l4;
     public static Stage window;
     public static Button option1 = new Button(ISP.TutEvents.get(idx).answer1);
     public static Button option2 = new Button(ISP.TutEvents.get(idx).answer2);
@@ -150,6 +151,7 @@ public class tutorial {
         stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
+
                 for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
                     factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
                 }
@@ -172,20 +174,12 @@ public class tutorial {
         SequentialTransition  seq2 = new SequentialTransition(new PauseTransition(Duration.millis(3050)),stHideFront);
         seq2.play();
         
-        for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
-                    Label text = new Label("");
-                    if (ISP.TutEvents.get(idx).amount1[i] > 0)
-                        text.setText("+"+ISP.TutEvents.get(idx).amount1[i]);
-                    else
-                        text.setText("-"+(-ISP.TutEvents.get(idx).amount1[i]));
-                    text.relocate(380, 300);
-                    optionResults1.getChildren().add(text);
-                }
         
         //stHideFront.play();
         ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), back);
         stHideFront2.setFromX(1);
         stHideFront2.setToX(0);
+        
 
         ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), front);
         stShowBack2.setFromX(0);
@@ -194,6 +188,7 @@ public class tutorial {
         stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
+
                 for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
                     factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
                 }
@@ -248,11 +243,22 @@ public class tutorial {
         ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), optBack);
         stShowBack2.setFromX(0);
         stShowBack2.setToX(1);
-        
+        ArrayList<Label> tmp = new ArrayList<Label>();
         stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
+                for (int i=0;i<ISP.TutEvents.get(idx).factor1.length;i++){
+                    Label text = new Label("");
+                    if (ISP.TutEvents.get(idx).amount1[i] > 0)
+                        text.setText("+"+ISP.TutEvents.get(idx).amount1[i]);
+                    else
+                        text.setText("-"+(-ISP.TutEvents.get(idx).amount1[i]));
+                    text.relocate(380, 300);
+                    tmp.add(text);
+                    optionResults1.getChildren().add(text);
+                }
                 stShowBack2.play();
+                
             }
         });
         stHideFront2.play();
@@ -446,7 +452,7 @@ public class tutorial {
         optRect.setWidth(232); 
         optRect.setHeight(311); 
         optRect.setFill(qBlue);
-//        root2.getChildren().add(optionResults1);
+        root2.getChildren().add(optionResults1);
         
         Rectangle optRect2 = new Rectangle();  
         optRect2.setX(611); 
@@ -454,7 +460,7 @@ public class tutorial {
         optRect2.setWidth(232); 
         optRect2.setHeight(311); 
         optRect2.setFill(qBlue);
-//        root2.getChildren().add(optionResults2);
+        root2.getChildren().add(optionResults2);
         
         
                 
@@ -472,8 +478,8 @@ public class tutorial {
         back.getChildren().add(option1back);
         back.getChildren().add(option2back);
         //back.getChildren().add(optionResults);
-//        front.getChildren().add(optionResults1);
-//        front.getChildren().add(optionResults2);
+        front.getChildren().add(optionResults1);
+        front.getChildren().add(optionResults2);
         
         quest = new Label(ISP.TutEvents.get(idx).question);
         quest.setFont(new Font("Monospaced",24));
@@ -501,6 +507,18 @@ public class tutorial {
         
         optionResults1.getChildren().add(optRect);
         optionResults2.getChildren().add(optRect2);
+        
+        l = new Label("");
+        l2 = new Label("");
+        l.relocate(380, 320);
+        l2.relocate(380, 340);
+        optionResults1.getChildren().addAll(l, l2);
+        
+        l3 = new Label("");
+        l4 = new Label("");
+        l3.relocate(620, 320);
+        l4.relocate(620, 340);
+        optionResults2.getChildren().addAll(l3, l4);
         
         hr = new Rectangle(400, 0, 150, 10+100-factors[0]);
         mr = new Rectangle(600, 0, 150, 10+100-factors[1]);
@@ -546,11 +564,11 @@ public class tutorial {
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
             if (ISP.TutEvents.get(idx).factor1.length > 0){
-                flipButton(option1,option1back,optionResults1);
+//                flipButton(option1,option1back,optionResults1);
 
                 flipCard(front, back);
 
-                flipButtonBack(option1,option1back,optionResults1);
+//                flipButtonBack(option1,option1back,optionResults1);
 
             }
             else{
@@ -587,10 +605,10 @@ public class tutorial {
         option2.setOnMousePressed(e -> option2.setStyle(CLICKED_BUTTON_STYLE));
         option2.setOnAction(actionEvent -> {
             if (ISP.TutEvents.get(idx).factor2.length > 0){
-                flipButton(option2,option2back,optionResults2);
+//                flipButton(option2,option2back,optionResults2);
                 flipCard(front, back);
 
-                flipButtonBack(option2,option2back,optionResults2);
+//                flipButtonBack(option2,option2back,optionResults2);
                 
             }
             else{
