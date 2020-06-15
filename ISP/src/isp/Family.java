@@ -26,22 +26,22 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
- *Revision History:
- *  - June 14th, 2020: Created by Ronald You
- * 
+ * Revision History: - June 14th, 2020: Created by Ronald You
+ *
  */
-public class Family{
-    public static int idx = 0, day=0;
-    public static int [] factors = new int [4];
+public class Family {
+
+    public static int idx = 0, day = 0;
+    public static int[] factors = new int[4];
     public static Rectangle hr, mr, mhr, sr;
     public static Pane root2;
     public static Color qYel = Color.rgb(241, 194, 50);
     public static Color green = Color.rgb(147, 196, 125);
     public static Label quest;
     public static Stage window;
-    public static Button option1 = new Button(ISP.TutEvents.get(idx).answer1);
-    public static Button option2 = new Button(ISP.TutEvents.get(idx).answer2);
-    public static Label daystatus = new Label("Day "+day);
+    public static Button option1 = new Button(ISP.FEvents.get(idx).answer1);
+    public static Button option2 = new Button(ISP.FEvents.get(idx).answer2);
+    public static Label daystatus = new Label("Day " + day);
     public static Button option1back = new Button("");
     public static Button option2back = new Button("");
     public static Group front = new Group();
@@ -49,6 +49,7 @@ public class Family{
     public static Group optionResults1 = new Group();
     public static Group optionResults2 = new Group();
     public static ImageView ch3 = new ImageView();
+
     public static void flipCard2(Group front, Group back) {
 
         ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), front);
@@ -81,27 +82,27 @@ public class Family{
         stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                if (idx < ISP.TutEvents.size())
-                    for (int i = 0; i < ISP.TutEvents.get(idx).factor2.length; i++) {
-                        factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
+                if (idx < ISP.FEvents.size()) {
+                    for (int i = 0; i < ISP.FEvents.get(idx).factor2.length; i++) {
+                        factors[ISP.FEvents.get(idx).factor2[i]] += ISP.FEvents.get(idx).amount2[i];
                     }
+                }
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
                 updateMeters();
-                idx++;
-                if (idx >= ISP.TutEvents.size()) {
+                idx = FamilySelector.select();
+                if (idx >= ISP.FEvents.size()) {
                     root2.getChildren().add(ch3);
+                } else {
+                    quest.relocate(397, ISP.FEvents.get(idx).getY());
+                    option1.setText(ISP.FEvents.get(idx).answer1);
+                    option2.setText(ISP.FEvents.get(idx).answer2);
+                    quest.setText(ISP.FEvents.get(idx).question);
                 }
-                else{
-                    quest.relocate(397, ISP.TutEvents.get(idx).getY());
-                    option1.setText(ISP.TutEvents.get(idx).answer1);
-                    option2.setText(ISP.TutEvents.get(idx).answer2);
-                    quest.setText(ISP.TutEvents.get(idx).question);
-                }
-                
+
                 //updateMeters();
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
                 //seq3.play();
-                //if(idx + 1== ISP.TutEvents.size()){
+                //if(idx + 1== ISP.FEvents.size()){
                 //root2.getChildren().add(ch3);
                 //}
                 stShowBack2.play();
@@ -137,7 +138,6 @@ public class Family{
 //                seq.play();
                 stShowBack.play();
 
-
             }
         });
 //        SequentialTransition seq2 = new SequentialTransition(new PauseTransition(Duration.millis(3050)), stHideFront);
@@ -157,26 +157,26 @@ public class Family{
             public void handle(ActionEvent t) {
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
                 //seq3.play();
-                //if(idx + 1== ISP.TutEvents.size()){
+                //if(idx + 1== ISP.FEvents.size()){
                 //root2.getChildren().add(ch3);
                 //}
-                if (idx < ISP.TutEvents.size())
-                    for (int i = 0; i < ISP.TutEvents.get(idx).factor1.length; i++) {
-                        factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
+                if (idx < ISP.FEvents.size()) {
+                    for (int i = 0; i < ISP.FEvents.get(idx).factor1.length; i++) {
+                        factors[ISP.FEvents.get(idx).factor1[i]] += ISP.FEvents.get(idx).amount1[i];
                     }
+                }
                 updateMeters();
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
-                idx++;
-                if (idx >= ISP.TutEvents.size()) {
+                idx = FamilySelector.select();
+                if (idx >= ISP.FEvents.size()) {
                     root2.getChildren().add(ch3);
+                } else {
+                    quest.relocate(397, ISP.FEvents.get(idx).getY());
+                    option1.setText(ISP.FEvents.get(idx).answer1);
+                    option2.setText(ISP.FEvents.get(idx).answer2);
+                    quest.setText(ISP.FEvents.get(idx).question);
                 }
-                else{
-                    quest.relocate(397, ISP.TutEvents.get(idx).getY());
-                    option1.setText(ISP.TutEvents.get(idx).answer1);
-                    option2.setText(ISP.TutEvents.get(idx).answer2);
-                    quest.setText(ISP.TutEvents.get(idx).question);
-                }
-                
+
                 //updateMeters();
                 stShowBack2.play();
 //                option2.setDisable(false);
@@ -189,7 +189,7 @@ public class Family{
         stHideFront2.play();
 
     }
-    
+
 //    public static void flipButton(Button frontb, Button backb, Group optBack){
 //        option1.setDisable(true);
 //        option2.setDisable(true);
@@ -274,108 +274,104 @@ public class Family{
 //        
 //        return 1;
 //    }
-    
     //Updates the factors sliding a rectangle up and down to simulate filling and emptying
-    public static void updateMeters(){
-        hr.setHeight(10+100-factors[0]);
-        mr.setHeight(10+100-factors[1]);
+    public static void updateMeters() {
+        hr.setHeight(10 + 100 - factors[0]);
+        mr.setHeight(10 + 100 - factors[1]);
     }
-    public static void run(Stage window){
+
+    public static void run(Stage window) {
         //styles of the buttons
         final String b_IDLE_BUTTON_STYLE = " -fx-background-color: #8e7cc3; ; -fx-text-fill: #ffffff";
         final String b_HOVERED_BUTTON_STYLE = "-fx-background-color: #674ea7;  -fx-text-fill: #ffffff;";
         final String b_CLICKED_BUTTON_STYLE = "-fx-background-color: #674ea7; ";
-        
+
         final String IDLE_BUTTON_STYLE = "-fx-font-size:20 ; -fx-background-color: #54a0de;  -fx-text-fill: #ffffff";
         final String HOVERED_BUTTON_STYLE = "-fx-font-size:20;  -fx-background-color: #0198E1; -fx-text-fill: #ffffff ";
         final String CLICKED_BUTTON_STYLE = "-fx-font-size:20;  -fx-background-color: #0198E1;  ";
         // tutorial scene
         //-fx-background-color: #cfe2f3
-        idx = 0;
+        idx = FamilySelector.select();
         factors[0] = 60;
         factors[1] = 60;
         factors[2] = 60;
         factors[3] = 60;
         root2 = new Pane();
-        
-       
+
         //top left game mode
-        Label gameID = new Label ("Family");
-        gameID.setFont(new Font("Arial",18));
+        Label gameID = new Label("Family");
+        gameID.setFont(new Font("Arial", 18));
         gameID.setTextFill(Color.web("#ffffff"));
-        gameID.relocate(22,18);
-        
+        gameID.relocate(22, 18);
+
         // creating question rectangle
-        Rectangle qRect = new Rectangle();  
-        qRect.setX(352.0f); 
-        qRect.setY(118.0f); 
-        qRect.setWidth(496.0f); 
-        qRect.setHeight(149.0f); 
-        
-       
+        Rectangle qRect = new Rectangle();
+        qRect.setX(352.0f);
+        qRect.setY(118.0f);
+        qRect.setWidth(496.0f);
+        qRect.setHeight(149.0f);
+
         //Setting the height and width of the arc 
-        qRect.setArcWidth(50.0); 
-        qRect.setArcHeight(50.0);  
+        qRect.setArcWidth(50.0);
+        qRect.setArcHeight(50.0);
         qRect.setFill(qYel);
-        
-        
+
         // creating card rectangle
-        Rectangle cardRect = new Rectangle();  
-        cardRect.setX(346.0f); 
-        cardRect.setY(107.0f); 
-        cardRect.setWidth(508.0f); 
-        cardRect.setHeight(527.0f); 
+        Rectangle cardRect = new Rectangle();
+        cardRect.setX(346.0f);
+        cardRect.setY(107.0f);
+        cardRect.setWidth(508.0f);
+        cardRect.setHeight(527.0f);
         cardRect.setFill(green);
         back.getChildren().add(cardRect);
         back.getChildren().add(qRect);
         front.getChildren().add(cardRect);
         front.getChildren().add(qRect);
-        
-        
+
         // importing images
-        Image bg  = new Image("Family Screen.jpg");
+        Image bg = new Image("Family Screen.jpg");
         root2.getChildren().add(new ImageView(bg));
         Image cb = new Image("checkBox.png");
         ImageView ch = new ImageView();
-        
+
         //achievement checkboxes
-        Label ach1 = new Label (ISP.TutAch.get(0).question);
-        Label ach2 = new Label (ISP.TutAch.get(1).question);
-        Label ach3 = new Label (ISP.TutAch.get(2).question);
-        
-        ach1.relocate(948,32);
-        ach1.setFont(new Font("Arial",18));
+        Label ach1 = new Label(ISP.TutAch.get(0).question);
+        Label ach2 = new Label(ISP.TutAch.get(1).question);
+        Label ach3 = new Label(ISP.TutAch.get(2).question);
+
+        ach1.relocate(948, 32);
+        ach1.setFont(new Font("Arial", 18));
         ach1.setTextFill(Color.web("#ff9900"));
-        
-        ach2.relocate(948,92);
-        ach2.setFont(new Font("Arial",18));
+
+        ach2.relocate(948, 92);
+        ach2.setFont(new Font("Arial", 18));
         ach2.setTextFill(Color.web("#ff9900"));
 
-        ach3.relocate(948,152);
-        ach3.setFont(new Font("Arial",18));
+        ach3.relocate(948, 152);
+        ach3.setFont(new Font("Arial", 18));
         ach3.setTextFill(Color.web("#ff9900"));
-        
+
         ch.setImage(cb);
         ch.setFitWidth(37);
         ch.setFitHeight(37);
         ch.setPreserveRatio(true);
         ch.setSmooth(true);
-        ch.relocate(890,28);
-        
+        ch.relocate(890, 28);
+
         ImageView ch2 = new ImageView();
         ch2.setImage(cb);
         ch2.setFitWidth(37);
         ch2.setFitHeight(37);
         ch2.setPreserveRatio(true);
         ch2.setSmooth(true);
-        ch2.relocate(890,88);
+        ch2.relocate(890, 88);
         ImageView ch3 = new ImageView();
         ch3.setImage(cb);
         ch3.setFitWidth(37);
         ch3.setFitHeight(37);
         ch3.setPreserveRatio(true);
         ch3.setSmooth(true);
-        ch3.relocate(890,148);
+        ch3.relocate(890, 148);
         Image ac = new Image("achBox.png");
         ImageView bob = new ImageView();
         bob.setImage(ac);
@@ -383,21 +379,21 @@ public class Family{
         bob.setFitHeight(50);
         bob.setPreserveRatio(true);
         bob.setSmooth(true);
-        bob.relocate(883,18);
+        bob.relocate(883, 18);
         ImageView bob2 = new ImageView();
         bob2.setImage(ac);
         bob2.setFitWidth(50);
         bob2.setFitHeight(50);
         bob2.setPreserveRatio(true);
         bob2.setSmooth(true);
-        bob2.relocate(883,78);
+        bob2.relocate(883, 78);
         ImageView bob3 = new ImageView();
         bob3.setImage(ac);
         bob3.setFitWidth(50);
         bob3.setFitHeight(50);
         bob3.setPreserveRatio(true);
         bob3.setSmooth(true);
-        bob3.relocate(883,138);
+        bob3.relocate(883, 138);
 
         root2.getChildren().add(ch);
         //root2.getChildren().add(ch2);
@@ -408,35 +404,32 @@ public class Family{
         root2.getChildren().add(ach1);
         root2.getChildren().add(ach2);
         root2.getChildren().add(ach3);
-        
+
         ISP.s5 = new Scene(root2, 1200, 750);
-        
-        
-        Rectangle optRect = new Rectangle();  
-        optRect.setX(358); 
-        optRect.setY(291); 
-        optRect.setWidth(232); 
-        optRect.setHeight(311); 
+
+        Rectangle optRect = new Rectangle();
+        optRect.setX(358);
+        optRect.setY(291);
+        optRect.setWidth(232);
+        optRect.setHeight(311);
         //optRect.setFill(qBlue);
 //        root2.getChildren().add(optionResults1);
-        
-        Rectangle optRect2 = new Rectangle();  
-        optRect2.setX(611); 
-        optRect2.setY(291); 
-        optRect2.setWidth(232); 
-        optRect2.setHeight(311); 
+
+        Rectangle optRect2 = new Rectangle();
+        optRect2.setX(611);
+        optRect2.setY(291);
+        optRect2.setWidth(232);
+        optRect2.setHeight(311);
         //optRect2.setFill(qBlue);
 //        root2.getChildren().add(optionResults2);
-        
-        
-                
+
         option1back.wrapTextProperty().setValue(true);
         option2back.wrapTextProperty().setValue(true);
         option1back.relocate(358, 291);
         option2back.relocate(611, 291);
         option1back.setPrefSize(232, 311);
         option2back.setPrefSize(232, 311);
-        
+
         root2.getChildren().add(option1back);
         root2.getChildren().add(option2back);
         option1back.setScaleX(0);
@@ -446,12 +439,12 @@ public class Family{
         //back.getChildren().add(optionResults);
 //        front.getChildren().add(optionResults1);
 //        front.getChildren().add(optionResults2);
-        
-        quest = new Label(ISP.TutEvents.get(idx).question);
-        quest.setFont(new Font("Monospaced",24));
+
+        quest = new Label(ISP.FEvents.get(idx).question);
+        quest.setFont(new Font("Monospaced", 24));
         quest.setTextFill(Color.web("#ffffff"));
-        
-        quest.relocate(397, ISP.TutEvents.get(idx).getY());
+
+        quest.relocate(397, ISP.FEvents.get(idx).getY());
         quest.setWrapText(true);
         quest.setMaxWidth(400);
         option1.wrapTextProperty().setValue(true);
@@ -470,72 +463,67 @@ public class Family{
         back.getChildren().add(option2);
         front.getChildren().add(option1);
         front.getChildren().add(option2);
-        
+
         optionResults1.getChildren().add(optRect);
         optionResults2.getChildren().add(optRect2);
-        
-        hr = new Rectangle(600, 0, 120, 10+100-factors[2]);
-        mr = new Rectangle(730, 0, 120, 10+100-factors[3]);
-        mhr = new Rectangle(500, 0, 120, 10+100-factors[1]);
-        sr = new Rectangle(350, 0, 120, 10+100-factors[0]);
+
+        hr = new Rectangle(600, 0, 120, 10 + 100 - factors[2]);
+        mr = new Rectangle(730, 0, 120, 10 + 100 - factors[3]);
+        mhr = new Rectangle(500, 0, 120, 10 + 100 - factors[1]);
+        sr = new Rectangle(350, 0, 120, 10 + 100 - factors[0]);
         hr.setFill(Color.valueOf("#9c9c9c"));
         mr.setFill(Color.valueOf("#9c9c9c"));
         mhr.setFill(Color.valueOf("#9c9c9c"));
         sr.setFill(Color.valueOf("#9c9c9c"));
         root2.getChildren().addAll(hr, mr, mhr, sr);
-        
-        Image topbar  = new Image("FamilyTopBar.png");
+
+        Image topbar = new Image("FamilyTopBar.png");
         root2.getChildren().add(new ImageView(topbar));
-        
-                
-        
-        daystatus.setFont(new Font("Monospaced",40));
+
+        daystatus.setFont(new Font("Monospaced", 40));
         daystatus.setTextFill(Color.web("#ffffff"));
         daystatus.relocate(550, 670);
         root2.getChildren().add(daystatus);
-        
+
         Button b = new Button("Back");
-        b.relocate(3,715);
+        b.relocate(3, 715);
         b.setStyle(b_IDLE_BUTTON_STYLE);
         b.setOnMouseEntered(e -> b.setStyle(b_HOVERED_BUTTON_STYLE));
         b.setOnMouseExited(e -> b.setStyle(b_IDLE_BUTTON_STYLE));
         b.setOnMousePressed(e -> b.setStyle(b_CLICKED_BUTTON_STYLE));
         b.setOnAction(e -> {
-            try{Thread.sleep(100);}
-            catch(Exception f){}
+            try {
+                Thread.sleep(100);
+            } catch (Exception f) {
+            }
             window.setScene(ISP.s1);
         });
         root2.getChildren().add(b);
-        
-        
+
         root2.getChildren().add(back);
-        
+
         root2.getChildren().add(front);
-        
+
 //        Label z = new Label("hEllo");
 //        z.relocate(370, 300);
 //        optionResults1.getChildren().add(z);
-        
         option1.setStyle(IDLE_BUTTON_STYLE);
         option1.setOnMouseEntered(e -> option1.setStyle(HOVERED_BUTTON_STYLE));
         option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
-//            for (int i = 0; i < ISP.TutEvents.get(idx).factor1.length; i++) {
-//                factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
+//            for (int i = 0; i < ISP.FEvents.get(idx).factor1.length; i++) {
+//                factors[ISP.FEvents.get(idx).factor1[i]] += ISP.FEvents.get(idx).amount1[i];
 //            }
 //            //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-//            quest.relocate(397, ISP.TutEvents.get(idx).getY());
-//            option1.setText(ISP.TutEvents.get(idx).answer1);
-//            option2.setText(ISP.TutEvents.get(idx).answer2);
-//            quest.setText(ISP.TutEvents.get(idx).question);
+//            quest.relocate(397, ISP.FEvents.get(idx).getY());
+//            option1.setText(ISP.FEvents.get(idx).answer1);
+//            option2.setText(ISP.FEvents.get(idx).answer2);
+//            quest.setText(ISP.FEvents.get(idx).question);
 //            updateMeters();
             flipCard(front, back);
-            if (idx < ISP.TutEvents.size())day += ISP.TutEvents.get(idx).getDays();
-            daystatus.setText("Day " + day);
-//            idx++;
-            if (idx+1 >= ISP.TutEvents.size()) {
-                window.setScene(ISP.s3);
+            if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
+                window.setScene(ISP.end);
                 idx = 0;
                 day = 0;
                 factors[0] = 60;
@@ -543,7 +531,12 @@ public class Family{
                 factors[3] = 60;
                 factors[2] = 60;
             }
-//            if (ISP.TutEvents.get(idx).factor1.length > 0) {
+            if (idx < ISP.FEvents.size()) {
+                day += ISP.FEvents.get(idx).getDays();
+            }
+            daystatus.setText("Day " + day);
+//            idx = FamilySelector.select();
+//            if (ISP.FEvents.get(idx).factor1.length > 0) {
 ////                flipButton(option1,option1back,optionResults1);
 //
 ////                flipCard(front, back);
@@ -551,7 +544,7 @@ public class Family{
 //
 ////                flipButtonBack(option1,option1back,optionResults1);
 //            } else {
-            
+
 //            }
             option1.setStyle(IDLE_BUTTON_STYLE);
             //if(idx > 1){
@@ -569,16 +562,16 @@ public class Family{
         option2.setOnMouseExited(e -> option2.setStyle(IDLE_BUTTON_STYLE));
         option2.setOnMousePressed(e -> option2.setStyle(CLICKED_BUTTON_STYLE));
         option2.setOnAction(actionEvent -> {
-//            for (int i = 0; i < ISP.TutEvents.get(idx).factor2.length; i++) {
-//                factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
+//            for (int i = 0; i < ISP.FEvents.get(idx).factor2.length; i++) {
+//                factors[ISP.FEvents.get(idx).factor2[i]] += ISP.FEvents.get(idx).amount2[i];
 //            }
 //            //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-//            quest.relocate(397, ISP.TutEvents.get(idx).getY());
-//            option1.setText(ISP.TutEvents.get(idx).answer1);
-//            option2.setText(ISP.TutEvents.get(idx).answer2);
-//            quest.setText(ISP.TutEvents.get(idx).question);
+//            quest.relocate(397, ISP.FEvents.get(idx).getY());
+//            option1.setText(ISP.FEvents.get(idx).answer1);
+//            option2.setText(ISP.FEvents.get(idx).answer2);
+//            quest.setText(ISP.FEvents.get(idx).question);
 //            updateMeters();
-//            if (ISP.TutEvents.get(idx).factor2.length > 0) {
+//            if (ISP.FEvents.get(idx).factor2.length > 0) {
 ////                flipButton(option2,option2back,optionResults2);
 //                flipCard2(front, back);
 //
@@ -587,21 +580,18 @@ public class Family{
 
 //            }
             flipCard2(front, back);
-            if (idx < ISP.TutEvents.size())
-                day += ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day " + day);
-            
-            if (idx+1 >= ISP.TutEvents.size()) {
-                window.setScene(ISP.s3);
+            if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
+                window.setScene(ISP.end);
                 idx = 0;
                 day = 0;
                 factors[0] = 60;
                 factors[1] = 60;
-                factors[2] = 60;
                 factors[3] = 60;
+                factors[2] = 60;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
-            if (idx + 1 == ISP.TutEvents.size() - 1) {
+            if (idx + 1 == ISP.FEvents.size() - 1) {
                 root2.getChildren().add(ch3);
             }
             if (day == 1) {

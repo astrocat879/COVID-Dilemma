@@ -13,9 +13,9 @@ import java.util.*;
 public class FamilySelector {
     public static void add(Event ee){
         ISP.FEvents.add(ee);
-        ISP.FUsed.add(false);
+        ISP.FUsed.add(true);
     }
-    public int select(){
+    public static int select(){
         boolean has = false;
         for(int i = 0;i<ISP.FUsed.size();i++){
             if(ISP.FUsed.get(i) == true){
@@ -26,15 +26,16 @@ public class FamilySelector {
         if(!has)return -1;
         while(true){
             int id = (int)(Math.random()*(ISP.FEvents.size()));
-            if(ISP.FUsed.get(id) == false){
+            if(ISP.FUsed.get(id) == true){
+                complete(id);
                 return id;
             }
         }
     }
-    public Event getEvent(int id){
+    public static Event getEvent(int id){
         return ISP.FEvents.get(id);
     }
-    public void complete(int id){
+    public static void complete(int id){
         ISP.FUsed.set(id,true);
     }
 }
