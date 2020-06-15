@@ -15,10 +15,10 @@ public class PrimeMinisterSelector {
         ISP.PMEvents.add(ee);
         ISP.PMUsed.add(false);
     }
-    public int select(){
+    public static int select(){
         boolean has = false;
         for(int i = 0;i<ISP.PMUsed.size();i++){
-            if(ISP.PMUsed.get(i) == true){
+            if(ISP.PMUsed.get(i) == false){
                 has = true;
                 break;
             }
@@ -27,6 +27,7 @@ public class PrimeMinisterSelector {
         while(true){
             int id = (int)(Math.random()*(ISP.PMEvents.size()));
             if(ISP.PMUsed.get(id) == false){
+                complete(id);
                 return id;
             }
         }
@@ -34,7 +35,7 @@ public class PrimeMinisterSelector {
     public Event getEvent(int id){
         return ISP.PMEvents.get(id);
     }
-    public void complete(int id){
+    public static void complete(int id){
         ISP.PMUsed.set(id,true);
     }
 }

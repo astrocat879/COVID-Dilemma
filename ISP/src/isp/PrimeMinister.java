@@ -39,8 +39,8 @@ public class PrimeMinister{
     public static Color red = Color.rgb(204, 65, 37);
     public static Label quest;
     public static Stage window;
-    public static Button option1 = new Button(ISP.TutEvents.get(idx).answer1);
-    public static Button option2 = new Button(ISP.TutEvents.get(idx).answer2);
+    public static Button option1 = new Button(ISP.PMEvents.get(idx).answer1);
+    public static Button option2 = new Button(ISP.PMEvents.get(idx).answer2);
     public static Label daystatus = new Label("Day "+day);
     public static Button option1back = new Button("");
     public static Button option2back = new Button("");
@@ -48,7 +48,9 @@ public class PrimeMinister{
     public static Group back = new Group();
     public static Group optionResults1 = new Group();
     public static Group optionResults2 = new Group();
+    public static Event[] deathEvents = new Event[3];
     public static ImageView ch3 = new ImageView();
+
     public static void flipCard2(Group front, Group back) {
 
         ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), front);
@@ -81,27 +83,47 @@ public class PrimeMinister{
         stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                if (idx < ISP.TutEvents.size())
-                    for (int i = 0; i < ISP.TutEvents.get(idx).factor2.length; i++) {
-                        factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
-                    }
+
+                for (int i = 0; i < ISP.PMEvents.get(idx).factor2.length; i++) {
+                    factors[ISP.PMEvents.get(idx).factor2[i]] += ISP.PMEvents.get(idx).amount2[i];
+                }
+
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
                 updateMeters();
-                idx++;
-                if (idx >= ISP.TutEvents.size()) {
-                    root2.getChildren().add(ch3);
+                if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0) {
+                    if (factors[0] < 0){
+                        quest.relocate(397, deathEvents[0].getY());
+                        option1.setText(deathEvents[0].answer1);
+                        option2.setText(deathEvents[0].answer2);
+                        quest.setText(deathEvents[0].question);
+                    }
+                    else if (factors[1] < 0){
+                        quest.relocate(397, deathEvents[1].getY());
+                        option1.setText(deathEvents[1].answer1);
+                        option2.setText(deathEvents[1].answer2);
+                        quest.setText(deathEvents[1].question);
+                    }
+                    else if (factors[2] < 0){
+                        quest.relocate(397, deathEvents[2].getY());
+                        option1.setText(deathEvents[2].answer1);
+                        option2.setText(deathEvents[2].answer2);
+                        quest.setText(deathEvents[2].question);
+                    }
                 }
                 else{
-                    quest.relocate(397, ISP.TutEvents.get(idx).getY());
-                    option1.setText(ISP.TutEvents.get(idx).answer1);
-                    option2.setText(ISP.TutEvents.get(idx).answer2);
-                    quest.setText(ISP.TutEvents.get(idx).question);
+                    day += ISP.PMEvents.get(idx).getDays();
+                    daystatus.setText("Day " + day);
+                    idx = FamilySelector.select();
+                    quest.relocate(397, ISP.PMEvents.get(idx).getY());
+                    option1.setText(ISP.PMEvents.get(idx).answer1);
+                    option2.setText(ISP.PMEvents.get(idx).answer2);
+                    quest.setText(ISP.PMEvents.get(idx).question);
                 }
-                
+
                 //updateMeters();
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
                 //seq3.play();
-                //if(idx + 1== ISP.TutEvents.size()){
+                //if(idx + 1== ISP.PMEvents.size()){
                 //root2.getChildren().add(ch3);
                 //}
                 stShowBack2.play();
@@ -137,7 +159,6 @@ public class PrimeMinister{
 //                seq.play();
                 stShowBack.play();
 
-
             }
         });
 //        SequentialTransition seq2 = new SequentialTransition(new PauseTransition(Duration.millis(3050)), stHideFront);
@@ -157,26 +178,47 @@ public class PrimeMinister{
             public void handle(ActionEvent t) {
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
                 //seq3.play();
-                //if(idx + 1== ISP.TutEvents.size()){
+                //if(idx + 1== ISP.PMEvents.size()){
                 //root2.getChildren().add(ch3);
                 //}
-                if (idx < ISP.TutEvents.size())
-                    for (int i = 0; i < ISP.TutEvents.get(idx).factor1.length; i++) {
-                        factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
-                    }
+                for (int i = 0; i < ISP.PMEvents.get(idx).factor1.length; i++) {
+                    factors[ISP.PMEvents.get(idx).factor1[i]] += ISP.PMEvents.get(idx).amount1[i];
+                }
+
                 updateMeters();
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
-                idx++;
-                if (idx >= ISP.TutEvents.size()) {
-                    root2.getChildren().add(ch3);
+                if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0) {
+                    if (factors[0] < 0){
+                        quest.relocate(397, deathEvents[0].getY());
+                        option1.setText(deathEvents[0].answer1);
+                        option2.setText(deathEvents[0].answer2);
+                        quest.setText(deathEvents[0].question);
+                    }
+                    else if (factors[1] < 0){
+                        quest.relocate(397, deathEvents[1].getY());
+                        option1.setText(deathEvents[1].answer1);
+                        option2.setText(deathEvents[1].answer2);
+                        quest.setText(deathEvents[1].question);
+                    }
+                    else if (factors[2] < 0){
+                        quest.relocate(397, deathEvents[2].getY());
+                        option1.setText(deathEvents[2].answer1);
+                        option2.setText(deathEvents[2].answer2);
+                        quest.setText(deathEvents[2].question);
+                    }
                 }
                 else{
-                    quest.relocate(397, ISP.TutEvents.get(idx).getY());
-                    option1.setText(ISP.TutEvents.get(idx).answer1);
-                    option2.setText(ISP.TutEvents.get(idx).answer2);
-                    quest.setText(ISP.TutEvents.get(idx).question);
+                    day += ISP.PMEvents.get(idx).getDays();
+                    daystatus.setText("Day " + day);
+                    idx = FamilySelector.select();
+                    quest.relocate(397, ISP.PMEvents.get(idx).getY());
+                    option1.setText(ISP.PMEvents.get(idx).answer1);
+                    option2.setText(ISP.PMEvents.get(idx).answer2);
+                    quest.setText(ISP.PMEvents.get(idx).question);
                 }
                 
+                
+
                 //updateMeters();
                 stShowBack2.play();
 //                option2.setDisable(false);
@@ -189,97 +231,13 @@ public class PrimeMinister{
         stHideFront2.play();
 
     }
-    
-    public static void flipButton(Button frontb, Button backb, Group optBack){
-        option1.setDisable(true);
-        option2.setDisable(true);
-        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), frontb);
-        stHideFront.setFromX(1);
-        stHideFront.setToX(0);
-        
-        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), backb);
-        stShowBack.setFromX(0);
-        stShowBack.setToX(1);
-        
-        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                stShowBack.play();
-                
-                
-            }
-        });
-        stHideFront.play();
-        
-        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), optBack);
-        stHideFront2.setFromX(1);
-        stHideFront2.setToX(0);
-
-        ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), optBack);
-        stShowBack2.setFromX(0);
-        stShowBack2.setToX(1);
-        
-        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                stShowBack2.play();
-            }
-        });
-        stHideFront2.play();
-          
-        //return 1;
-    }
-    
-    public static int flipButtonBack(Button frontb, Button backb, Group optBack){
-        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), optBack);
-        stHideFront.setFromX(1);
-        stHideFront.setToX(0);
-        
-        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), backb);
-        stShowBack.setFromX(0);
-        stShowBack.setToX(1);
-        
-        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack);
-                seq.play();
-                //stShowBack.play();
-                
-                
-            }
-        });
-        SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stHideFront);
-        seq.play();
-        //stHideFront.play();
-        
-        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), frontb);
-        stHideFront2.setFromX(1);
-        stHideFront2.setToX(0);
-
-        ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), frontb);
-        stShowBack2.setFromX(0);
-        stShowBack2.setToX(1);
-        
-        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                stShowBack2.play();
-                
-            }
-        });
-        stHideFront2.play();
-        //try{Thread.sleep(500);}
-        //catch(Exception f){}
-        
-        return 1;
-    }
+   
     
     //Updates the factors sliding a rectangle up and down to simulate filling and emptying
     public static void updateMeters(){
-        hr.setHeight(10+100-factors[0]);
-        mr.setHeight(10+100-factors[1]);
-        ar.setHeight(10+100-factors[2]);
+        hr.setHeight(10+100-factors[1]);
+        mr.setHeight(10+100-factors[2]);
+        ar.setHeight(10+100-factors[0]);
     }
     public static void run(Stage window){
         //styles of the buttons
@@ -292,7 +250,12 @@ public class PrimeMinister{
         final String CLICKED_BUTTON_STYLE = "-fx-font-size:20;  -fx-background-color: #0198E1;  ";
         // tutorial scene
         //-fx-background-color: #cfe2f3
-        idx = 0;
+        
+        deathEvents[0] = new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Your social status plummets. You cannot show your face to the public anymore.","Oh no...","Oops...",145, 0);
+        deathEvents[1] = new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Your country's health is in shambles.","Oh no...","Oops...",145, 0);
+        deathEvents[2] = new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Your country runs out of money. Tough luck.","Oh no...","Oops...",145, 0);
+        
+        idx = PrimeMinisterSelector.select();
         factors[0] = 60;
         factors[1] = 60;
         factors[2] = 60;
@@ -446,11 +409,11 @@ public class PrimeMinister{
 //        front.getChildren().add(optionResults1);
 //        front.getChildren().add(optionResults2);
         
-        quest = new Label(ISP.TutEvents.get(idx).question);
+        quest = new Label(ISP.PMEvents.get(idx).question);
         quest.setFont(new Font("Monospaced",24));
         quest.setTextFill(Color.web("#ffffff"));
         
-        quest.relocate(397, ISP.TutEvents.get(idx).getY());
+        quest.relocate(397, ISP.PMEvents.get(idx).getY());
         quest.setWrapText(true);
         quest.setMaxWidth(400);
         option1.wrapTextProperty().setValue(true);
@@ -518,29 +481,26 @@ public class PrimeMinister{
         option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
-//            for (int i = 0; i < ISP.TutEvents.get(idx).factor1.length; i++) {
-//                factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
+//            for (int i = 0; i < ISP.PMEvents.get(idx).factor1.length; i++) {
+//                factors[ISP.PMEvents.get(idx).factor1[i]] += ISP.PMEvents.get(idx).amount1[i];
 //            }
 //            //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-//            quest.relocate(397, ISP.TutEvents.get(idx).getY());
-//            option1.setText(ISP.TutEvents.get(idx).answer1);
-//            option2.setText(ISP.TutEvents.get(idx).answer2);
-//            quest.setText(ISP.TutEvents.get(idx).question);
+//            quest.relocate(397, ISP.PMEvents.get(idx).getY());
+//            option1.setText(ISP.PMEvents.get(idx).answer1);
+//            option2.setText(ISP.PMEvents.get(idx).answer2);
+//            quest.setText(ISP.PMEvents.get(idx).question);
 //            updateMeters();
             flipCard(front, back);
-                        if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0)
+            if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0) {
                 window.setScene(ISP.end);
-            if (idx < ISP.TutEvents.size())day += ISP.TutEvents.get(idx).getDays();
-            daystatus.setText("Day " + day);
-//            idx++;
-            if (idx+1 >= ISP.TutEvents.size()) {
-                window.setScene(ISP.s3);
                 idx = 0;
                 day = 0;
                 factors[0] = 60;
                 factors[1] = 60;
+                factors[2] = 60;
             }
-//            if (ISP.TutEvents.get(idx).factor1.length > 0) {
+//            idx = FamilySelector.select();
+//            if (ISP.PMEvents.get(idx).factor1.length > 0) {
 ////                flipButton(option1,option1back,optionResults1);
 //
 ////                flipCard(front, back);
@@ -548,15 +508,10 @@ public class PrimeMinister{
 //
 ////                flipButtonBack(option1,option1back,optionResults1);
 //            } else {
-            
+
 //            }
             option1.setStyle(IDLE_BUTTON_STYLE);
-            //if(idx > 1){
-            //option2.setDisable(false);
-            //}
-            if (day == 1) {
-                root2.getChildren().add(ch2);
-            }
+            
             updateMeters();
 
         });
@@ -566,16 +521,16 @@ public class PrimeMinister{
         option2.setOnMouseExited(e -> option2.setStyle(IDLE_BUTTON_STYLE));
         option2.setOnMousePressed(e -> option2.setStyle(CLICKED_BUTTON_STYLE));
         option2.setOnAction(actionEvent -> {
-//            for (int i = 0; i < ISP.TutEvents.get(idx).factor2.length; i++) {
-//                factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
+//            for (int i = 0; i < ISP.PMEvents.get(idx).factor2.length; i++) {
+//                factors[ISP.PMEvents.get(idx).factor2[i]] += ISP.PMEvents.get(idx).amount2[i];
 //            }
 //            //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-//            quest.relocate(397, ISP.TutEvents.get(idx).getY());
-//            option1.setText(ISP.TutEvents.get(idx).answer1);
-//            option2.setText(ISP.TutEvents.get(idx).answer2);
-//            quest.setText(ISP.TutEvents.get(idx).question);
+//            quest.relocate(397, ISP.PMEvents.get(idx).getY());
+//            option1.setText(ISP.PMEvents.get(idx).answer1);
+//            option2.setText(ISP.PMEvents.get(idx).answer2);
+//            quest.setText(ISP.PMEvents.get(idx).question);
 //            updateMeters();
-//            if (ISP.TutEvents.get(idx).factor2.length > 0) {
+//            if (ISP.PMEvents.get(idx).factor2.length > 0) {
 ////                flipButton(option2,option2back,optionResults2);
 //                flipCard2(front, back);
 //
@@ -584,14 +539,8 @@ public class PrimeMinister{
 
 //            }
             flipCard2(front, back);
-                        if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0)
+            if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0) {
                 window.setScene(ISP.end);
-            if (idx < ISP.TutEvents.size())
-                day += ISP.TutEvents.get(idx).getDays();
-            daystatus.setText("Day " + day);
-            
-            if (idx+1 >= ISP.TutEvents.size()) {
-                window.setScene(ISP.s3);
                 idx = 0;
                 day = 0;
                 factors[0] = 60;
@@ -599,12 +548,7 @@ public class PrimeMinister{
                 factors[2] = 60;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
-            if (idx + 1 == ISP.TutEvents.size() - 1) {
-                root2.getChildren().add(ch3);
-            }
-            if (day == 1) {
-                root2.getChildren().add(ch2);
-            }
+           
         });
     }
 }

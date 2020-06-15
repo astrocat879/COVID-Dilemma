@@ -40,6 +40,7 @@ public class ISP extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         End.run(primaryStage);
+        PrimeMinisterEvents.generateEvents();
         FamilyEvents.generateEvents();
         TutorialAchievements.generateAchievements();
         TutorialEvents.generateEvents();
