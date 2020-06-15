@@ -63,7 +63,7 @@ public class MainMenu {
             try{Thread.sleep(100);}
             catch(Exception f){}
             System.out.println("Achievements");
-            window.setScene(ISP.end);
+            //window.setScene(ISP.end);
         });
         //quit button
         quit = new Button("Quit");

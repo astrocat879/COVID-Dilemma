@@ -338,9 +338,9 @@ public class Family {
 
     public static void run(Stage window) {
         //styles of the buttons
-        final String b_IDLE_BUTTON_STYLE = " -fx-background-color: #8e7cc3; ; -fx-text-fill: #ffffff";
-        final String b_HOVERED_BUTTON_STYLE = "-fx-background-color: #674ea7;  -fx-text-fill: #ffffff;";
-        final String b_CLICKED_BUTTON_STYLE = "-fx-background-color: #674ea7; ";
+        final String b_IDLE_BUTTON_STYLE = " -fx-background-color: #93c47d ; -fx-text-fill: #ffffff";
+        final String b_HOVERED_BUTTON_STYLE = "-fx-background-color: #6aa84f;  -fx-text-fill: #ffffff;";
+        final String b_CLICKED_BUTTON_STYLE = "-fx-background-color: #6aa84f; ";
 
         final String IDLE_BUTTON_STYLE = "-fx-font-size:20 ; -fx-background-color: #54a0de;  -fx-text-fill: #ffffff";
         final String HOVERED_BUTTON_STYLE = "-fx-font-size:20;  -fx-background-color: #0198E1; -fx-text-fill: #ffffff ";
@@ -590,7 +590,7 @@ public class Family {
 //            updateMeters();
             flipCard(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
-                window.setScene(ISP.end);
+                window.setScene(ISP.end1);
                 idx = 0;
                 day = 0;
                 factors[0] = 60;
@@ -639,7 +639,7 @@ public class Family {
 //            }
             flipCard2(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
-                window.setScene(ISP.end);
+                window.setScene(ISP.end1);
                 idx = 0;
                 day = 0;
                 factors[0] = 60;

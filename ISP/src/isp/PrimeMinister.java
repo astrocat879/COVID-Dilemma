@@ -241,9 +241,9 @@ public class PrimeMinister{
     }
     public static void run(Stage window){
         //styles of the buttons
-        final String b_IDLE_BUTTON_STYLE = " -fx-background-color: #8e7cc3; ; -fx-text-fill: #ffffff";
-        final String b_HOVERED_BUTTON_STYLE = "-fx-background-color: #674ea7;  -fx-text-fill: #ffffff;";
-        final String b_CLICKED_BUTTON_STYLE = "-fx-background-color: #674ea7; ";
+        final String b_IDLE_BUTTON_STYLE = " -fx-background-color: #cc4125; -fx-text-fill: #ffffff";
+        final String b_HOVERED_BUTTON_STYLE = "-fx-background-color: #a61c00;  -fx-text-fill: #ffffff;";
+        final String b_CLICKED_BUTTON_STYLE = "-fx-background-color: #a61c00; ";
         
         final String IDLE_BUTTON_STYLE = "-fx-font-size:20 ; -fx-background-color: #54a0de;  -fx-text-fill: #ffffff";
         final String HOVERED_BUTTON_STYLE = "-fx-font-size:20;  -fx-background-color: #0198E1; -fx-text-fill: #ffffff ";
@@ -492,7 +492,7 @@ public class PrimeMinister{
 //            updateMeters();
             flipCard(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0) {
-                window.setScene(ISP.end);
+                window.setScene(ISP.end2);
                 idx = 0;
                 day = 0;
                 factors[0] = 60;
@@ -540,7 +540,7 @@ public class PrimeMinister{
 //            }
             flipCard2(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0) {
-                window.setScene(ISP.end);
+                window.setScene(ISP.end2);
                 idx = 0;
                 day = 0;
                 factors[0] = 60;
