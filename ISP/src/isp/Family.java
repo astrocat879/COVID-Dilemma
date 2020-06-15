@@ -475,7 +475,7 @@ public class Family{
         optionResults2.getChildren().add(optRect2);
         
         hr = new Rectangle(600, 0, 120, 10+100-factors[2]);
-        mr = new Rectangle(700, 0, 120, 10+100-factors[3]);
+        mr = new Rectangle(730, 0, 120, 10+100-factors[3]);
         mhr = new Rectangle(500, 0, 120, 10+100-factors[1]);
         sr = new Rectangle(350, 0, 120, 10+100-factors[0]);
         hr.setFill(Color.valueOf("#9c9c9c"));
@@ -540,6 +540,8 @@ public class Family{
                 day = 0;
                 factors[0] = 60;
                 factors[1] = 60;
+                factors[3] = 60;
+                factors[2] = 60;
             }
 //            if (ISP.TutEvents.get(idx).factor1.length > 0) {
 ////                flipButton(option1,option1back,optionResults1);
@@ -595,6 +597,8 @@ public class Family{
                 day = 0;
                 factors[0] = 60;
                 factors[1] = 60;
+                factors[2] = 60;
+                factors[3] = 60;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
             if (idx + 1 == ISP.TutEvents.size() - 1) {

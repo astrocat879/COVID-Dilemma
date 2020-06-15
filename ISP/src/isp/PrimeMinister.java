@@ -528,6 +528,8 @@ public class PrimeMinister{
 //            quest.setText(ISP.TutEvents.get(idx).question);
 //            updateMeters();
             flipCard(front, back);
+                        if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0)
+                window.setScene(ISP.end);
             if (idx < ISP.TutEvents.size())day += ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day " + day);
 //            idx++;
@@ -582,6 +584,8 @@ public class PrimeMinister{
 
 //            }
             flipCard2(front, back);
+                        if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0)
+                window.setScene(ISP.end);
             if (idx < ISP.TutEvents.size())
                 day += ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day " + day);
@@ -592,6 +596,7 @@ public class PrimeMinister{
                 day = 0;
                 factors[0] = 60;
                 factors[1] = 60;
+                factors[2] = 60;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
             if (idx + 1 == ISP.TutEvents.size() - 1) {
