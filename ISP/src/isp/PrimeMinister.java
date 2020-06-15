@@ -119,6 +119,10 @@ public class PrimeMinister{
                     option2.setText(ISP.PMEvents.get(idx).answer2);
                     quest.setText(ISP.PMEvents.get(idx).question);
                 }
+                
+                if(idx == -1){
+                     window.setScene(ISP.s6);
+                }
 
                 //updateMeters();
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
@@ -215,6 +219,10 @@ public class PrimeMinister{
                     option1.setText(ISP.PMEvents.get(idx).answer1);
                     option2.setText(ISP.PMEvents.get(idx).answer2);
                     quest.setText(ISP.PMEvents.get(idx).question);
+                }
+                
+                if(idx == -1){
+                     window.setScene(ISP.s6);
                 }
                 
                 

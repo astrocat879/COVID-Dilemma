@@ -30,7 +30,7 @@ import javafx.scene.layout.Pane;
  */
 public class ISP extends Application {
     
-    static Scene s0, s1, s2,s3,s4,s5, end1,end2;
+    static Scene s0, s1, s2,s3,s4,s5,s6, end1,end2;
     public static ArrayList<Event> TutEvents = new ArrayList<Event>();
     public static ArrayList<Event> PMEvents = new ArrayList<Event>();
     public static ArrayList<Boolean> PMUsed = new ArrayList<Boolean>();
