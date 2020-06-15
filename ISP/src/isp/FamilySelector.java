@@ -36,6 +36,6 @@ public class FamilySelector {
         return ISP.FEvents.get(id);
     }
     public static void complete(int id){
-        ISP.FUsed.set(id,true);
+        ISP.FUsed.set(id,false);
     }
 }

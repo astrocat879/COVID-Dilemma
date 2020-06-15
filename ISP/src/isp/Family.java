@@ -82,22 +82,18 @@ public class Family {
         stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                if (idx < ISP.FEvents.size()) {
-                    for (int i = 0; i < ISP.FEvents.get(idx).factor2.length; i++) {
-                        factors[ISP.FEvents.get(idx).factor2[i]] += ISP.FEvents.get(idx).amount2[i];
-                    }
+
+                for (int i = 0; i < ISP.FEvents.get(idx).factor2.length; i++) {
+                    factors[ISP.FEvents.get(idx).factor2[i]] += ISP.FEvents.get(idx).amount2[i];
                 }
+
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
                 updateMeters();
                 idx = FamilySelector.select();
-                if (idx >= ISP.FEvents.size()) {
-                    root2.getChildren().add(ch3);
-                } else {
-                    quest.relocate(397, ISP.FEvents.get(idx).getY());
-                    option1.setText(ISP.FEvents.get(idx).answer1);
-                    option2.setText(ISP.FEvents.get(idx).answer2);
-                    quest.setText(ISP.FEvents.get(idx).question);
-                }
+                quest.relocate(397, ISP.FEvents.get(idx).getY());
+                option1.setText(ISP.FEvents.get(idx).answer1);
+                option2.setText(ISP.FEvents.get(idx).answer2);
+                quest.setText(ISP.FEvents.get(idx).question);
 
                 //updateMeters();
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
@@ -160,22 +156,17 @@ public class Family {
                 //if(idx + 1== ISP.FEvents.size()){
                 //root2.getChildren().add(ch3);
                 //}
-                if (idx < ISP.FEvents.size()) {
-                    for (int i = 0; i < ISP.FEvents.get(idx).factor1.length; i++) {
-                        factors[ISP.FEvents.get(idx).factor1[i]] += ISP.FEvents.get(idx).amount1[i];
-                    }
+                for (int i = 0; i < ISP.FEvents.get(idx).factor1.length; i++) {
+                    factors[ISP.FEvents.get(idx).factor1[i]] += ISP.FEvents.get(idx).amount1[i];
                 }
+
                 updateMeters();
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
                 idx = FamilySelector.select();
-                if (idx >= ISP.FEvents.size()) {
-                    root2.getChildren().add(ch3);
-                } else {
-                    quest.relocate(397, ISP.FEvents.get(idx).getY());
-                    option1.setText(ISP.FEvents.get(idx).answer1);
-                    option2.setText(ISP.FEvents.get(idx).answer2);
-                    quest.setText(ISP.FEvents.get(idx).question);
-                }
+                quest.relocate(397, ISP.FEvents.get(idx).getY());
+                option1.setText(ISP.FEvents.get(idx).answer1);
+                option2.setText(ISP.FEvents.get(idx).answer2);
+                quest.setText(ISP.FEvents.get(idx).question);
 
                 //updateMeters();
                 stShowBack2.play();
@@ -294,7 +285,7 @@ public class Family {
         // tutorial scene
         //-fx-background-color: #cfe2f3
         idx = FamilySelector.select();
-        
+
         factors[0] = 60;
         factors[1] = 60;
         factors[2] = 60;
@@ -506,7 +497,7 @@ public class Family {
         root2.getChildren().add(back);
 
         root2.getChildren().add(front);
-        
+
         quest.relocate(397, ISP.FEvents.get(idx).getY());
         option1.setText(ISP.FEvents.get(idx).answer1);
         option2.setText(ISP.FEvents.get(idx).answer2);
@@ -539,9 +530,8 @@ public class Family {
                 factors[3] = 60;
                 factors[2] = 60;
             }
-            if (idx < ISP.FEvents.size()) {
-                day += ISP.FEvents.get(idx).getDays();
-            }
+            day += ISP.FEvents.get(idx).getDays();
+
             daystatus.setText("Day " + day);
 //            idx = FamilySelector.select();
 //            if (ISP.FEvents.get(idx).factor1.length > 0) {
@@ -599,9 +589,6 @@ public class Family {
                 factors[2] = 60;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
-            if (idx + 1 == ISP.FEvents.size() - 1) {
-                root2.getChildren().add(ch3);
-            }
             if (day == 1) {
                 root2.getChildren().add(ch2);
             }
