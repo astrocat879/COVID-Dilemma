@@ -27,15 +27,9 @@ public class PrimeMinisterSelector {
         while(true){
             int id = (int)(Math.random()*(ISP.PMEvents.size()));
             if(ISP.PMUsed.get(id) == false){
-                complete(id);
+                ISP.PMUsed.set(id,true);
                 return id;
             }
         }
-    }
-    public Event getEvent(int id){
-        return ISP.PMEvents.get(id);
-    }
-    public static void complete(int id){
-        ISP.PMUsed.set(id,true);
     }
 }

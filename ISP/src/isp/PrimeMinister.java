@@ -481,6 +481,7 @@ public class PrimeMinister{
         option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
+            System.out.println(idx);
 //            for (int i = 0; i < ISP.PMEvents.get(idx).factor1.length; i++) {
 //                factors[ISP.PMEvents.get(idx).factor1[i]] += ISP.PMEvents.get(idx).amount1[i];
 //            }
@@ -521,6 +522,7 @@ public class PrimeMinister{
         option2.setOnMouseExited(e -> option2.setStyle(IDLE_BUTTON_STYLE));
         option2.setOnMousePressed(e -> option2.setStyle(CLICKED_BUTTON_STYLE));
         option2.setOnAction(actionEvent -> {
+            System.out.println(idx);
 //            for (int i = 0; i < ISP.PMEvents.get(idx).factor2.length; i++) {
 //                factors[ISP.PMEvents.get(idx).factor2[i]] += ISP.PMEvents.get(idx).amount2[i];
 //            }
