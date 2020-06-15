@@ -12,6 +12,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -24,10 +26,9 @@ public class End {
         final String b_CLICKED_BUTTON_STYLE = "-fx-background-color: #674ea7; ";
         Pane root = new Pane();
         ISP.end = new Scene(root, 1200, 750);
-        Label l = new Label("Game Over");
-        l.relocate(500, 300);
-        l.setFont(new Font(50));
-        root.getChildren().add(l);
+        
+        Image img  = new Image("GameOver.jpg");
+        root.getChildren().add(new ImageView(img));
         Button b = new Button("Back");
         b.relocate(3,715);
         b.setStyle(b_IDLE_BUTTON_STYLE);
