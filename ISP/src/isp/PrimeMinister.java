@@ -113,7 +113,7 @@ public class PrimeMinister{
                 else{
                     day += ISP.PMEvents.get(idx).getDays();
                     daystatus.setText("Day " + day);
-                    idx = FamilySelector.select();
+                    idx = PrimeMinisterSelector.select();
                     quest.relocate(397, ISP.PMEvents.get(idx).getY());
                     option1.setText(ISP.PMEvents.get(idx).answer1);
                     option2.setText(ISP.PMEvents.get(idx).answer2);
@@ -210,7 +210,7 @@ public class PrimeMinister{
                 else{
                     day += ISP.PMEvents.get(idx).getDays();
                     daystatus.setText("Day " + day);
-                    idx = FamilySelector.select();
+                    idx = PrimeMinisterSelector.select();
                     quest.relocate(397, ISP.PMEvents.get(idx).getY());
                     option1.setText(ISP.PMEvents.get(idx).answer1);
                     option2.setText(ISP.PMEvents.get(idx).answer2);
@@ -499,7 +499,7 @@ public class PrimeMinister{
                 factors[1] = 60;
                 factors[2] = 60;
             }
-//            idx = FamilySelector.select();
+//            idx = PrimeMinisterSelector.select();
 //            if (ISP.PMEvents.get(idx).factor1.length > 0) {
 ////                flipButton(option1,option1back,optionResults1);
 //

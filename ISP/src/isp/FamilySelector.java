@@ -13,12 +13,12 @@ import java.util.*;
 public class FamilySelector {
     public static void add(Event ee){
         ISP.FEvents.add(ee);
-        ISP.FUsed.add(true);
+        ISP.FUsed.add(false);
     }
     public static int select(){
         boolean has = false;
         for(int i = 0;i<ISP.FUsed.size();i++){
-            if(ISP.FUsed.get(i) == true){
+            if(ISP.FUsed.get(i) == false){
                 has = true;
                 break;
             }
@@ -26,7 +26,7 @@ public class FamilySelector {
         if(!has)return -1;
         while(true){
             int id = (int)(Math.random()*(ISP.FEvents.size()));
-            if(ISP.FUsed.get(id) == true){
+            if(ISP.FUsed.get(id) == false){
                 complete(id);
                 return id;
             }
@@ -36,6 +36,6 @@ public class FamilySelector {
         return ISP.FEvents.get(id);
     }
     public static void complete(int id){
-        ISP.FUsed.set(id,false);
+        ISP.FUsed.set(id,true);
     }
 }
