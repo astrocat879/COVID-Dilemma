@@ -276,8 +276,10 @@ public class Family {
 //    }
     //Updates the factors sliding a rectangle up and down to simulate filling and emptying
     public static void updateMeters() {
-        hr.setHeight(10 + 100 - factors[0]);
-        mr.setHeight(10 + 100 - factors[1]);
+        hr.setHeight(10 + 100 - factors[2]);
+        mr.setHeight(10 + 100 - factors[3]);
+        sr.setHeight(10 + 100 - factors[0]);
+        mhr.setHeight(10 + 100 - factors[1]);
     }
 
     public static void run(Stage window) {
@@ -292,6 +294,7 @@ public class Family {
         // tutorial scene
         //-fx-background-color: #cfe2f3
         idx = FamilySelector.select();
+        
         factors[0] = 60;
         factors[1] = 60;
         factors[2] = 60;
@@ -503,6 +506,11 @@ public class Family {
         root2.getChildren().add(back);
 
         root2.getChildren().add(front);
+        
+        quest.relocate(397, ISP.FEvents.get(idx).getY());
+        option1.setText(ISP.FEvents.get(idx).answer1);
+        option2.setText(ISP.FEvents.get(idx).answer2);
+        quest.setText(ISP.FEvents.get(idx).question);
 
 //        Label z = new Label("hEllo");
 //        z.relocate(370, 300);
