@@ -545,12 +545,7 @@ public class Family {
 
 //            }
             option1.setStyle(IDLE_BUTTON_STYLE);
-            //if(idx > 1){
-            //option2.setDisable(false);
-            //}
-            if (day == 1) {
-                root2.getChildren().add(ch2);
-            }
+            
             updateMeters();
 
         });
@@ -589,9 +584,7 @@ public class Family {
                 factors[2] = 60;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
-            if (day == 1) {
-                root2.getChildren().add(ch2);
-            }
+           
         });
     }
 }
