@@ -41,6 +41,7 @@ public class Family {
     public static Stage window;
     public static Button option1 = new Button(ISP.FEvents.get(idx).answer1);
     public static Button option2 = new Button(ISP.FEvents.get(idx).answer2);
+    public static Event[] deathEvents = new Event[4];
     public static Label daystatus = new Label("Day " + day);
     public static Button option1back = new Button("");
     public static Button option2back = new Button("");
@@ -89,11 +90,41 @@ public class Family {
 
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
                 updateMeters();
-                idx = FamilySelector.select();
-                quest.relocate(397, ISP.FEvents.get(idx).getY());
-                option1.setText(ISP.FEvents.get(idx).answer1);
-                option2.setText(ISP.FEvents.get(idx).answer2);
-                quest.setText(ISP.FEvents.get(idx).question);
+                if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
+                    if (factors[0] < 0){
+                        quest.relocate(397, deathEvents[0].getY());
+                        option1.setText(deathEvents[0].answer1);
+                        option2.setText(deathEvents[0].answer2);
+                        quest.setText(deathEvents[0].question);
+                    }
+                    else if (factors[1] < 0){
+                        quest.relocate(397, deathEvents[1].getY());
+                        option1.setText(deathEvents[1].answer1);
+                        option2.setText(deathEvents[1].answer2);
+                        quest.setText(deathEvents[1].question);
+                    }
+                    else if (factors[2] < 0){
+                        quest.relocate(397, deathEvents[2].getY());
+                        option1.setText(deathEvents[2].answer1);
+                        option2.setText(deathEvents[2].answer2);
+                        quest.setText(deathEvents[2].question);
+                    }
+                    else{
+                        quest.relocate(397, deathEvents[3].getY());
+                        option1.setText(deathEvents[3].answer1);
+                        option2.setText(deathEvents[3].answer2);
+                        quest.setText(deathEvents[3].question);
+                    }
+                }
+                else{
+                    day += ISP.FEvents.get(idx).getDays();
+                    daystatus.setText("Day " + day);
+                    idx = FamilySelector.select();
+                    quest.relocate(397, ISP.FEvents.get(idx).getY());
+                    option1.setText(ISP.FEvents.get(idx).answer1);
+                    option2.setText(ISP.FEvents.get(idx).answer2);
+                    quest.setText(ISP.FEvents.get(idx).question);
+                }
 
                 //updateMeters();
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
@@ -162,11 +193,43 @@ public class Family {
 
                 updateMeters();
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
-                idx = FamilySelector.select();
-                quest.relocate(397, ISP.FEvents.get(idx).getY());
-                option1.setText(ISP.FEvents.get(idx).answer1);
-                option2.setText(ISP.FEvents.get(idx).answer2);
-                quest.setText(ISP.FEvents.get(idx).question);
+                if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
+                    if (factors[0] < 0){
+                        quest.relocate(397, deathEvents[0].getY());
+                        option1.setText(deathEvents[0].answer1);
+                        option2.setText(deathEvents[0].answer2);
+                        quest.setText(deathEvents[0].question);
+                    }
+                    else if (factors[1] < 0){
+                        quest.relocate(397, deathEvents[1].getY());
+                        option1.setText(deathEvents[1].answer1);
+                        option2.setText(deathEvents[1].answer2);
+                        quest.setText(deathEvents[1].question);
+                    }
+                    else if (factors[2] < 0){
+                        quest.relocate(397, deathEvents[2].getY());
+                        option1.setText(deathEvents[2].answer1);
+                        option2.setText(deathEvents[2].answer2);
+                        quest.setText(deathEvents[2].question);
+                    }
+                    else{
+                        quest.relocate(397, deathEvents[3].getY());
+                        option1.setText(deathEvents[3].answer1);
+                        option2.setText(deathEvents[3].answer2);
+                        quest.setText(deathEvents[3].question);
+                    }
+                }
+                else{
+                    day += ISP.FEvents.get(idx).getDays();
+                    daystatus.setText("Day " + day);
+                    idx = FamilySelector.select();
+                    quest.relocate(397, ISP.FEvents.get(idx).getY());
+                    option1.setText(ISP.FEvents.get(idx).answer1);
+                    option2.setText(ISP.FEvents.get(idx).answer2);
+                    quest.setText(ISP.FEvents.get(idx).question);
+                }
+                
+                
 
                 //updateMeters();
                 stShowBack2.play();
@@ -284,6 +347,11 @@ public class Family {
         final String CLICKED_BUTTON_STYLE = "-fx-font-size:20;  -fx-background-color: #0198E1;  ";
         // tutorial scene
         //-fx-background-color: #cfe2f3
+        deathEvents[0] = new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Your social status plummets. You cannot show your face to the public anymore.","Oh no...","Oops...",145, 0);
+        deathEvents[1] = new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Your mental health goes into shambles. You are too stressed.","Oh no...","Oops...",145, 0);
+        deathEvents[2] = new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Your legs give out due to your poor health. ","Oh no...","Oops...",145, 0);
+        deathEvents[3] = new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Your cash runs out, and debt skyrockets. You go into hiding from debt collectors.","Oh no...","Oops...",145, 0);
+        
         idx = FamilySelector.select();
 
         factors[0] = 60;
@@ -530,9 +598,6 @@ public class Family {
                 factors[3] = 60;
                 factors[2] = 60;
             }
-            day += ISP.FEvents.get(idx).getDays();
-
-            daystatus.setText("Day " + day);
 //            idx = FamilySelector.select();
 //            if (ISP.FEvents.get(idx).factor1.length > 0) {
 ////                flipButton(option1,option1back,optionResults1);
@@ -573,7 +638,6 @@ public class Family {
 
 //            }
             flipCard2(front, back);
-            daystatus.setText("Day " + day);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
                 window.setScene(ISP.end);
                 idx = 0;
