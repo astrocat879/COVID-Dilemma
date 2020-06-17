@@ -114,15 +114,19 @@ public class PrimeMinister{
                     day += ISP.PMEvents.get(idx).getDays();
                     daystatus.setText("Day " + day);
                     idx = PrimeMinisterSelector.select();
+                    if(idx == -1){
+                        System.out.println(idx);
+                        root2.getChildren().add(new ImageView(new Image("FamilyEnd.jpg")));
+                        ISP.s6 = new Scene(root2,1200,750);
+                        window.setScene(ISP.s6);
+                    }
                     quest.relocate(397, ISP.PMEvents.get(idx).getY());
                     option1.setText(ISP.PMEvents.get(idx).answer1);
                     option2.setText(ISP.PMEvents.get(idx).answer2);
                     quest.setText(ISP.PMEvents.get(idx).question);
                 }
                 
-                if(idx == -1){
-                     window.setScene(ISP.s6);
-                }
+                
 
                 //updateMeters();
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
@@ -215,6 +219,11 @@ public class PrimeMinister{
                     day += ISP.PMEvents.get(idx).getDays();
                     daystatus.setText("Day " + day);
                     idx = PrimeMinisterSelector.select();
+                    if(idx == -1){
+                        root2.getChildren().add(new ImageView(new Image("PMEnd.jpg")));
+                        ISP.s6 = new Scene(root2,1200,750);
+                        window.setScene(ISP.s6);
+                    }
                     quest.relocate(397, ISP.PMEvents.get(idx).getY());
                     option1.setText(ISP.PMEvents.get(idx).answer1);
                     option2.setText(ISP.PMEvents.get(idx).answer2);
