@@ -24,7 +24,7 @@ public class FamilyEvents{
         FamilySelector.add(new Event(new int [] {0,2,3}, new int [] {5,-10,-15}, new int [] {0,2,3}, new int [] {-5,-5,-10}, "Your son wants to go to the store with you","Bring him to the store","Don’t bring him to the store, I need my alone time",150, 1));
         FamilySelector.add(new Event(new int [] {0}, new int [] {-5}, new int [] {0,2}, new int [] {-5,-5}, "Your daughter wants to go hang out with friends","Don’t let her","Let her",155, 1));
         FamilySelector.add(new Event(new int [] {}, new int [] {}, new int [] {0}, new int [] {-5}, "Your children aren’t doing homework","Let them chill","Force them by taking away their video games",155, 1));
-        FamilySelector.add(new Event(new int [] {2,3}, new int [] {10,-20}, new int [] {2}, new int [] {-10}, "Gyms have closed down","Buy expensive equipment ","Continue watching Netflix",155, 1));
+        FamilySelector.add(new Event(new int [] {2,3}, new int [] {10,-20}, new int [] {2}, new int [] {-10}, "Gyms have closed down","Buy expensive equipment to exercise","Continue watching Netflix",155, 1));
         FamilySelector.add(new Event(new int [] {0,1,2,3}, new int [] {5,5,-10,-20}, new int [] {1}, new int [] {5}, "Your family feels cooped up","Go on a road trip and book a hotel","Take a walk in the park",155, 1));
         FamilySelector.add(new Event(new int [] {0,1,3}, new int [] {5,5,-5}, new int [] {0,1,3}, new int [] {5,10,-5}, "Your internet provider has been lacking recently","Upgrade your plan","Switch to Bell",155, 1));
         FamilySelector.add(new Event(new int [] {2,3}, new int [] {-10,-5}, new int [] {}, new int [] {}, "You need to buy groceries however you are out of masks","Buy groceries anyways","Just wait it out",155, 1));

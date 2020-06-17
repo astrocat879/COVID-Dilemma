@@ -610,13 +610,14 @@ public class Family {
 
 //            }
             option1.setStyle(IDLE_BUTTON_STYLE);
-            if(idx == 14){
-                ISP.FAch.get(0).status = true;
-                root2.getChildren().add(ch);
-            }
+            
             if(idx == 17){
                 ISP.FAch.get(2).status = true;
                 root2.getChildren().add(ch3);
+            }
+             if(idx == 5){
+                ISP.FAch.get(1).status = true;
+                root2.getChildren().add(ch2);
             }
             
             
@@ -657,7 +658,10 @@ public class Family {
                 factors[2] = 60;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
-           
+            if(idx == 14){
+                ISP.FAch.get(0).status = true;
+                root2.getChildren().add(ch);
+            }
         });
     }
 }
