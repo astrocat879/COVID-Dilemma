@@ -38,4 +38,9 @@ public class FamilySelector {
     public static void complete(int id){
         ISP.FUsed.set(id,true);
     }
+    public static void reset(){
+        for(int i = 0;i<ISP.FUsed.size();i++){
+            ISP.FUsed.set(i, Boolean.TRUE);
+        }
+    }
 }
