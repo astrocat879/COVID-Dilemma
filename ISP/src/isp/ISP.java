@@ -26,7 +26,7 @@ import javafx.scene.layout.Pane;
  *  - May 27th, 2020: Updated by Justin Zhu
  *  - June 10th, 2020: Updated by Ronald You
  *  - June 14th, 2020; Updated by Ronald You
- * 
+ * - June 16th, 2020; Updated by Ronald You
  */
 public class ISP extends Application {
     
@@ -37,8 +37,12 @@ public class ISP extends Application {
     public static ArrayList<Event> FEvents = new ArrayList<Event>();
     public static ArrayList<Boolean> FUsed = new ArrayList<Boolean>();
     public static ArrayList<Achievement> TutAch = new ArrayList<Achievement>();
+    public static ArrayList<Achievement> PMAch = new ArrayList<Achievement>();
+    public static ArrayList<Achievement> FAch = new ArrayList<Achievement>();
     @Override
     public void start(Stage primaryStage) throws Exception{
+        PMAchievements.generateAchievements();
+        FamilyAchievements.generateAchievements();
         End1.run(primaryStage);
         PrimeMinisterEvents.generateEvents();
         FamilyEvents.generateEvents();
@@ -50,6 +54,7 @@ public class ISP extends Application {
         TutorialEnd.run(primaryStage);
         PrimeMinister.run(primaryStage);
         Family.run(primaryStage);
+        
         
         
     }

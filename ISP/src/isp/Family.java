@@ -397,9 +397,9 @@ public class Family {
         ImageView ch = new ImageView();
 
         //achievement checkboxes
-        Label ach1 = new Label(ISP.TutAch.get(0).question);
-        Label ach2 = new Label(ISP.TutAch.get(1).question);
-        Label ach3 = new Label(ISP.TutAch.get(2).question);
+        Label ach1 = new Label(ISP.FAch.get(0).question);
+        Label ach2 = new Label(ISP.FAch.get(1).question);
+        Label ach3 = new Label(ISP.FAch.get(2).question);
 
         ach1.relocate(948, 32);
         ach1.setFont(new Font("Arial", 18));

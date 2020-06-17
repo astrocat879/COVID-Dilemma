@@ -221,9 +221,7 @@ public class PrimeMinister{
                     quest.setText(ISP.PMEvents.get(idx).question);
                 }
                 
-                if(idx == -1){
-                     window.setScene(ISP.s6);
-                }
+                
                 
                 
 
@@ -309,9 +307,9 @@ public class PrimeMinister{
         ImageView ch = new ImageView();
         
         //achievement checkboxes
-        Label ach1 = new Label (ISP.TutAch.get(0).question);
-        Label ach2 = new Label (ISP.TutAch.get(1).question);
-        Label ach3 = new Label (ISP.TutAch.get(2).question);
+        Label ach1 = new Label (ISP.PMAch.get(0).question);
+        Label ach2 = new Label (ISP.PMAch.get(1).question);
+        Label ach3 = new Label (ISP.PMAch.get(2).question);
         
         ach1.relocate(948,32);
         ach1.setFont(new Font("Arial",18));
@@ -490,6 +488,9 @@ public class PrimeMinister{
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
             System.out.println(idx);
+            if(idx == -1){
+                     window.setScene(ISP.s6);
+            }
 //            for (int i = 0; i < ISP.PMEvents.get(idx).factor1.length; i++) {
 //                factors[ISP.PMEvents.get(idx).factor1[i]] += ISP.PMEvents.get(idx).amount1[i];
 //            }
@@ -531,6 +532,9 @@ public class PrimeMinister{
         option2.setOnMousePressed(e -> option2.setStyle(CLICKED_BUTTON_STYLE));
         option2.setOnAction(actionEvent -> {
             System.out.println(idx);
+            if(idx == -1){
+                     window.setScene(ISP.s6);
+            }
 //            for (int i = 0; i < ISP.PMEvents.get(idx).factor2.length; i++) {
 //                factors[ISP.PMEvents.get(idx).factor2[i]] += ISP.PMEvents.get(idx).amount2[i];
 //            }

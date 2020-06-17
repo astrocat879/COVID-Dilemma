@@ -18,11 +18,11 @@ import javafx.stage.Stage;
  *  - June 10th, 2020; Created by Ronald You
  * 
  */
-public class TutorialAchievements{
+public class PMAchievements{
     public static void generateAchievements(){
-        ISP.TutAch.add(new Achievement("Start tutorial",false));
-        ISP.TutAch.add(new Achievement("Reach day 1",false));
-        ISP.TutAch.add(new Achievement("Finish tutorial",false));
+        ISP.PMAch.add(new Achievement("Develop a cure",false));
+        ISP.PMAch.add(new Achievement("Choose Canada first",false));
+        ISP.PMAch.add(new Achievement("Stimulate the economy",false));
     }
 
 }
