@@ -40,7 +40,7 @@ public class FamilySelector {
     }
     public static void reset(){
         for(int i = 0;i<ISP.FUsed.size();i++){
-            ISP.FUsed.set(i, Boolean.TRUE);
+            ISP.FUsed.set(i, false);
         }
     }
 }
