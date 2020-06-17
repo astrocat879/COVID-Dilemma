@@ -367,7 +367,7 @@ public class PrimeMinister{
         bob3.setSmooth(true);
         bob3.relocate(883,138);
 
-        root2.getChildren().add(ch);
+        //root2.getChildren().add(ch);
         //root2.getChildren().add(ch2);
         //root2.getChildren().add(ch3);
         root2.getChildren().add(bob);
@@ -521,6 +521,10 @@ public class PrimeMinister{
 
 //            }
             option1.setStyle(IDLE_BUTTON_STYLE);
+            if(idx == 22){
+                ISP.PMAch.get(1).status = true;
+                root2.getChildren().add(ch);
+            }
             
             updateMeters();
 
@@ -562,7 +566,14 @@ public class PrimeMinister{
                 factors[2] = 60;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
-           
+            if(idx == 18){
+                ISP.PMAch.get(2).status = true;
+                root2.getChildren().add(ch2);
+            }
+            if(idx == 6){
+                ISP.PMAch.get(3).status = true;
+                root2.getChildren().add(ch3);
+            }
         });
     }
 }

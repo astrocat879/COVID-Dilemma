@@ -20,7 +20,7 @@ import javafx.stage.Stage;
  */
 public class FamilyAchievements{
     public static void generateAchievements(){
-        ISP.FAch.add(new Achievement("Lose your job",false));
+        ISP.FAch.add(new Achievement("Find another job",false));
         ISP.FAch.add(new Achievement("Fill your money meter",false));
         ISP.FAch.add(new Achievement("Learn to code",false));
     }

@@ -26,6 +26,4 @@ public class Achievement {
         question = q;
         status = stat;
     }
-    
-    
 }

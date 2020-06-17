@@ -457,7 +457,7 @@ public class Family {
         bob3.setSmooth(true);
         bob3.relocate(883, 138);
 
-        root2.getChildren().add(ch);
+        //root2.getChildren().add(ch);
         //root2.getChildren().add(ch2);
         //root2.getChildren().add(ch3);
         root2.getChildren().add(bob);
@@ -610,6 +610,15 @@ public class Family {
 
 //            }
             option1.setStyle(IDLE_BUTTON_STYLE);
+            if(idx == 14){
+                ISP.FAch.get(0).status = true;
+                root2.getChildren().add(ch);
+            }
+            if(idx == 17){
+                ISP.FAch.get(2).status = true;
+                root2.getChildren().add(ch3);
+            }
+            
             
             updateMeters();
 

@@ -577,10 +577,14 @@ public class tutorial {
             //if(idx > 1){
             //option2.setDisable(false);
             //}
+            if (idx + 1 == ISP.TutEvents.size() - 1) {
+                ISP.TutAch.get(2).status = true;
+                root2.getChildren().add(ch3);
+            }
             if (day == 1) {
                 root2.getChildren().add(ch2);
+                ISP.TutAch.get(1).status = true;
             }
-            updateMeters();
 
         });
 
@@ -620,10 +624,12 @@ public class tutorial {
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
             if (idx + 1 == ISP.TutEvents.size() - 1) {
+                ISP.TutAch.get(2).status = true;
                 root2.getChildren().add(ch3);
             }
             if (day == 1) {
                 root2.getChildren().add(ch2);
+                ISP.TutAch.get(1).status = true;
             }
         });
     }
