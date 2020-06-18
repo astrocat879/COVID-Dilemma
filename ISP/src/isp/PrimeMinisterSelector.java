@@ -32,9 +32,9 @@ public class PrimeMinisterSelector {
             }
         }
     }
-       public static void reset(){
+    public static void reset(){
         for(int i = 0;i<ISP.PMUsed.size();i++){
-            ISP.FUsed.set(i, false);
+            ISP.PMUsed.set(i, false);
         }
     }
 }
