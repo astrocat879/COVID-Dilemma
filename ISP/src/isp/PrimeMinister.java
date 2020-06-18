@@ -118,7 +118,7 @@ public class PrimeMinister{
                     idx = PrimeMinisterSelector.select();
                     if(idx == -1){
                         System.out.println(idx);
-                        root22.getChildren().add(new ImageView(new Image("FamilyEnd.jpg")));
+                        root22.getChildren().add(new ImageView(new Image("PMEnd.jpg")));
                         ISP.s6 = new Scene(root22,1200,750);
                         window.setScene(ISP.s6);
                     }
