@@ -45,6 +45,8 @@ public class ISP extends Application {
         FamilyAchievements.generateAchievements();
         End1.run(primaryStage);
         End2.run(primaryStage);
+        FEnd.run(primaryStage);
+        PMEnd.run(primaryStage);
         PrimeMinisterEvents.generateEvents();
         FamilyEvents.generateEvents();
         TutorialAchievements.generateAchievements();
