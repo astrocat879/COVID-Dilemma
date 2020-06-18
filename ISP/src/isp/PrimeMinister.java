@@ -438,6 +438,8 @@ public class PrimeMinister{
         quest.setMaxWidth(400);
         option1.wrapTextProperty().setValue(true);
         option2.wrapTextProperty().setValue(true);
+        option1.setText(ISP.PMEvents.get(idx).answer1);
+        option2.setText(ISP.PMEvents.get(idx).answer2);
         option1.relocate(358, 291);
         option2.relocate(611, 291);
         option1.setPrefSize(232, 311);
@@ -518,7 +520,6 @@ public class PrimeMinister{
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0) {
                 PrimeMinisterSelector.reset();
                 window.setScene(ISP.end2);
-                idx = 0;
                 day = 0;
                 factors[0] = 50;
                 factors[1] = 50;
@@ -536,11 +537,11 @@ public class PrimeMinister{
 
 //            }
             option1.setStyle(IDLE_BUTTON_STYLE);
-            if(idx == 22){
+            if(idx == 23){
                 ISP.PMAch.get(0).status = true;
                 root22.getChildren().add(ch);
             }
-            if(idx == 0){
+            if(idx == 1){
                 ISP.PMAch.get(0).status = true;
                 root22.getChildren().add(ch);
             }
@@ -579,18 +580,17 @@ public class PrimeMinister{
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0) {
                 PrimeMinisterSelector.reset();
                 window.setScene(ISP.end2);
-                idx = 0;
                 day = 0;
                 factors[0] = 50;
                 factors[1] = 50;
                 factors[2] = 50;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
-            if(idx == 18){
+            if(idx == 19){
                 ISP.PMAch.get(1).status = true;
                 root22.getChildren().add(ch2);
             }
-            if(idx == 6){
+            if(idx == 7){
                 ISP.PMAch.get(2).status = true;
                 root22.getChildren().add(ch3);
             }
