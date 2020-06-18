@@ -90,7 +90,7 @@ public class PrimeMinister{
                     factors[ISP.PMEvents.get(idx).factor2[i]] = Math.min(95, factors[ISP.PMEvents.get(idx).factor2[i]]);
                 }
 
-                System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
+                System.out.println(factors[0] + " " + factors[1]+ " " + factors[2]);
                 updateMeters();
                 if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0) {
                     if (factors[0] < 0){
@@ -198,7 +198,7 @@ public class PrimeMinister{
                 }
 
                 updateMeters();
-                System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
+                System.out.println(factors[0] + " " + factors[1]+ " " + factors[2]);
                 if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0) {
                     if (factors[0] < 0){
                         quest.relocate(397, deathEvents[0].getY());
