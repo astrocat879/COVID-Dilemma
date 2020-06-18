@@ -19,6 +19,7 @@ import javafx.stage.Stage;
  */
 public class FamilyEvents{
     public static void generateEvents(){
+        FamilySelector.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "It's a nice day today!", "Yay!", "Nay!",145, 0));
         FamilySelector.add(new Event(new int [] {0,1,2}, new int [] {5,5,-10}, new int [] {2}, new int [] {5}, "Your neighbour invites your family over for dinner, what do you do?","Hmm, why not, I could use some fun","Stay home and ignore invite",145, 1));
         FamilySelector.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Thousands of people are protesting in the streets for Taco Tuesday","I should go, I love tacos","Maybe not, I prefer taco thursday",155, 0));
         FamilySelector.add(new Event(new int [] {0,2,3}, new int [] {5,-10,-5}, new int [] {0,2,3}, new int [] {-5,-5,-5}, "Your son wants to go to the store with you","Bring him to the store","Don’t bring him to the store, I need my alone time",150, 1));

@@ -20,6 +20,7 @@ import javafx.stage.Stage;
  */
 public class PrimeMinisterEvents{
     public static void generateEvents(){
+        PrimeMinisterSelector.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Someone sent you a nice letter!", "Yay!", "Nay!",145, 0));
         PrimeMinisterSelector.add(new Event(new int [] {0,1,2}, new int [] {-10,-10,10}, new int [] {0,1,2}, new int [] {5,5,-10}, "COVID-19 is dampening the economy do you…", "Tell them to continue to work to until the situation gets worse", "Tell them to get quarantined, every life matters",145, 1));
         PrimeMinisterSelector.add(new Event(new int [] {0,1}, new int [] {5,-5}, new int [] {0,1}, new int [] {-5,5}, "A group of protestors are against quarantine. The protest is peaceful, but you think this could be a public health issue.", "Do nothing", "Use force to disperse protesters",127, 1));
         PrimeMinisterSelector.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Reporters begin asking you how you think other world leaders did to deal with COVID-19. How do you respond?", "Pause and think for a very very long time before responding", "Reject their question and refuse to respond",127, 1));
