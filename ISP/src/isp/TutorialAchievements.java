@@ -20,7 +20,7 @@ import javafx.stage.Stage;
  */
 public class TutorialAchievements{
     public static void generateAchievements(){
-        ISP.TutAch.add(new Achievement("Start tutorial",true));
+        ISP.TutAch.add(new Achievement("Start tutorial",false));
         ISP.TutAch.add(new Achievement("Reach day 1",false));
         ISP.TutAch.add(new Achievement("Finish tutorial",false));
     }

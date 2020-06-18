@@ -122,11 +122,7 @@ public class Family {
                     day += ISP.FEvents.get(idx).getDays();
                     daystatus.setText("Day " + day);
                     idx = FamilySelector.select();
-                    if(idx == -1){
-                        root2.getChildren().add(new ImageView(new Image("FamilyEnd.jpg")));
-                        ISP.s7 = new Scene(root2,1200,750);
-                        window.setScene(ISP.s7);
-                    }
+                    
                     quest.relocate(397, ISP.FEvents.get(idx).getY());
                     option1.setText(ISP.FEvents.get(idx).answer1);
                     option2.setText(ISP.FEvents.get(idx).answer2);
@@ -232,11 +228,7 @@ public class Family {
                     day += ISP.FEvents.get(idx).getDays();
                     daystatus.setText("Day " + day);
                     idx = FamilySelector.select();
-                    if(idx == -1){
-                        root2.getChildren().add(new ImageView(new Image("FamilyEnd.jpg")));
-                        ISP.s7 = new Scene(root2,1200,750);
-                        window.setScene(ISP.s7);
-                    }
+                    
                     quest.relocate(397, ISP.FEvents.get(idx).getY());
                     option1.setText(ISP.FEvents.get(idx).answer1);
                     option2.setText(ISP.FEvents.get(idx).answer2);
@@ -258,90 +250,7 @@ public class Family {
 
     }
 
-//    public static void flipButton(Button frontb, Button backb, Group optBack){
-//        option1.setDisable(true);
-//        option2.setDisable(true);
-//        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), frontb);
-//        stHideFront.setFromX(1);
-//        stHideFront.setToX(0);
-//        
-//        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), backb);
-//        stShowBack.setFromX(0);
-//        stShowBack.setToX(1);
-//        
-//        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent t) {
-//                stShowBack.play();
-//                
-//                
-//            }
-//        });
-//        stHideFront.play();
-//        
-//        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), optBack);
-//        stHideFront2.setFromX(1);
-//        stHideFront2.setToX(0);
-//
-//        ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), optBack);
-//        stShowBack2.setFromX(0);
-//        stShowBack2.setToX(1);
-//        
-//        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent t) {
-//                stShowBack2.play();
-//            }
-//        });
-//        stHideFront2.play();
-//          
-//        //return 1;
-//    }
-//    
-//    public static int flipButtonBack(Button frontb, Button backb, Group optBack){
-//        ScaleTransition stHideFront = new ScaleTransition(Duration.millis(500), optBack);
-//        stHideFront.setFromX(1);
-//        stHideFront.setToX(0);
-//        
-//        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(500), backb);
-//        stShowBack.setFromX(0);
-//        stShowBack.setToX(1);
-//        
-//        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent t) {
-//                SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack);
-//                seq.play();
-//                //stShowBack.play();
-//                
-//                
-//            }
-//        });
-//        SequentialTransition  seq = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stHideFront);
-//        seq.play();
-//        //stHideFront.play();
-//        
-//        ScaleTransition stHideFront2 = new ScaleTransition(Duration.millis(500), frontb);
-//        stHideFront2.setFromX(1);
-//        stHideFront2.setToX(0);
-//
-//        ScaleTransition stShowBack2 = new ScaleTransition(Duration.millis(500), frontb);
-//        stShowBack2.setFromX(0);
-//        stShowBack2.setToX(1);
-//        
-//        stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent t) {
-//                stShowBack2.play();
-//                
-//            }
-//        });
-//        stHideFront2.play();
-//        //try{Thread.sleep(500);}
-//        //catch(Exception f){}
-//        
-//        return 1;
-//    }
+
     //Updates the factors sliding a rectangle up and down to simulate filling and emptying
     public static void updateMeters() {
         hr.setHeight(10 + 85 - factors[2]);
@@ -409,6 +318,62 @@ public class Family {
         root2.getChildren().add(new ImageView(bg));
         Image cb = new Image("checkBox.png");
         ImageView ch = new ImageView();
+        
+        
+        /////////////////////////////////////////////////
+        
+        
+        
+        //Image cb = new Image("checkBox.png");
+        Pane root4 = new Pane();
+        ISP.s7 = new Scene(root4, 1200, 750);
+        Image img  = new Image("FamilyEnd.jpg");
+        root4.getChildren().add(new ImageView(img));
+        
+        ImageView ch1 = new ImageView();
+        ch1.setImage(cb);
+        ch1.setFitWidth(89);
+        ch1.setFitHeight(89);
+        ch1.setPreserveRatio(true);
+        ch1.setSmooth(true);
+        ch1.relocate(423,300);
+        
+        ImageView ch22 = new ImageView();
+        ch22.setImage(cb);
+        ch22.setFitWidth(89);
+        ch22.setFitHeight(89);
+        ch22.setPreserveRatio(true);
+        ch22.setSmooth(true);
+        ch22.relocate(423,418);
+        
+        ImageView ch33 = new ImageView();
+        ch33.setImage(cb);
+        ch33.setFitWidth(89);
+        ch33.setFitHeight(89);
+        ch33.setPreserveRatio(true);
+        ch33.setSmooth(true);
+        ch33.relocate(423,548);
+        
+        
+        Button b1 = new Button("Continue");
+        b1.relocate(1105,715);
+        b1.setStyle(b_IDLE_BUTTON_STYLE);
+        b1.setOnMouseEntered(e -> b1.setStyle(b_HOVERED_BUTTON_STYLE));
+        b1.setOnMouseExited(e -> b1.setStyle(b_IDLE_BUTTON_STYLE));
+        b1.setOnMousePressed(e -> b1.setStyle(b_CLICKED_BUTTON_STYLE));
+        b1.setOnAction(e -> {
+            try{Thread.sleep(100);}
+            catch(Exception f){}
+            window.setScene(ISP.s0);
+        });
+        root4.getChildren().add(b1);
+        
+        
+        
+        
+        ////////////////////////////////////////////////////////////////////////////
+        
+        
 
         //achievement checkboxes
         Label ach1 = new Label(ISP.FAch.get(0).question);
@@ -608,6 +573,9 @@ public class Family {
 //            updateMeters();
             flipCard(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
+                ISP.FAch.get(0).status = false;
+                ISP.FAch.get(1).status = false;
+                ISP.FAch.get(2).status = false;
                 FamilySelector.reset();
                 window.setScene(ISP.end1);
                 idx = 0;
@@ -639,6 +607,16 @@ public class Family {
                 root2.getChildren().add(ch2);
             }
             if (FamilySelector.checker()){
+                if(ISP.FAch.get(0).status == true){
+                    root4.getChildren().add(ch1);
+       
+                }
+                if(ISP.FAch.get(1).status == true){
+                    root4.getChildren().add(ch22);
+                }
+                if(ISP.FAch.get(2).status == true){
+                    root4.getChildren().add(ch33);
+                }
                 window.setScene(ISP.s7);
                 factors[0] = 50;
                 factors[1] = 50;
@@ -677,8 +655,12 @@ public class Family {
 //            }
             flipCard2(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
+                ISP.FAch.get(0).status = false;
+                ISP.FAch.get(1).status = false;
+                ISP.FAch.get(2).status = false;
                 FamilySelector.reset();
                 window.setScene(ISP.end1);
+                
                 idx = 0;
                 day = 0;
                 factors[0] = 50;
@@ -692,6 +674,16 @@ public class Family {
                 root2.getChildren().add(ch);
             }
             if (FamilySelector.checker()){
+                if(ISP.FAch.get(0).status == true){
+                    root4.getChildren().add(ch1);
+       
+                }
+                if(ISP.FAch.get(1).status == true){
+                    root4.getChildren().add(ch22);
+                }
+                if(ISP.FAch.get(2).status == true){
+                    root4.getChildren().add(ch33);
+                }
                 window.setScene(ISP.s7);
                 factors[0] = 50;
                 factors[1] = 50;
