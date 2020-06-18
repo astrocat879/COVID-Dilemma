@@ -120,6 +120,11 @@ public class Family {
                     day += ISP.FEvents.get(idx).getDays();
                     daystatus.setText("Day " + day);
                     idx = FamilySelector.select();
+                    if(idx == -1){
+                        root2.getChildren().add(new ImageView(new Image("FamilyEnd.jpg")));
+                        ISP.s7 = new Scene(root2,1200,750);
+                        window.setScene(ISP.s7);
+                    }
                     quest.relocate(397, ISP.FEvents.get(idx).getY());
                     option1.setText(ISP.FEvents.get(idx).answer1);
                     option2.setText(ISP.FEvents.get(idx).answer2);
@@ -223,6 +228,11 @@ public class Family {
                     day += ISP.FEvents.get(idx).getDays();
                     daystatus.setText("Day " + day);
                     idx = FamilySelector.select();
+                    if(idx == -1){
+                        root2.getChildren().add(new ImageView(new Image("FamilyEnd.jpg")));
+                        ISP.s7 = new Scene(root2,1200,750);
+                        window.setScene(ISP.s7);
+                    }
                     quest.relocate(397, ISP.FEvents.get(idx).getY());
                     option1.setText(ISP.FEvents.get(idx).answer1);
                     option2.setText(ISP.FEvents.get(idx).answer2);
@@ -579,6 +589,10 @@ public class Family {
         option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
+            System.out.println(idx);
+            if(idx == -1){
+                window.setScene(ISP.s7);
+            }
 //            for (int i = 0; i < ISP.FEvents.get(idx).factor1.length; i++) {
 //                factors[ISP.FEvents.get(idx).factor1[i]] += ISP.FEvents.get(idx).amount1[i];
 //            }
@@ -630,6 +644,10 @@ public class Family {
         option2.setOnMouseExited(e -> option2.setStyle(IDLE_BUTTON_STYLE));
         option2.setOnMousePressed(e -> option2.setStyle(CLICKED_BUTTON_STYLE));
         option2.setOnAction(actionEvent -> {
+            System.out.println(idx);
+            if(idx == -1){
+                     window.setScene(ISP.s7);
+            }
 //            for (int i = 0; i < ISP.FEvents.get(idx).factor2.length; i++) {
 //                factors[ISP.FEvents.get(idx).factor2[i]] += ISP.FEvents.get(idx).amount2[i];
 //            }
