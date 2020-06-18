@@ -609,13 +609,13 @@ public class Family {
             flipCard(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
                 FamilySelector.reset();
+                window.setScene(ISP.end1);
                 idx = 0;
                 day = 0;
                 factors[0] = 50;
                 factors[1] = 50;
                 factors[3] = 50;
                 factors[2] = 50;
-                window.setScene(ISP.end1);
             }
 //            idx = FamilySelector.select();
 //            if (ISP.FEvents.get(idx).factor1.length > 0) {
@@ -673,13 +673,13 @@ public class Family {
             flipCard2(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
                 FamilySelector.reset();
+                window.setScene(ISP.end1);
                 idx = 0;
                 day = 0;
                 factors[0] = 50;
                 factors[1] = 50;
                 factors[3] = 50;
                 factors[2] = 50;
-                window.setScene(ISP.end1);
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
             if(idx == 14){
