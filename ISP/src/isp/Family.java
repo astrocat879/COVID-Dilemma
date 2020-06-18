@@ -86,8 +86,8 @@ public class Family {
 
                 for (int i = 0; i < ISP.FEvents.get(idx).factor2.length; i++) {
                     factors[ISP.FEvents.get(idx).factor2[i]] += ISP.FEvents.get(idx).amount2[i];
-                    factors[ISP.PMEvents.get(idx).factor2[i]] = Math.max(-1, factors[ISP.FEvents.get(idx).factor2[i]]);
-                    factors[ISP.PMEvents.get(idx).factor2[i]] = Math.min(95, factors[ISP.FEvents.get(idx).factor2[i]]);
+                    factors[ISP.FEvents.get(idx).factor2[i]] = Math.max(-1, factors[ISP.FEvents.get(idx).factor2[i]]);
+                    factors[ISP.FEvents.get(idx).factor2[i]] = Math.min(95, factors[ISP.FEvents.get(idx).factor2[i]]);
                 }
 
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
@@ -196,8 +196,8 @@ public class Family {
                 //}
                 for (int i = 0; i < ISP.FEvents.get(idx).factor1.length; i++) {
                     factors[ISP.FEvents.get(idx).factor1[i]] += ISP.FEvents.get(idx).amount1[i];
-                    factors[ISP.PMEvents.get(idx).factor1[i]] = Math.max(-1, factors[ISP.FEvents.get(idx).factor1[i]]);
-                    factors[ISP.PMEvents.get(idx).factor1[i]] = Math.min(95, factors[ISP.FEvents.get(idx).factor1[i]]);
+                    factors[ISP.FEvents.get(idx).factor1[i]] = Math.max(-1, factors[ISP.FEvents.get(idx).factor1[i]]);
+                    factors[ISP.FEvents.get(idx).factor1[i]] = Math.min(95, factors[ISP.FEvents.get(idx).factor1[i]]);
                 }
 
                 updateMeters();
@@ -543,7 +543,7 @@ public class Family {
         optionResults1.getChildren().add(optRect);
         optionResults2.getChildren().add(optRect2);
 
-        hr = new Rectangle(500, 0, 120, 10 + 85 - factors[2]);
+        hr = new Rectangle(600, 0, 120, 10 + 85 - factors[2]);
         mr = new Rectangle(730, 0, 120, 10 + 85 - factors[3]);
         mhr = new Rectangle(500, 0, 120, 10 + 85 - factors[1]);
         sr = new Rectangle(350, 0, 120, 10 + 85 - factors[0]);
