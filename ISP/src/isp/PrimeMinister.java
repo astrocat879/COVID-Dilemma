@@ -548,9 +548,12 @@ public class PrimeMinister{
             }
             
             updateMeters();
-            if (PrimeMinisterSelector.checker())
+            if (PrimeMinisterSelector.checker()){
                 window.setScene(ISP.s6);
-
+                factors[0] = 50;
+                factors[1] = 50;
+                factors[2] = 50;
+            }
         });
 
         option2.setStyle(IDLE_BUTTON_STYLE);
@@ -598,8 +601,12 @@ public class PrimeMinister{
                 ISP.PMAch.get(2).status = true;
                 root22.getChildren().add(ch3);
             }
-            if (PrimeMinisterSelector.checker())
+            if (PrimeMinisterSelector.checker()){
                 window.setScene(ISP.s6);
+                factors[0] = 50;
+                factors[1] = 50;
+                factors[2] = 50;
+            }
         });
     }
 }
