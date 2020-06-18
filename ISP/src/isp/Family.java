@@ -608,6 +608,7 @@ public class Family {
 //            updateMeters();
             flipCard(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
+                FamilySelector.reset();
                 window.setScene(ISP.end1);
                 idx = 0;
                 day = 0;

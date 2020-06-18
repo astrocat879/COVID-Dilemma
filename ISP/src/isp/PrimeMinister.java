@@ -516,6 +516,7 @@ public class PrimeMinister{
 //            updateMeters();
             flipCard(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0) {
+                PrimeMinisterSelector.reset();
                 window.setScene(ISP.end2);
                 idx = 0;
                 day = 0;
