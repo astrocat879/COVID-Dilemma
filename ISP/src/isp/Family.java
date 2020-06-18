@@ -86,6 +86,8 @@ public class Family {
 
                 for (int i = 0; i < ISP.FEvents.get(idx).factor2.length; i++) {
                     factors[ISP.FEvents.get(idx).factor2[i]] += ISP.FEvents.get(idx).amount2[i];
+                    factors[ISP.PMEvents.get(idx).factor2[i]] = Math.max(-1, factors[ISP.FEvents.get(idx).factor2[i]]);
+                    factors[ISP.PMEvents.get(idx).factor2[i]] = Math.min(95, factors[ISP.FEvents.get(idx).factor2[i]]);
                 }
 
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
@@ -194,6 +196,8 @@ public class Family {
                 //}
                 for (int i = 0; i < ISP.FEvents.get(idx).factor1.length; i++) {
                     factors[ISP.FEvents.get(idx).factor1[i]] += ISP.FEvents.get(idx).amount1[i];
+                    factors[ISP.PMEvents.get(idx).factor1[i]] = Math.max(-1, factors[ISP.FEvents.get(idx).factor1[i]]);
+                    factors[ISP.PMEvents.get(idx).factor1[i]] = Math.min(95, factors[ISP.FEvents.get(idx).factor1[i]]);
                 }
 
                 updateMeters();
@@ -340,10 +344,10 @@ public class Family {
 //    }
     //Updates the factors sliding a rectangle up and down to simulate filling and emptying
     public static void updateMeters() {
-        hr.setHeight(10 + 100 - factors[2]);
-        mr.setHeight(10 + 100 - factors[3]);
-        sr.setHeight(10 + 100 - factors[0]);
-        mhr.setHeight(10 + 100 - factors[1]);
+        hr.setHeight(10 + 85 - factors[2]);
+        mr.setHeight(10 + 85 - factors[3]);
+        sr.setHeight(10 + 85 - factors[0]);
+        mhr.setHeight(10 + 85 - factors[1]);
     }
 
     public static void run(Stage window) {
@@ -364,10 +368,10 @@ public class Family {
         
         idx = FamilySelector.select();
 
-        factors[0] = 60;
-        factors[1] = 60;
-        factors[2] = 60;
-        factors[3] = 60;
+        factors[0] = 50;
+        factors[1] = 50;
+        factors[2] = 50;
+        factors[3] = 50;
         root2 = new Pane();
 
         //top left game mode
@@ -539,10 +543,10 @@ public class Family {
         optionResults1.getChildren().add(optRect);
         optionResults2.getChildren().add(optRect2);
 
-        hr = new Rectangle(600, 0, 120, 10 + 100 - factors[2]);
-        mr = new Rectangle(730, 0, 120, 10 + 100 - factors[3]);
-        mhr = new Rectangle(500, 0, 120, 10 + 100 - factors[1]);
-        sr = new Rectangle(350, 0, 120, 10 + 100 - factors[0]);
+        hr = new Rectangle(500, 0, 120, 10 + 85 - factors[2]);
+        mr = new Rectangle(730, 0, 120, 10 + 85 - factors[3]);
+        mhr = new Rectangle(500, 0, 120, 10 + 85 - factors[1]);
+        sr = new Rectangle(350, 0, 120, 10 + 85 - factors[0]);
         hr.setFill(Color.valueOf("#9c9c9c"));
         mr.setFill(Color.valueOf("#9c9c9c"));
         mhr.setFill(Color.valueOf("#9c9c9c"));
@@ -607,10 +611,10 @@ public class Family {
                 window.setScene(ISP.end1);
                 idx = 0;
                 day = 0;
-                factors[0] = 60;
-                factors[1] = 60;
-                factors[3] = 60;
-                factors[2] = 60;
+                factors[0] = 50;
+                factors[1] = 50;
+                factors[3] = 50;
+                factors[2] = 50;
             }
 //            idx = FamilySelector.select();
 //            if (ISP.FEvents.get(idx).factor1.length > 0) {
@@ -670,10 +674,10 @@ public class Family {
                 window.setScene(ISP.end1);
                 idx = 0;
                 day = 0;
-                factors[0] = 60;
-                factors[1] = 60;
-                factors[3] = 60;
-                factors[2] = 60;
+                factors[0] = 50;
+                factors[1] = 50;
+                factors[3] = 50;
+                factors[2] = 50;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
             if(idx == 14){

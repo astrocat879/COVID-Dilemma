@@ -34,7 +34,7 @@ public class PrimeMinister{
     public static int idx = 0, day=0;
     public static int [] factors = new int [3];
     public static Rectangle hr, mr, ar;
-    public static Pane root2;
+    public static Pane root22;
     public static Color qOrg = Color.rgb(230, 145, 56);
     public static Color red = Color.rgb(204, 65, 37);
     public static Label quest;
@@ -86,6 +86,8 @@ public class PrimeMinister{
 
                 for (int i = 0; i < ISP.PMEvents.get(idx).factor2.length; i++) {
                     factors[ISP.PMEvents.get(idx).factor2[i]] += ISP.PMEvents.get(idx).amount2[i];
+                    factors[ISP.PMEvents.get(idx).factor2[i]] = Math.max(-1, factors[ISP.PMEvents.get(idx).factor2[i]]);
+                    factors[ISP.PMEvents.get(idx).factor2[i]] = Math.min(95, factors[ISP.PMEvents.get(idx).factor2[i]]);
                 }
 
                 System.out.println("Health: " + factors[0] + "  Money: " + factors[1]);
@@ -116,8 +118,8 @@ public class PrimeMinister{
                     idx = PrimeMinisterSelector.select();
                     if(idx == -1){
                         System.out.println(idx);
-                        root2.getChildren().add(new ImageView(new Image("FamilyEnd.jpg")));
-                        ISP.s6 = new Scene(root2,1200,750);
+                        root22.getChildren().add(new ImageView(new Image("FamilyEnd.jpg")));
+                        ISP.s6 = new Scene(root22,1200,750);
                         window.setScene(ISP.s6);
                     }
                     quest.relocate(397, ISP.PMEvents.get(idx).getY());
@@ -132,7 +134,7 @@ public class PrimeMinister{
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
                 //seq3.play();
                 //if(idx + 1== ISP.PMEvents.size()){
-                //root2.getChildren().add(ch3);
+                //root22.getChildren().add(ch3);
                 //}
                 stShowBack2.play();
 //                option2.setDisable(false);
@@ -187,10 +189,12 @@ public class PrimeMinister{
                 //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
                 //seq3.play();
                 //if(idx + 1== ISP.PMEvents.size()){
-                //root2.getChildren().add(ch3);
+                //root22.getChildren().add(ch3);
                 //}
                 for (int i = 0; i < ISP.PMEvents.get(idx).factor1.length; i++) {
                     factors[ISP.PMEvents.get(idx).factor1[i]] += ISP.PMEvents.get(idx).amount1[i];
+                    factors[ISP.PMEvents.get(idx).factor1[i]] = Math.max(-1, factors[ISP.PMEvents.get(idx).factor1[i]]);
+                    factors[ISP.PMEvents.get(idx).factor1[i]] = Math.min(95, factors[ISP.PMEvents.get(idx).factor1[i]]);
                 }
 
                 updateMeters();
@@ -220,8 +224,8 @@ public class PrimeMinister{
                     daystatus.setText("Day " + day);
                     idx = PrimeMinisterSelector.select();
                     if(idx == -1){
-                        root2.getChildren().add(new ImageView(new Image("PMEnd.jpg")));
-                        ISP.s6 = new Scene(root2,1200,750);
+                        root22.getChildren().add(new ImageView(new Image("PMEnd.jpg")));
+                        ISP.s6 = new Scene(root22,1200,750);
                         window.setScene(ISP.s6);
                     }
                     quest.relocate(397, ISP.PMEvents.get(idx).getY());
@@ -250,9 +254,9 @@ public class PrimeMinister{
     
     //Updates the factors sliding a rectangle up and down to simulate filling and emptying
     public static void updateMeters(){
-        hr.setHeight(10+100-factors[1]);
-        mr.setHeight(10+100-factors[2]);
-        ar.setHeight(10+100-factors[0]);
+        hr.setHeight(10+85-factors[1]);
+        mr.setHeight(10+85-factors[2]);
+        ar.setHeight(10+85-factors[0]);
     }
     public static void run(Stage window){
         //styles of the buttons
@@ -271,10 +275,10 @@ public class PrimeMinister{
         deathEvents[2] = new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Your country runs out of money. Tough luck.","Oh no...","Oops...",145, 0);
         
         idx = PrimeMinisterSelector.select();
-        factors[0] = 60;
-        factors[1] = 60;
-        factors[2] = 60;
-        root2 = new Pane();
+        factors[0] = 50;
+        factors[1] = 50;
+        factors[2] = 50;
+        root22 = new Pane();
         
        
         //top left game mode
@@ -311,7 +315,7 @@ public class PrimeMinister{
         
         // importing images
         Image bg  = new Image("PM Screen.jpg");
-        root2.getChildren().add(new ImageView(bg));
+        root22.getChildren().add(new ImageView(bg));
         Image cb = new Image("checkBox.png");
         
         
@@ -377,17 +381,17 @@ public class PrimeMinister{
         bob3.setSmooth(true);
         bob3.relocate(883,138);
 
-        //root2.getChildren().add(ch);
-        //root2.getChildren().add(ch2);
-        //root2.getChildren().add(ch3);
-        root2.getChildren().add(bob);
-        root2.getChildren().add(bob2);
-        root2.getChildren().add(bob3);
-        root2.getChildren().add(ach1);
-        root2.getChildren().add(ach2);
-        root2.getChildren().add(ach3);
+        //root22.getChildren().add(ch);
+        //root22.getChildren().add(ch2);
+        //root22.getChildren().add(ch3);
+        root22.getChildren().add(bob);
+        root22.getChildren().add(bob2);
+        root22.getChildren().add(bob3);
+        root22.getChildren().add(ach1);
+        root22.getChildren().add(ach2);
+        root22.getChildren().add(ach3);
         
-        ISP.s4 = new Scene(root2, 1200, 750);
+        ISP.s4 = new Scene(root22, 1200, 750);
         
         
         Rectangle optRect = new Rectangle();  
@@ -396,7 +400,7 @@ public class PrimeMinister{
         optRect.setWidth(232); 
         optRect.setHeight(311); 
         //optRect.setFill(qBlue);
-//        root2.getChildren().add(optionResults1);
+//        root22.getChildren().add(optionResults1);
         
         Rectangle optRect2 = new Rectangle();  
         optRect2.setX(611); 
@@ -404,7 +408,7 @@ public class PrimeMinister{
         optRect2.setWidth(232); 
         optRect2.setHeight(311); 
         //optRect2.setFill(qBlue);
-//        root2.getChildren().add(optionResults2);
+//        root22.getChildren().add(optionResults2);
         
         
                 
@@ -415,8 +419,8 @@ public class PrimeMinister{
         option1back.setPrefSize(232, 311);
         option2back.setPrefSize(232, 311);
         
-        root2.getChildren().add(option1back);
-        root2.getChildren().add(option2back);
+        root22.getChildren().add(option1back);
+        root22.getChildren().add(option2back);
         option1back.setScaleX(0);
         option2back.setScaleX(0);
         back.getChildren().add(option1back);
@@ -438,10 +442,10 @@ public class PrimeMinister{
         option2.relocate(611, 291);
         option1.setPrefSize(232, 311);
         option2.setPrefSize(232, 311);
-        root2.getChildren().add(quest);
-        root2.getChildren().add(option1);
-        root2.getChildren().add(option2);
-        root2.getChildren().add(gameID);
+        root22.getChildren().add(quest);
+        root22.getChildren().add(option1);
+        root22.getChildren().add(option2);
+        root22.getChildren().add(gameID);
         back.getChildren().add(quest);
         front.getChildren().add(quest);
         back.getChildren().add(option1);
@@ -452,23 +456,23 @@ public class PrimeMinister{
         optionResults1.getChildren().add(optRect);
         optionResults2.getChildren().add(optRect2);
         
-        hr = new Rectangle(500, 0, 150, 10+100-factors[1]);
-        mr = new Rectangle(700, 0, 150, 10+100-factors[2]);
-        ar = new Rectangle(350, 0, 150, 10+100-factors[0]);
+        hr = new Rectangle(500, 0, 150, 10+85-factors[1]);
+        mr = new Rectangle(700, 0, 150, 10+85-factors[2]);
+        ar = new Rectangle(350, 0, 150, 10+85-factors[0]);
         hr.setFill(Color.valueOf("#9c9c9c"));
         mr.setFill(Color.valueOf("#9c9c9c"));
         ar.setFill(Color.valueOf("#9c9c9c"));
-        root2.getChildren().addAll(hr, mr, ar);
+        root22.getChildren().addAll(hr, mr, ar);
         
         Image topbar  = new Image("PMTopBar.png");
-        root2.getChildren().add(new ImageView(topbar));
+        root22.getChildren().add(new ImageView(topbar));
         
                 
         
         daystatus.setFont(new Font("Monospaced",40));
         daystatus.setTextFill(Color.web("#ffffff"));
         daystatus.relocate(550, 670);
-        root2.getChildren().add(daystatus);
+        root22.getChildren().add(daystatus);
         
         Button b = new Button("Back");
         b.relocate(3,715);
@@ -481,12 +485,12 @@ public class PrimeMinister{
             catch(Exception f){}
             window.setScene(ISP.s1);
         });
-        root2.getChildren().add(b);
+        root22.getChildren().add(b);
         
         
-        root2.getChildren().add(back);
+        root22.getChildren().add(back);
         
-        root2.getChildren().add(front);
+        root22.getChildren().add(front);
         
 //        Label z = new Label("hEllo");
 //        z.relocate(370, 300);
@@ -515,9 +519,9 @@ public class PrimeMinister{
                 window.setScene(ISP.end2);
                 idx = 0;
                 day = 0;
-                factors[0] = 60;
-                factors[1] = 60;
-                factors[2] = 60;
+                factors[0] = 50;
+                factors[1] = 50;
+                factors[2] = 50;
             }
 //            idx = PrimeMinisterSelector.select();
 //            if (ISP.PMEvents.get(idx).factor1.length > 0) {
@@ -533,11 +537,11 @@ public class PrimeMinister{
             option1.setStyle(IDLE_BUTTON_STYLE);
             if(idx == 22){
                 ISP.PMAch.get(0).status = true;
-                root2.getChildren().add(ch);
+                root22.getChildren().add(ch);
             }
             if(idx == 0){
                 ISP.PMAch.get(0).status = true;
-                root2.getChildren().add(ch);
+                root22.getChildren().add(ch);
             }
             
             updateMeters();
@@ -575,18 +579,18 @@ public class PrimeMinister{
                 window.setScene(ISP.end2);
                 idx = 0;
                 day = 0;
-                factors[0] = 60;
-                factors[1] = 60;
-                factors[2] = 60;
+                factors[0] = 50;
+                factors[1] = 50;
+                factors[2] = 50;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
             if(idx == 18){
                 ISP.PMAch.get(1).status = true;
-                root2.getChildren().add(ch2);
+                root22.getChildren().add(ch2);
             }
             if(idx == 6){
                 ISP.PMAch.get(2).status = true;
-                root2.getChildren().add(ch3);
+                root22.getChildren().add(ch3);
             }
         });
     }
