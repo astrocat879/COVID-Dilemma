@@ -630,11 +630,11 @@ public class Family {
 //            }
             option1.setStyle(IDLE_BUTTON_STYLE);
             
-            if(idx == 17){
+            if(idx == 18){
                 ISP.FAch.get(2).status = true;
                 root2.getChildren().add(ch3);
             }
-             if(idx == 5){
+             if(idx == 6){
                 ISP.FAch.get(1).status = true;
                 root2.getChildren().add(ch2);
             }
@@ -682,7 +682,7 @@ public class Family {
                 factors[2] = 50;
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
-            if(idx == 14){
+            if(idx == 15){
                 ISP.FAch.get(0).status = true;
                 root2.getChildren().add(ch);
             }
