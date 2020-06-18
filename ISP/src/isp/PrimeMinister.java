@@ -304,7 +304,7 @@ public class PrimeMinister{
         Image bg  = new Image("PM Screen.jpg");
         root2.getChildren().add(new ImageView(bg));
         Image cb = new Image("checkBox.png");
-        ImageView ch = new ImageView();
+        
         
         //achievement checkboxes
         Label ach1 = new Label (ISP.PMAch.get(0).question);
@@ -323,6 +323,7 @@ public class PrimeMinister{
         ach3.setFont(new Font("Arial",18));
         ach3.setTextFill(Color.web("#ff9900"));
         
+        ImageView ch = new ImageView();
         ch.setImage(cb);
         ch.setFitWidth(37);
         ch.setFitHeight(37);
@@ -522,7 +523,11 @@ public class PrimeMinister{
 //            }
             option1.setStyle(IDLE_BUTTON_STYLE);
             if(idx == 22){
-                ISP.PMAch.get(1).status = true;
+                ISP.PMAch.get(0).status = true;
+                root2.getChildren().add(ch);
+            }
+            if(idx == 0){
+                ISP.PMAch.get(0).status = true;
                 root2.getChildren().add(ch);
             }
             
@@ -567,11 +572,11 @@ public class PrimeMinister{
             }
             option2.setStyle(IDLE_BUTTON_STYLE);
             if(idx == 18){
-                ISP.PMAch.get(2).status = true;
+                ISP.PMAch.get(1).status = true;
                 root2.getChildren().add(ch2);
             }
             if(idx == 6){
-                ISP.PMAch.get(3).status = true;
+                ISP.PMAch.get(2).status = true;
                 root2.getChildren().add(ch3);
             }
         });

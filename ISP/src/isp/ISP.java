@@ -54,6 +54,7 @@ public class ISP extends Application {
         TutorialEnd.run(primaryStage);
         PrimeMinister.run(primaryStage);
         Family.run(primaryStage);
+        //FEnd.run(primaryStage);
         
         
         
