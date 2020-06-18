@@ -521,6 +521,7 @@ public class PrimeMinister{
                 PrimeMinisterSelector.reset();
                 window.setScene(ISP.end2);
                 day = 0;
+                idx = 0;
                 factors[0] = 50;
                 factors[1] = 50;
                 factors[2] = 50;
@@ -547,6 +548,8 @@ public class PrimeMinister{
             }
             
             updateMeters();
+            if (PrimeMinisterSelector.checker())
+                window.setScene(ISP.s6);
 
         });
 
@@ -581,6 +584,7 @@ public class PrimeMinister{
                 PrimeMinisterSelector.reset();
                 window.setScene(ISP.end2);
                 day = 0;
+                idx = 0;
                 factors[0] = 50;
                 factors[1] = 50;
                 factors[2] = 50;
@@ -594,6 +598,8 @@ public class PrimeMinister{
                 ISP.PMAch.get(2).status = true;
                 root22.getChildren().add(ch3);
             }
+            if (PrimeMinisterSelector.checker())
+                window.setScene(ISP.s6);
         });
     }
 }

@@ -32,6 +32,13 @@ public class PrimeMinisterSelector {
             }
         }
     }
+    public static boolean checker(){
+        int cnt = 0;
+        for(int i = 0;i<ISP.PMUsed.size();i++){
+            if(ISP.PMUsed.get(i) == false)cnt++;
+        }
+        return (cnt == 1);
+    }
     public static void reset(){
         for(int i = 0;i<ISP.PMUsed.size();i++){
             ISP.PMUsed.set(i, false);
