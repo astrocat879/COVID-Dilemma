@@ -543,15 +543,7 @@ public class tutorial {
         option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
         option1.setOnMousePressed(e -> option1.setStyle(CLICKED_BUTTON_STYLE));
         option1.setOnAction(actionEvent -> {
-//            for (int i = 0; i < ISP.TutEvents.get(idx).factor1.length; i++) {
-//                factors[ISP.TutEvents.get(idx).factor1[i]] += ISP.TutEvents.get(idx).amount1[i];
-//            }
-//            //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-//            quest.relocate(397, ISP.TutEvents.get(idx).getY());
-//            option1.setText(ISP.TutEvents.get(idx).answer1);
-//            option2.setText(ISP.TutEvents.get(idx).answer2);
-//            quest.setText(ISP.TutEvents.get(idx).question);
-//            updateMeters();
+            ISP.TutAch.get(0).status = true;
             flipCard(front, back);
             if (idx < ISP.TutEvents.size())day += ISP.TutEvents.get(idx).getDays();
             daystatus.setText("Day " + day);
@@ -593,23 +585,7 @@ public class tutorial {
         option2.setOnMouseExited(e -> option2.setStyle(IDLE_BUTTON_STYLE));
         option2.setOnMousePressed(e -> option2.setStyle(CLICKED_BUTTON_STYLE));
         option2.setOnAction(actionEvent -> {
-//            for (int i = 0; i < ISP.TutEvents.get(idx).factor2.length; i++) {
-//                factors[ISP.TutEvents.get(idx).factor2[i]] += ISP.TutEvents.get(idx).amount2[i];
-//            }
-//            //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-//            quest.relocate(397, ISP.TutEvents.get(idx).getY());
-//            option1.setText(ISP.TutEvents.get(idx).answer1);
-//            option2.setText(ISP.TutEvents.get(idx).answer2);
-//            quest.setText(ISP.TutEvents.get(idx).question);
-//            updateMeters();
-//            if (ISP.TutEvents.get(idx).factor2.length > 0) {
-////                flipButton(option2,option2back,optionResults2);
-//                flipCard2(front, back);
-//
-////                flipButtonBack(option2,option2back,optionResults2);
-//            } else {
-
-//            }
+            ISP.TutAch.get(0).status = true;
             flipCard2(front, back);
             if (idx < ISP.TutEvents.size())
                 day += ISP.TutEvents.get(idx).getDays();

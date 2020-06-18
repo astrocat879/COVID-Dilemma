@@ -58,10 +58,12 @@ public class PMEnd {
         ch3.setSmooth(true);
         ch3.relocate(417,548);
         
+        System.out.println(ISP.PMAch.get(0).status);
+        System.out.println(ISP.PMAch.get(1).status);
+        System.out.println(ISP.PMAch.get(2).status);
         
         if(ISP.PMAch.get(0).status == true){
             root4.getChildren().add(ch);
-       
         }
         if(ISP.PMAch.get(1).status == true){
             root4.getChildren().add(ch2);
