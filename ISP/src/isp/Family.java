@@ -638,9 +638,13 @@ public class Family {
                 ISP.FAch.get(1).status = true;
                 root2.getChildren().add(ch2);
             }
-            if (FamilySelector.checker())
+            if (FamilySelector.checker()){
                 window.setScene(ISP.s7);
-            
+                factors[0] = 50;
+                factors[1] = 50;
+                factors[3] = 50;
+                factors[2] = 50;
+            }
             updateMeters();
 
         });
@@ -687,8 +691,13 @@ public class Family {
                 ISP.FAch.get(0).status = true;
                 root2.getChildren().add(ch);
             }
-            if (FamilySelector.checker())
+            if (FamilySelector.checker()){
                 window.setScene(ISP.s7);
+                factors[0] = 50;
+                factors[1] = 50;
+                factors[3] = 50;
+                factors[2] = 50;
+            }
         });
     }
 }
