@@ -36,6 +36,10 @@ public class MainMenu {
         final String b1_HOVERED_BUTTON_STYLE = "-fx-background-color: #a61c00;  -fx-text-fill: #ffffff;";
         final String b1_CLICKED_BUTTON_STYLE = "-fx-background-color: #a61c00; ";
         
+        final String b2_IDLE_BUTTON_STYLE = " -fx-background-color: #93c47d ; -fx-text-fill: #ffffff";
+        final String b2_HOVERED_BUTTON_STYLE = "-fx-background-color: #6aa84f;  -fx-text-fill: #ffffff;";
+        final String b2_CLICKED_BUTTON_STYLE = "-fx-background-color: #6aa84f; ";
+        
         final String IDLE_BUTTON_STYLE = "-fx-font-size:40 ;  -fx-background-color: #8e7cc3; -fx-background-radius: 15px; -fx-text-fill: #ffffff";
         final String HOVERED_BUTTON_STYLE = "-fx-font-size:40; -fx-background-color: #674ea7; -fx-background-radius: 15px; -fx-text-fill: #ffffff;";
         final String CLICKED_BUTTON_STYLE = "-fx-font-size:40; -fx-background-color: #674ea7; -fx-background-radius: 15px; ";
@@ -110,7 +114,7 @@ public class MainMenu {
             if(ISP.TutAch.get(2).status == true){
                 root4.getChildren().add(ch3);
             }
-            Button back1 = new Button("Back");
+            Button back1 = new Button("Back to Menu");
             back1.relocate(3,715);
             back1.setStyle(b_IDLE_BUTTON_STYLE);
             back1.setOnMouseEntered(h -> back1.setStyle(b_HOVERED_BUTTON_STYLE));
@@ -187,7 +191,71 @@ public class MainMenu {
                 cont2.setOnMouseExited(j -> cont2.setStyle(b1_IDLE_BUTTON_STYLE));
                 cont2.setOnMousePressed(j -> cont2.setStyle(b1_CLICKED_BUTTON_STYLE));
                 cont2.setOnAction(j -> {
-                    System.out.println("hi");
+                    try{Thread.sleep(100);}
+                    catch(Exception f){}
+                    System.out.println("Achievements");
+                    Image img3  = new Image("FamilyAchScreen.jpg");
+                    Pane root8 = new Pane();
+                    ISP.s10 = new Scene(root8, 1200, 750);
+                    root8.getChildren().add(new ImageView(img3));
+                    ImageView ch111 = new ImageView();
+                    ch111.setImage(cb);
+                    ch111.setFitWidth(89);
+                    ch111.setFitHeight(89);
+                    ch111.setPreserveRatio(true);
+                    ch111.setSmooth(true);
+                    ch111.relocate(386,238);
+
+                    ImageView ch222 = new ImageView();
+                    ch222.setImage(cb);
+                    ch222.setFitWidth(89);
+                    ch222.setFitHeight(89);
+                    ch222.setPreserveRatio(true);
+                    ch222.setSmooth(true);
+                    ch222.relocate(386,364);
+
+                    ImageView ch333 = new ImageView();
+                    ch333.setImage(cb);
+                    ch333.setFitWidth(89);
+                    ch333.setFitHeight(89);
+                    ch333.setPreserveRatio(true);
+                    ch333.setSmooth(true);
+                    ch333.relocate(386,487);
+
+                    if(ISP.FAch.get(0).status == true){
+                        root8.getChildren().add(ch111);
+                    }
+                    if(ISP.FAch.get(1).status == true){
+                        root8.getChildren().add(ch222);
+                    }
+                    if(ISP.FAch.get(2).status == true){
+                        root8.getChildren().add(ch333);
+                    }
+                    Button back3 = new Button("Back");
+                    back3.relocate(3,715);
+                    back3.setStyle(b2_IDLE_BUTTON_STYLE);
+                    back3.setOnMouseEntered(h -> back3.setStyle(b2_HOVERED_BUTTON_STYLE));
+                    back3.setOnMouseExited(h -> back3.setStyle(b2_IDLE_BUTTON_STYLE));
+                    back3.setOnMousePressed(h -> back3.setStyle(b2_CLICKED_BUTTON_STYLE));
+                    back3.setOnAction(h -> {
+                            try{Thread.sleep(100);}
+                            catch(Exception f){}
+                            window.setScene(ISP.s9);
+                    });
+                    Button cont3 = new Button("To Menu");
+                    cont3.relocate(1105,715);
+                    cont3.setStyle(b2_IDLE_BUTTON_STYLE);
+                    cont3.setOnMouseEntered(i -> cont3.setStyle(b2_HOVERED_BUTTON_STYLE));
+                    cont3.setOnMouseExited(i -> cont3.setStyle(b2_IDLE_BUTTON_STYLE));
+                    cont3.setOnMousePressed(i -> cont3.setStyle(b2_CLICKED_BUTTON_STYLE));
+                    cont3.setOnAction(i -> {
+                        try{Thread.sleep(100);}
+                        catch(Exception f){}
+                        window.setScene(ISP.s0);
+                    });
+                    root8.getChildren().add(back3);
+                    root8.getChildren().add(cont3);
+                    window.setScene(ISP.s10);
                 });
                 root6.getChildren().add(back2);
                 root6.getChildren().add(cont2);

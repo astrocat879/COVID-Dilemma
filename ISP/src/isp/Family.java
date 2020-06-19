@@ -550,9 +550,7 @@ public class Family {
         option2.setText(ISP.FEvents.get(idx).answer2);
         quest.setText(ISP.FEvents.get(idx).question);
 
-//        Label z = new Label("hEllo");
-//        z.relocate(370, 300);
-//        optionResults1.getChildren().add(z);
+
         option1.setStyle(IDLE_BUTTON_STYLE);
         option1.setOnMouseEntered(e -> option1.setStyle(HOVERED_BUTTON_STYLE));
         option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
@@ -562,20 +560,15 @@ public class Family {
             if(idx == -1){
                 window.setScene(ISP.s7);
             }
-//            for (int i = 0; i < ISP.FEvents.get(idx).factor1.length; i++) {
-//                factors[ISP.FEvents.get(idx).factor1[i]] += ISP.FEvents.get(idx).amount1[i];
-//            }
-//            //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-//            quest.relocate(397, ISP.FEvents.get(idx).getY());
-//            option1.setText(ISP.FEvents.get(idx).answer1);
-//            option2.setText(ISP.FEvents.get(idx).answer2);
-//            quest.setText(ISP.FEvents.get(idx).question);
-//            updateMeters();
+
             flipCard(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
                 ISP.FAch.get(0).status = false;
                 ISP.FAch.get(1).status = false;
                 ISP.FAch.get(2).status = false;
+                root2.getChildren().remove(ch);
+                root2.getChildren().remove(ch2);
+                root2.getChildren().remove(ch3);
                 FamilySelector.reset();
                 window.setScene(ISP.end1);
                 idx = 0;
@@ -585,37 +578,41 @@ public class Family {
                 factors[3] = 50;
                 factors[2] = 50;
             }
-//            idx = FamilySelector.select();
-//            if (ISP.FEvents.get(idx).factor1.length > 0) {
-////                flipButton(option1,option1back,optionResults1);
-//
-////                flipCard(front, back);
-//                flipCard(front, back);
-//
-////                flipButtonBack(option1,option1back,optionResults1);
-//            } else {
 
-//            }
             option1.setStyle(IDLE_BUTTON_STYLE);
             
             if(idx == 18){
                 ISP.FAch.get(2).status = true;
-                root2.getChildren().add(ch3);
+                try{
+                    root2.getChildren().add(ch3);
+                }
+                catch(Exception l){}
             }
              if(idx == 6){
                 ISP.FAch.get(1).status = true;
-                root2.getChildren().add(ch2);
+                try{
+                    root2.getChildren().add(ch2);
+                }
+                catch(Exception l){}
             }
             if (FamilySelector.checker()){
                 if(ISP.FAch.get(0).status == true){
-                    root4.getChildren().add(ch1);
-       
+                    try{
+                        root4.getChildren().add(ch1);
+                    }
+                    catch(Exception l){}
                 }
                 if(ISP.FAch.get(1).status == true){
-                    root4.getChildren().add(ch22);
+                    try{
+                        root4.getChildren().add(ch22);
+                    }
+                    catch(Exception l){}
                 }
                 if(ISP.FAch.get(2).status == true){
-                    root4.getChildren().add(ch33);
+                    try{
+                        root4.getChildren().add(ch33);
+                    }
+                    catch(Exception l){}
                 }
                 window.setScene(ISP.s7);
                 factors[0] = 50;
@@ -636,28 +633,15 @@ public class Family {
             if(idx == -1){
                      window.setScene(ISP.s7);
             }
-//            for (int i = 0; i < ISP.FEvents.get(idx).factor2.length; i++) {
-//                factors[ISP.FEvents.get(idx).factor2[i]] += ISP.FEvents.get(idx).amount2[i];
-//            }
-//            //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-//            quest.relocate(397, ISP.FEvents.get(idx).getY());
-//            option1.setText(ISP.FEvents.get(idx).answer1);
-//            option2.setText(ISP.FEvents.get(idx).answer2);
-//            quest.setText(ISP.FEvents.get(idx).question);
-//            updateMeters();
-//            if (ISP.FEvents.get(idx).factor2.length > 0) {
-////                flipButton(option2,option2back,optionResults2);
-//                flipCard2(front, back);
-//
-////                flipButtonBack(option2,option2back,optionResults2);
-//            } else {
 
-//            }
             flipCard2(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0 || factors[3] < 0) {
                 ISP.FAch.get(0).status = false;
                 ISP.FAch.get(1).status = false;
                 ISP.FAch.get(2).status = false;
+                root2.getChildren().remove(ch);
+                root2.getChildren().remove(ch2);
+                root2.getChildren().remove(ch3);
                 FamilySelector.reset();
                 window.setScene(ISP.end1);
                 
@@ -671,18 +655,29 @@ public class Family {
             option2.setStyle(IDLE_BUTTON_STYLE);
             if(idx == 15){
                 ISP.FAch.get(0).status = true;
-                root2.getChildren().add(ch);
+                try{
+                    root2.getChildren().add(ch);
+                }
+                catch(Exception l){}
             }
             if (FamilySelector.checker()){
                 if(ISP.FAch.get(0).status == true){
-                    root4.getChildren().add(ch1);
-       
+                    try{
+                        root4.getChildren().add(ch1);
+                    }
+                    catch(Exception l){}
                 }
                 if(ISP.FAch.get(1).status == true){
-                    root4.getChildren().add(ch22);
+                    try{
+                        root4.getChildren().add(ch22);
+                    }
+                    catch(Exception l){}
                 }
                 if(ISP.FAch.get(2).status == true){
-                    root4.getChildren().add(ch33);
+                    try{
+                        root4.getChildren().add(ch33);
+                    }
+                    catch(Exception l){}
                 }
                 window.setScene(ISP.s7);
                 factors[0] = 50;

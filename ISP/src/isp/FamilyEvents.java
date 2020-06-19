@@ -31,7 +31,7 @@ public class FamilyEvents{
         FamilySelector.add(new Event(new int [] {2,3}, new int [] {-10,-5}, new int [] {}, new int [] {}, "You need to buy groceries however you are out of masks","Buy groceries anyways","Just wait it out",155, 1));
         FamilySelector.add(new Event(new int [] {0,2}, new int [] {5,-10}, new int [] {2}, new int [] {5}, "Your boss tells you to go to the office to get something","Go get it","Don’t go and get it and tell them its dangerous",155, 1));
         FamilySelector.add(new Event(new int [] {2,3}, new int [] {-5,-5}, new int [] {0,1,2,3}, new int [] {-100,-100,-100,-100}, "Oh no! Your toilet broke and water is all over the house. What do you do?","Call the plumber over to fix the toilet","Try to fix the toilet yourself",140, 1));
-        FamilySelector.add(new Event(new int [] {2,3}, new int [] {-15,10}, new int [] {}, new int [] {}, "The summer camp you signed up for is giving refunds, but it is in person. Do you go or not?","I need the money","Not worth it, I rather be safe",145, 0));
+        FamilySelector.add(new Event(new int [] {2,3}, new int [] {-15,10}, new int [] {}, new int [] {}, "The summer camp you signed up for is giving refunds, but it is in person. Do you go or not?","I need the money","Not worth it, I rather be safe",140, 0));
         FamilySelector.add(new Event(new int [] {0,1}, new int [] {10,5}, new int [] {0,1}, new int [] {-5,10}, "You get into a fight with your significant other. You want to go outside but you can't. What do you do?","Talk it out with her","Continue not talking and wait it out",130, 1));
         FamilySelector.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Your parents call to check in on you. How do you reply?","Tell them the truth","Lie to them",155, 1));
         FamilySelector.add(new Event(new int [] {0,1,3}, new int [] {10,10,-15}, new int [] {3}, new int [] {5}, "You just got fired because your boss realized they dont need you anymore. What do you do next?","Relax and do nothing","Find another job",135, 0));
@@ -41,7 +41,7 @@ public class FamilyEvents{
         FamilySelector.add(new Event(new int [] {0,1}, new int [] {5,5}, new int [] {0,1}, new int [] {-5,-5}, "Your best friend gets COVID-19, how do you help them out?","Give them a call and talk with them","Do nothing",155, 1));
         FamilySelector.add(new Event(new int [] {0}, new int [] {5}, new int [] {0,1,3}, new int [] {10,5,-10}, "Your significant other’s computer just broke down but they need to work.","Let them use your computer","Get her a new computer",145, 0));
         FamilySelector.add(new Event(new int [] {0,3}, new int [] {10,-5}, new int [] {0,3}, new int [] {-5,-5}, "Your children love beef but it's getting expensive. They dislilke chickyen but it's a cheaper option. What do you do?","Beef","Chicken",127, 1));
-        FamilySelector.add(new Event(new int [] {0,3}, new int [] {5,-5}, new int [] {0,3}, new int [] {5,5}, "Your kids need a form of entertainment during quarantine. What do you do?","Let them stay home and play video games","Teach them something new and innovating such as programming",145, 1));
+        FamilySelector.add(new Event(new int [] {0,3}, new int [] {5,-5}, new int [] {0,3}, new int [] {5,5}, "Your kids need a form of entertainment during quarantine. What do you do?","Let them stay home and play video games","Teach them something new and innovating such as programming",140, 1));
         
 
        

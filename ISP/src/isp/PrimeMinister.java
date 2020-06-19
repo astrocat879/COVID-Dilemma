@@ -128,12 +128,7 @@ public class PrimeMinister{
                 
                 
 
-                //updateMeters();
-                //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
-                //seq3.play();
-                //if(idx + 1== ISP.PMEvents.size()){
-                //root22.getChildren().add(ch3);
-                //}
+   
                 stShowBack2.play();
 //                option2.setDisable(false);
 //                option1.setDisable(false);
@@ -184,11 +179,6 @@ public class PrimeMinister{
         stHideFront.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent t) {
-                //SequentialTransition  seq3 = new SequentialTransition(new PauseTransition(Duration.millis(2000)),stShowBack2);
-                //seq3.play();
-                //if(idx + 1== ISP.PMEvents.size()){
-                //root22.getChildren().add(ch3);
-                //}
                 for (int i = 0; i < ISP.PMEvents.get(idx).factor1.length; i++) {
                     factors[ISP.PMEvents.get(idx).factor1[i]] += ISP.PMEvents.get(idx).amount1[i];
                     factors[ISP.PMEvents.get(idx).factor1[i]] = Math.max(-1, factors[ISP.PMEvents.get(idx).factor1[i]]);
@@ -449,9 +439,6 @@ public class PrimeMinister{
         bob3.setSmooth(true);
         bob3.relocate(883,138);
 
-        //root22.getChildren().add(ch);
-        //root22.getChildren().add(ch2);
-        //root22.getChildren().add(ch3);
         root22.getChildren().add(bob);
         root22.getChildren().add(bob2);
         root22.getChildren().add(bob3);
@@ -493,9 +480,7 @@ public class PrimeMinister{
         option2back.setScaleX(0);
         back.getChildren().add(option1back);
         back.getChildren().add(option2back);
-        //back.getChildren().add(optionResults);
-//        front.getChildren().add(optionResults1);
-//        front.getChildren().add(optionResults2);
+
         
         quest = new Label(ISP.PMEvents.get(idx).question);
         quest.setFont(new Font("Monospaced",24));
@@ -562,10 +547,7 @@ public class PrimeMinister{
         
         root22.getChildren().add(front);
         
-//        Label z = new Label("hEllo");
-//        z.relocate(370, 300);
-//        optionResults1.getChildren().add(z);
-        
+
         option1.setStyle(IDLE_BUTTON_STYLE);
         option1.setOnMouseEntered(e -> option1.setStyle(HOVERED_BUTTON_STYLE));
         option1.setOnMouseExited(e -> option1.setStyle(IDLE_BUTTON_STYLE));
@@ -575,20 +557,15 @@ public class PrimeMinister{
             if(idx == -1){
                      window.setScene(ISP.s6);
             }
-//            for (int i = 0; i < ISP.PMEvents.get(idx).factor1.length; i++) {
-//                factors[ISP.PMEvents.get(idx).factor1[i]] += ISP.PMEvents.get(idx).amount1[i];
-//            }
-//            //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-//            quest.relocate(397, ISP.PMEvents.get(idx).getY());
-//            option1.setText(ISP.PMEvents.get(idx).answer1);
-//            option2.setText(ISP.PMEvents.get(idx).answer2);
-//            quest.setText(ISP.PMEvents.get(idx).question);
-//            updateMeters();
+
             flipCard(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0) {
                 ISP.PMAch.get(0).status = false;
                 ISP.PMAch.get(1).status = false;
                 ISP.PMAch.get(2).status = false;
+                root22.getChildren().remove(ch);
+                root22.getChildren().remove(ch2);
+                root22.getChildren().remove(ch3);
                 PrimeMinisterSelector.reset();
                 window.setScene(ISP.end2);
                 day = 0;
@@ -597,34 +574,39 @@ public class PrimeMinister{
                 factors[1] = 50;
                 factors[2] = 50;
             }
-//            idx = PrimeMinisterSelector.select();
-//            if (ISP.PMEvents.get(idx).factor1.length > 0) {
-////                flipButton(option1,option1back,optionResults1);
-//
-////                flipCard(front, back);
-//                flipCard(front, back);
-//
-////                flipButtonBack(option1,option1back,optionResults1);
-//            } else {
 
-//            }
             option1.setStyle(IDLE_BUTTON_STYLE);
             if(idx == 23){
                 ISP.PMAch.get(0).status = true;
-                root22.getChildren().add(ch);
+                try{
+                    root22.getChildren().add(ch);
+                }
+                catch(Exception l){}
+                
             }
             
             updateMeters();
             if (PrimeMinisterSelector.checker()){
                 if(ISP.PMAch.get(0).status == true){
-                            root4.getChildren().add(ch1);
-                        }
-                        if(ISP.PMAch.get(1).status == true){
-                            root4.getChildren().add(ch22);
-                        }
-                        if(ISP.PMAch.get(2).status == true){
-                            root4.getChildren().add(ch33);
-                        }
+                    try{
+                        root4.getChildren().add(ch1);
+                    }
+                    catch(Exception l){}
+                }
+                if(ISP.PMAch.get(1).status == true){
+                    try{
+                        root4.getChildren().add(ch22);
+                    }
+                    catch(Exception l){}
+                    
+                }
+                if(ISP.PMAch.get(2).status == true){
+                    try{
+                        root4.getChildren().add(ch33);
+                    }
+                    catch(Exception l){}
+                    
+                }
                 window.setScene(ISP.s6);
                 factors[0] = 50;
                 factors[1] = 50;
@@ -641,28 +623,15 @@ public class PrimeMinister{
             if(idx == -1){
                      window.setScene(ISP.s6);
             }
-//            for (int i = 0; i < ISP.PMEvents.get(idx).factor2.length; i++) {
-//                factors[ISP.PMEvents.get(idx).factor2[i]] += ISP.PMEvents.get(idx).amount2[i];
-//            }
-//            //System.out.println("Health: "+factors[0]+ "  Money: "+factors[1]);
-//            quest.relocate(397, ISP.PMEvents.get(idx).getY());
-//            option1.setText(ISP.PMEvents.get(idx).answer1);
-//            option2.setText(ISP.PMEvents.get(idx).answer2);
-//            quest.setText(ISP.PMEvents.get(idx).question);
-//            updateMeters();
-//            if (ISP.PMEvents.get(idx).factor2.length > 0) {
-////                flipButton(option2,option2back,optionResults2);
-//                flipCard2(front, back);
-//
-////                flipButtonBack(option2,option2back,optionResults2);
-//            } else {
 
-//            }
             flipCard2(front, back);
             if (factors[0] < 0 || factors[1] < 0 || factors[2] < 0) {
                 ISP.PMAch.get(0).status = false;
                 ISP.PMAch.get(1).status = false;
                 ISP.PMAch.get(2).status = false;
+                root22.getChildren().remove(ch);
+                root22.getChildren().remove(ch2);
+                root22.getChildren().remove(ch3);
                 PrimeMinisterSelector.reset();
                 window.setScene(ISP.end2);
                 day = 0;
@@ -674,22 +643,40 @@ public class PrimeMinister{
             option2.setStyle(IDLE_BUTTON_STYLE);
             if(idx == 19){
                 ISP.PMAch.get(1).status = true;
-                root22.getChildren().add(ch2);
+                try{
+                    root22.getChildren().add(ch2);
+                }
+                catch(Exception l){}
             }
             if(idx == 7){
                 ISP.PMAch.get(2).status = true;
-                root22.getChildren().add(ch3);
+                
+                try{
+                    root22.getChildren().add(ch3);
+                }
+                catch(Exception l){}
             }
             if (PrimeMinisterSelector.checker()){
                 if(ISP.PMAch.get(0).status == true){
-                            root4.getChildren().add(ch1);
-                        }
-                        if(ISP.PMAch.get(1).status == true){
-                            root4.getChildren().add(ch22);
-                        }
-                        if(ISP.PMAch.get(2).status == true){
-                            root4.getChildren().add(ch33);
-                        }
+                    try{
+                        root4.getChildren().add(ch1);
+                    }
+                    catch(Exception l){}
+                }
+                if(ISP.PMAch.get(1).status == true){
+                    try{
+                        root4.getChildren().add(ch22);
+                    }
+                    catch(Exception l){}
+                    
+                }
+                if(ISP.PMAch.get(2).status == true){
+                    try{
+                        root4.getChildren().add(ch33);
+                    }
+                    catch(Exception l){}
+                    
+                }
                 window.setScene(ISP.s6);
                 factors[0] = 50;
                 factors[1] = 50;
@@ -697,27 +684,7 @@ public class PrimeMinister{
             }
         });
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        Button b = new Button("Continue");
-//        b.relocate(1105,715);
-//        b.setStyle(b_IDLE_BUTTON_STYLE);
-//        b.setOnMouseEntered(e -> b.setStyle(b_HOVERED_BUTTON_STYLE));
-//        b.setOnMouseExited(e -> b.setStyle(b_IDLE_BUTTON_STYLE));
-//        b.setOnMousePressed(e -> b.setStyle(b_CLICKED_BUTTON_STYLE));
-//        b.setOnAction(e -> {
-//            try{Thread.sleep(100);}
-//            catch(Exception f){}
-//            window.setScene(ISP.s0);
-//        });
-//        root4.getChildren().add(b);
+   
+
     }
 }
