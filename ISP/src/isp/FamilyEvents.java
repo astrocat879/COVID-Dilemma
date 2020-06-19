@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Ronald You and Justin Zhu and Matthew Li
+ * Mrs Krasteva
+ * Due: June 15, 2020
+ * Creates all events for family
  */
 package isp;
 
