@@ -8,13 +8,6 @@
 
 package isp;
 
-/**
- *Revision History:
- *  - May 29th, 2020: Created by Matthew Li
- *  - May 30th, 2020: Updated by Justin Zhu
- *  - June 1st, 2020: Updated by Ronald You
- * 
- */
 import java.util.*;
 public class Event {
     int [] factor1, amount1, factor2, amount2;

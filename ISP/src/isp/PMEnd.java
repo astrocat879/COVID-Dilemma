@@ -17,12 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-/**
- *Revision History:
- *  - June 11th, 2020: Created by Ronald You
- *  - 
- * 
- */
+
 public class PMEnd {
      public static void run(Stage window){
         final String b_IDLE_BUTTON_STYLE = " -fx-background-color: #8e7cc3; ; -fx-text-fill: #ffffff";

@@ -9,13 +9,7 @@ package isp;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- *Revision History:
- *  - May 30th, 2020: Created by Justin Zhu
- *  - May 30th, 2020: Updated by Matthew Li
- *  - June 2nd, 2020: Updated by Ronald You
- * 
- */
+
 public class TutorialEvents {
     public static void generateEvents(){
         ISP.TutEvents.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "You find yourself in the middle of a pandemic: COVID19.", "Uh oh...", "So what?",155, 0));
