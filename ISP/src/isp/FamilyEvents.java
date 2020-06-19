@@ -14,10 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-/**
- *
- * @author ronal
- */
+
 public class FamilyEvents{
     public static void generateEvents(){
         FamilySelector.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "It's a nice day today!", "Yay!", "Nay!",145, 0));

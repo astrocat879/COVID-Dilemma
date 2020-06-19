@@ -6,10 +6,7 @@
  */
 package isp;
 
-/**
- *
- * @author hewmatt
- */
+
 import java.util.*;
 public class FamilySelector {
     public static void add(Event ee){

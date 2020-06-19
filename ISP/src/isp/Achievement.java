@@ -14,11 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-/**
- *Revision History:
- *  - June 6th, 2020: Created by Ronald You
- * 
- */
 public class Achievement {
     String question;
     boolean status;

@@ -15,11 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-/**
- *Revision History:
- *  - June 14th, 2020: Created by Ronald You
- * 
- */
+
 public class PrimeMinisterEvents{
     public static void generateEvents(){
         PrimeMinisterSelector.add(new Event(new int [] {}, new int [] {}, new int [] {}, new int [] {}, "Someone sent you a nice letter!", "Yay!", "Nay!",145, 0));

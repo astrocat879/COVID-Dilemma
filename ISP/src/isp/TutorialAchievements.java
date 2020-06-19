@@ -14,11 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-/**
- *Revision History:
- *  - June 10th, 2020; Created by Ronald You
- * 
- */
+
 public class TutorialAchievements{
     public static void generateAchievements(){
         ISP.TutAch.add(new Achievement("Start tutorial",false));

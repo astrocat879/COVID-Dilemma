@@ -6,10 +6,7 @@
  */
 package isp;
 
-/**
- *
- * Created by Matthew Li
- */
+
 import java.util.*;
 public class PrimeMinisterSelector {
     public static void add(Event ee){

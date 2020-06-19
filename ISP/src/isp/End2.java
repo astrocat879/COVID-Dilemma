@@ -16,10 +16,6 @@ import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-/**
- *
- * @author astro
- */
 public class End2 {
     public static void run(Stage window){
         final String b_IDLE_BUTTON_STYLE = " -fx-background-color: #cc4125; -fx-text-fill: #ffffff";

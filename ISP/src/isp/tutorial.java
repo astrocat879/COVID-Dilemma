@@ -32,16 +32,6 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 
-/**
- * Revision History: - May 27th, 2020: Created by Justin Zhu - May 30th, 2020:
- * Updated by Justin Zhu - June 2nd, 2020: Updated by Ronald You - June 2nd,
- * 2020: Updated by Justin Zhu - June 4th, 2020: Updated by Ronald You - June
- * 6th, 2020: Updated by Ronald You - June 6th, 2020; Commented by Ronald You -
- * June 7th, 2020; Updated by Justin Zhu - June 7th, 2020; Updated by Ronald You
- * - June 8th, 2020; Updated by Ronald You - June 9th, 2020; Updated by Ronald
- * You - June 10th, 2020; Updated by Ronald You - June 11th, 2020; Updated by
- * Ronald You - June 12th, 2020; Updated by Justin Zhu
- */
 public class tutorial {
 
     public static int idx = 0, day = 0;

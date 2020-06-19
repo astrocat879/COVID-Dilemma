@@ -20,14 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView; 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-/**
- *Revision History:
- *  - May 25th, 2020: Created by Justin Zhu
- *  - May 27th, 2020: Updated by Justin Zhu
- *  - June 10th, 2020: Updated by Ronald You
- *  - June 14th, 2020; Updated by Ronald You
- * - June 16th, 2020; Updated by Ronald You
- */
+
 public class ISP extends Application {
     
     static Scene s0, s1, s2,s3,s4,s5,s6,s7,s8,s9,s10, end1,end2;

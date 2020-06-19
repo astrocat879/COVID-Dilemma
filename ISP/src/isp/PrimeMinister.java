@@ -27,11 +27,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-/**
- *Revision History:
- *  - June 14th, 2020: Created by Ronald You
- * 
- */
 public class PrimeMinister{
     public static int idx = 0, day=0;
     public static int [] factors = new int [3];

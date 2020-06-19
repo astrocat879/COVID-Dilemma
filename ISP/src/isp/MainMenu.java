@@ -18,14 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
-/**
- *Revision History:
- *  - May 25th, 2020: Created by Ronald You
- *  - May 26th, 2020: Updated by Ronald You
- *  - May 27th, 2020: Updated by Justin Zhu
- *  - June 6th, 2020: Updated by Ronald You
- * 
- */
+
 public class MainMenu {
     public static void run(Stage window){
         final String b_IDLE_BUTTON_STYLE = " -fx-background-color: #8e7cc3; ; -fx-text-fill: #ffffff";
