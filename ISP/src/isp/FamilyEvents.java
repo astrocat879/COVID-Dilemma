@@ -39,7 +39,7 @@ public class FamilyEvents{
         FamilySelector.add(new Event(new int [] {0,1}, new int [] {5,5}, new int [] {0,1}, new int [] {-5,-5}, "Your best friend gets COVID-19, how do you help them out?","Give them a call and talk with them","Do nothing",155, 1));
         FamilySelector.add(new Event(new int [] {0}, new int [] {5}, new int [] {0,1,3}, new int [] {10,5,-10}, "Your significant other’s computer just broke down but they need to work.","Let them use your computer","Get her a new computer",145, 0));
         FamilySelector.add(new Event(new int [] {0,3}, new int [] {10,-5}, new int [] {0,3}, new int [] {-5,-5}, "Your children love beef but it's getting expensive. They dislike chicken but it's a cheaper option. What do you do?","Beef","Chicken",127, 1));
-        FamilySelector.add(new Event(new int [] {0,3}, new int [] {5,-5}, new int [] {0,3}, new int [] {5,5}, "Your kids need a form of entertainment during quarantine. What do you do?","Let them stay home and play video games","Teach them something new and innovating such as programming",140, 1));
+        FamilySelector.add(new Event(new int [] {0,3}, new int [] {5,-5}, new int [] {0,3}, new int [] {5,5}, "Your kids need a form of entertainment during quarantine. What do you do?","Let them stay home and play video games","Teach them something new, such as programming",140, 1));
         
 
        
